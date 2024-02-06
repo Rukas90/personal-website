@@ -1,0 +1,15 @@
+export const Lerp = (a: number, b: number, t: number) => {
+    return (1.0 - t) * a + b * t
+}
+export const InverseLerp = (a: number, b: number, v: number) => {
+    return (v - a) / (b - a)
+}
+export const Clamp01 = (v: number) => {
+    if (v < 0) {
+        return 0
+    }
+    if (v > 1) {
+        return 1
+    }
+    return v
+}

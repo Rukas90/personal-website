@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*, *:before, *:after {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  --cursor-scale: 1.0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 120rem !important;
+}
+
+.text-color {
+  color: #14FFEC;
+}
+.text-color-primary {
+  color: #323232;
+}
+.text-color-secondary {
+  color: #0D7377;
+}
+.text-color-bg {
+  color: #212121;
+}
+
+.bg-color {
+  color: #212121;
+}
+.bg-color-primary {
+  color: #323232;
+}
+.bg-color-secondary {
+  color: #0D7377;
+}
+.bg-color-text {
+  color: #14FFEC;
+}
+
+.interactable:hover {
+  --cursor-scale: 10.0;
+}
+
+body {
+  background: rgb(9, 20, 52);
+  background: radial-gradient(at right top, hsl(223, 71%, 6%), hsl(223, 70%, 4%));
+  background-attachment: fixed;
+}
+body::-webkit-scrollbar {
+  width: 6.5px;
+}
+body::-webkit-scrollbar-track {
+  background: hsl(223, 71%, 3.5%);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: hsl(223, 30%, 20%);
+  border-radius: 10px;
+}
+
+.top-header {
+  height: 110px;
+  transition: transform 0.5s ease;
+}
+.top-header.inactive {
+  transform: translateY(-110px);
+}
+
+.btn-slide-hover::before {
+  content: "";
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: translateX(-100%);
+  transition: transform 0.15s ease-out;
+}
+
+.btn-slide-hover:hover::before {
+  transform: translateX(0%);
+}
+
+.social-btn {
+  width: 18px;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+.social-btn.inactive {
+  opacity: 0;
+  transform: scale(0);
+}
+.social-line {
+  width: 1px;
+  height: 40px;
+  transition: height 0.3s ease;
+}
+.social-line.inactive {
+  height: 0px;
+}
+.social-arrow {
+  transition: transform 0.3s ease;
+}
+.social-arrow.inactive {
+  transform: rotateZ(180deg);
+}
+
+.profile-img {
+  width: 192px;
+  height: 192px;
+}
+
+.back-to-top-btn {
+  color: #d9d9d9;
+}
+.back-to-top-btn.inactive {
+  transform: translateY(100%);
+  bottom: 0;
+}
+
+.skill-icon {
+  width: 68px;
+  height: 68px;
+  transition: opacity 0.3s ease;
+}
+.skill-label {
+  transition: all 0.15s ease;
+}
+.skill-label.inactive {
+  transform: translateY(-85%) scale(0.5);
+  opacity: 0;
+}
+
+.navigation-btn {
+  position: relative;
+}
+.navigation-btn.active {
+  color: white;
+}
+.navigation-btn::before {
+  content: "";
+  background-color: #2dd4bf;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 2.5px);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+.navigation-btn.active::before {
+  top: 100%;
+  opacity: 1;
+}
+
+/*    MENU BUTTON :: START    */
+.menu-btn {
+  width: 20px;
+  height: 20px;
+  --offset: calc(20px / 2 - 2px / 2);
+}
+.menu-btn .menu-line-top {
+  width: 20px;
+  height: 2px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn .menu-line-middle {
+  width: 20px;
+  height: 2px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn .menu-line-bottom {
+  width: 20px;
+  height: 2px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn.list {
+  width: 20px;
+  height: 20px;
+  --offset: calc(20px / 2 - 2px / 2);
+}
+.menu-btn.list .menu-line-top {
+  width: 14px;
+  height: 2px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn.list .menu-line-middle {
+  width: 20px;
+  height: 2px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn.list .menu-line-bottom {
+  width: 16px;
+  height: 2px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn-big {
+  width: 30px;
+  height: 30px;
+  --offset: calc(30px / 2 - 3px / 2);
+}
+.menu-btn-big .menu-line-top {
+  width: 30px;
+  height: 3px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn-big .menu-line-middle {
+  width: 30px;
+  height: 3px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn-big .menu-line-bottom {
+  width: 30px;
+  height: 3px;
+  background-color: #2dd4bf;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+.menu-btn.close .menu-line-top {
+  transform: translateY(var(--offset)) rotateZ(45deg);
+}
+.menu-btn.close .menu-line-middle {
+  opacity: 0;
+}
+.menu-btn.close .menu-line-bottom {
+  transform: translateY(calc(-1 * var(--offset))) rotateZ(-45deg);
+}
+
+/*    MENU BUTTON :: END    */
+/*    ANIMATIONS :: START    */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes instantFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards ease;
+}
+
+.instant-fade-in {
+  opacity: 0;
+  animation: instantFadeIn 0s forwards ease;
+}
+
+/*    ANIMATIONS :: END    *//*# sourceMappingURL=index.css.map */

@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$primary-color: #323232;
+$secondary-color: #0D7377;
+$text-color: #14FFEC;
+$bg-color: #212121;
+$menu-btn-size: 20px;
+$menu-btn-line-thickness: 2px;
+$nav-btn-dot-size: 5px;
+
+// Global Styles
+*, *:before, *:after {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    --cursor-scale: 1.0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 120rem !important;
+}
+
+.text-color {
+    color: $text-color;
+
+    &-primary {
+        color: $primary-color;
+    }
+    &-secondary {
+        color: $secondary-color;
+    }
+    &-bg {
+        color: $bg-color;
+    }
+}
+.bg-color { 
+    color: $bg-color;
+
+    &-primary {
+        color: $primary-color;
+    }
+    &-secondary {
+        color: $secondary-color;
+    }
+    &-text {
+        color: $text-color;
+    }
+}
+
+.interactable:hover {
+    --cursor-scale: 10.0;
+}
+
+body {
+    background: rgb(9,20,52);
+    background: radial-gradient(at right top, hsl(223, 71%, 6%), hsl(223, 70%, 4%));
+    background-attachment: fixed;
+
+    &::-webkit-scrollbar {
+        width: 6.5px;
+    }
+    &::-webkit-scrollbar-track {
+        background:hsl(223, 71%, 3.5%);
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: hsl(223, 30%, 20%);
+        border-radius: 10px;
+    }
+}
+
+.top-header {
+    height: 110px;
+    transition: transform 0.5s ease;
+
+    &.inactive {
+        transform: translateY(-110px);
+    }
+}
+
+.btn-slide-hover::before {
+    content: '';
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translateX(-100%);
+
+    transition: transform 0.15s ease-out;
+}
+.btn-slide-hover:hover::before {
+    transform: translateX(0%);
+}
+
+.social {
+    &-btn {
+        width: 18px;
+        opacity: 1;
+        transform: scale(1);
+        transition: all 0.3s ease;
+
+        &.inactive {
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+    &-line {
+        width: 1px;
+        height: 40px;
+        transition: height 0.3s ease;
+
+        &.inactive {
+            height: 0px;
+        }
+    }
+    &-arrow {
+        transition: transform 0.3s ease;
+
+        &.inactive {
+            transform: rotateZ(180deg);
+        }
+    }
+}
+
+.profile-img {
+    width: 192px;
+    height: 192px;
+}
+
+.back-to-top-btn {
+
+    &.inactive {
+        transform: translateY(100%);
+        bottom: 0;
+    }
+    color: #d9d9d9;
+}
+
+.skill {
+    &-icon {
+        width: 68px;
+        height: 68px;
+
+        transition: opacity 0.3s ease;
+    }
+    &-label {
+        transition: all 0.15s ease;
+
+        &.inactive {
+            transform: translateY(-85%) scale(0.5);
+            opacity: 0;
+        }
+    }
+}
+.navigation-btn {
+
+    position: relative;
+
+    &.active {
+        color: white;
+    }
+
+    $size: $nav-btn-dot-size;
+
+    &::before {
+        content: '';
+        background-color: #2dd4bf;
+        width: $size;
+        height: $size;
+        border-radius: 100%;
+        position: absolute;
+        top: 50%;
+        left: calc(50% - $size / 2);
+        opacity: 0;
+        z-index: -1;
+
+        transition: all 0.3s ease;
+    }
+    &.active::before {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+/*    MENU BUTTON :: START    */
+
+@mixin MenuLine($size, $thickness) {
+    width: $size;
+    height: $thickness;
+    background-color: #2dd4bf;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+@mixin CalculateMenuOffset($size, $thickness) {
+    --offset: calc(#{$size} / 2 - #{$thickness} / 2);
+}
+
+@mixin MenuBtnBase($size, $thickness, $topSizeMultiplier: 1.0, $middleSizeMultiplier: 1.0, $bottomSizeMultiplier: 1.0) {
+    width: $size;
+    height: $size;
+
+    @include CalculateMenuOffset($size, $thickness);
+
+    .menu-line {
+        &-top { @include MenuLine($size * $topSizeMultiplier, $thickness); }
+        &-middle { @include MenuLine($size * $middleSizeMultiplier, $thickness); }
+        &-bottom { @include MenuLine($size * $bottomSizeMultiplier, $thickness); }
+    }
+}
+
+.menu-btn {
+    
+    @include MenuBtnBase($menu-btn-size, $menu-btn-line-thickness);
+
+    &.list { 
+        @include MenuBtnBase($menu-btn-size, $menu-btn-line-thickness, 0.7, 1.0, 0.8);
+    }
+    &-big {
+        @include MenuBtnBase(30px, 3px);
+    }
+    &.close {
+        .menu-line {
+            &-top {
+                transform: translateY(var(--offset)) rotateZ(45deg);
+            }
+            &-middle {
+                opacity: 0;
+            }
+            &-bottom {
+                transform: translateY(calc(-1 * var(--offset))) rotateZ(-45deg);
+            }
+        }
+    }
+}
+
+/*    MENU BUTTON :: END    */
+
+
+/*    ANIMATIONS :: START    */
+
+@mixin keyframes($name, $frames) {
+  @keyframes #{$name} {
+    @each $percent, $style in $frames {
+      #{$percent + '%'} { 
+        @each $prop, $value in $style { 
+          #{$prop}: #{$value}; 
+        }
+      }
+    }
+  }
+}
+@include keyframes(fadeIn, (
+  0: (opacity: 0),
+  100: (opacity: 1)
+));
+@include keyframes(instantFadeIn, (
+  0: (opacity: 0),
+  100: (opacity: 1)
+));
+
+@mixin fadeAnimation($opacity, $animName, $speed) {
+    opacity: $opacity;
+    animation: $animName $speed forwards ease;
+}
+
+.fade-in { @include fadeAnimation(0, fadeIn, 0.3s) }
+.instant-fade-in { @include fadeAnimation(0, instantFadeIn, 0s) }
+
+/*    ANIMATIONS :: END    */
