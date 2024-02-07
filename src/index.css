@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 *, *:before, *:after {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", system-ui, sans-serif;
   box-sizing: border-box;
   --cursor-scale: 1.0;
 }
@@ -15,32 +15,6 @@ html {
 .content-container {
   width: 100%;
   max-width: 120rem !important;
-}
-
-.text-color {
-  color: #14FFEC;
-}
-.text-color-primary {
-  color: #323232;
-}
-.text-color-secondary {
-  color: #0D7377;
-}
-.text-color-bg {
-  color: #212121;
-}
-
-.bg-color {
-  color: #212121;
-}
-.bg-color-primary {
-  color: #323232;
-}
-.bg-color-secondary {
-  color: #0D7377;
-}
-.bg-color-text {
-  color: #14FFEC;
 }
 
 .interactable:hover {
@@ -90,7 +64,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .social-btn {
-  width: 18px;
+  width: 24px;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
@@ -128,9 +102,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 .skill-icon {
-  width: 68px;
-  height: 68px;
+  width: 64px;
+  height: 64px;
   transition: opacity 0.3s ease;
+}
+.skill-icon.defocus {
+  opacity: 0.5;
+  filter: blur(1px);
 }
 .skill-label {
   transition: all 0.15s ease;
@@ -138,6 +116,27 @@ body::-webkit-scrollbar-thumb {
 .skill-label.inactive {
   transform: translateY(-85%) scale(0.5);
   opacity: 0;
+}
+.skill-bg {
+  position: relative;
+  flex-basis: 100%;
+  background-color: hsl(224, 71%, 3.5%);
+  border-radius: 4px;
+  transition: all 0.35s ease;
+}
+.skill-bg:hover {
+  box-shadow: 0 0 4rem rgba(22, 106, 95, 0.05);
+}
+.skill-bg::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: 0;
+  left: -1px;
+  background: linear-gradient(0deg, transparent, hsl(172, 66%, 25%));
+  z-index: -1;
+  border-radius: 4px;
 }
 
 .navigation-btn {
@@ -162,6 +161,13 @@ body::-webkit-scrollbar-thumb {
 .navigation-btn.active::before {
   top: 100%;
   opacity: 1;
+}
+
+.pale-light-blue-text {
+  color: #eff8ff;
+}
+.pale-light-blue-bg {
+  background-color: #eff8ff;
 }
 
 /*    MENU BUTTON :: START    */

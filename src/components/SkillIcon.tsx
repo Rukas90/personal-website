@@ -1,13 +1,12 @@
 import React, { useState } from "react"
+import { SkillIconProps } from "src/types/SkillProps"
 
-interface Props {
-  icon: string
-  label: string
-  dim?: boolean
+interface Props extends SkillIconProps {
+  defocus?: boolean
   onHoverStateChange?: (newState: boolean) => void
 }
 
-const Skill = ({ icon, label, dim, onHoverStateChange }: Props) => {
+const SkillIcon = ({ icon, label, defocus, onHoverStateChange }: Props) => {
   const [isHovered, setHovered] = useState(false)
 
   const onHover = () => setHoverState(true)
@@ -26,22 +25,20 @@ const Skill = ({ icon, label, dim, onHoverStateChange }: Props) => {
       <img
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
-        className={`interactable skill-icon ${
-          dim && "opacity-50"
-        }`}
+        className={`interactable skill-icon ${defocus && "defocus"}`}
         src={icon}
       />
       <div
-        className={`absolute skill-label bg-black top-full mt-4 rounded-lg ${
+        className={`absolute pointer-events-none skill-label bg-black top-full mt-4 rounded-lg z-10 ${
           !isHovered && "inactive"
         }`}
       >
-        <p className="relative flex text-lg tracking-wider font-light m-0 px-4 py-2 justify-center">
+        <div className="relative flex text-lg tracking-wider font-light m-0 px-4 py-2 justify-center">
           <div className="absolute w-0 h-0 border-l-[12.5px] border-b-[15px] border-r-[12.5px] border-solid border-l-[transparent] border-r-[transparent] border-b-black -translate-y-full"></div>
           {label}
-        </p>
+        </div>
       </div>
     </div>
   )
 }
-export default Skill
+export default SkillIcon

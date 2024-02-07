@@ -4,8 +4,8 @@ import { Clamp01, InverseLerp } from "../utils/Math"
 
 const Header = () => {
   const [overlayStrength, setOverlayStrength] = useState(0)
-  const lastScollPosition = useRef(0)
   const [visible, setVisible] = useState(true)
+  const lastScollPosition = useRef(0)
 
   const onScroll = () => {
     const threshold = 150

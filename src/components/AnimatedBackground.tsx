@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react"
 import { gsap, Circ } from "gsap"
 import throttle from "lodash.throttle"
 
-interface Point {
+type Point = {
   x: number
   y: number
   originX: number
@@ -12,9 +12,11 @@ interface Point {
   isDirty: number
   active?: number
   closest?: Point[]
+  disabled?: boolean
+  tween?: gsap.core.Tween
 }
 
-interface Circle {
+type Circle = {
   x: number
   y: number
   radius: number
@@ -23,7 +25,7 @@ interface Circle {
   draw: (scale?: number) => void
 }
 
-interface Target {
+type Target = {
   x: number
   y: number
 }
@@ -32,7 +34,7 @@ const SPOTLIGHT_RADIUS = 600
 const ADD_STRENGTH = 0.5
 const SHIFT_STRENGTH = 20
 const BASE_COLOR = "156,217,249"
-const POINTS_DENSITY = 65
+const POINTS_DENSITY = 80
 
 const AnimatedBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -64,10 +66,29 @@ const AnimatedBackground: React.FC = () => {
     }
 
     const initializePoints = () => {
-      points = []
+      const requiredCount =
+        Math.ceil(width / POINTS_DENSITY) * Math.ceil(height / POINTS_DENSITY)
+      const currentCount = points.length
+
+      if (requiredCount > currentCount) {
+        for (let i = currentCount; i < requiredCount; i++) {
+          points.push(createNewPoint())
+        }
+      } else if (requiredCount < currentCount) {
+        for (let i = requiredCount; i < currentCount; i++) {
+          points[i].disabled = true
+        }
+      }
+      let index = 0
 
       for (let x = 0; x < width; x += POINTS_DENSITY) {
+        if (index >= requiredCount) {
+          break
+        }
         for (let y = 0; y < height; y += POINTS_DENSITY) {
+          if (index >= requiredCount) {
+            break
+          }
           const px = x + (Math.random() * width) / 1000
           const py = y + (Math.random() * height) / 1000
 
@@ -77,25 +98,46 @@ const AnimatedBackground: React.FC = () => {
           if (mask < 0.05) {
             continue
           }
-          const p: Point = {
-            x: px,
-            originX: px,
-            y: py,
-            originY: py,
-            shiftStrength: 1,
-            isDirty: -1,
-            circle: new Circle(
-              px,
-              py,
-              2 + Math.random() * 2,
-              "rgba(255,255,255,0.3)"
-            ),
+          const point = points[index]
+
+          point.disabled = false
+
+          point.x = px
+          point.y = py
+
+          point.originX = px
+          point.originY = py
+
+          point.circle.x = px
+          point.circle.y = py
+
+          if (point.tween) {
+            point.tween.kill()
           }
-          points.push(p)
-          shiftPoint(p)
+          shiftPoint(point, true)
+
+          index++
         }
       }
-
+      updateClosestPoints()
+    }
+    const createNewPoint = (): Point => {
+      return {
+        x: 0,
+        originX: 0,
+        y: 0,
+        originY: 0,
+        shiftStrength: 1,
+        isDirty: -1,
+        circle: new Circle(
+          0,
+          0,
+          2 + Math.random() * 2,
+          "rgba(255,255,255,0.3)"
+        ),
+      }
+    }
+    const updateClosestPoints = () => {
       for (let i = 0; i < points.length; i++) {
         let closest: Point[] = []
         const p1 = points[i]
@@ -127,7 +169,6 @@ const AnimatedBackground: React.FC = () => {
         }
         p1.closest = closest
       }
-      animate()
     }
 
     const scrollCheck = () => {
@@ -168,8 +209,8 @@ const AnimatedBackground: React.FC = () => {
       ctx.clearRect(0, 0, width, height)
 
       for (let i in points) {
-        if (points[i].isDirty === 0) {
-          //continue
+        if (points[i].disabled) {
+          continue
         }
         const dist = getDistance(target, points[i])
         let mask = 1.0 - dist / SPOTLIGHT_RADIUS
@@ -180,7 +221,7 @@ const AnimatedBackground: React.FC = () => {
         if (add < 0) {
           add = 0
         }
-        const baseBrightness = 0.85
+        const baseBrightness = 1.0
         const brightness = (baseBrightness + ADD_STRENGTH * add) * mask
 
         points[i].active = brightness
@@ -198,19 +239,27 @@ const AnimatedBackground: React.FC = () => {
       requestAnimationFrame(animate)
     }
 
-    const shiftPoint = (p: Point) => {
+    const shiftPoint = (p: Point, immediate = false) => {
+      const shiftX =
+        (SHIFT_STRENGTH / 10 + Math.random() * SHIFT_STRENGTH) * p.shiftStrength
+      const shiftY =
+        (SHIFT_STRENGTH / 10 + Math.random() * SHIFT_STRENGTH) * p.shiftStrength
+
+      const newX = p.originX - shiftX
+      const newY = p.originY - shiftY
+
+      if (immediate) {
+        p.x = newX
+        p.y = newY
+        p.circle.x = newX
+        p.circle.y = newY
+      }
       const shiftDuration = 1 + Math.random()
 
-      gsap.to(p, {
+      p.tween = gsap.to(p, {
         duration: shiftDuration,
-        x:
-          p.originX -
-          (SHIFT_STRENGTH / 10 + Math.random() * SHIFT_STRENGTH) *
-            p.shiftStrength,
-        y:
-          p.originY -
-          (SHIFT_STRENGTH / 10 + Math.random() * SHIFT_STRENGTH) *
-            p.shiftStrength,
+        x: newX,
+        y: newY,
         ease: Circ.easeInOut,
         onComplete: () => {
           shiftPoint(p)
@@ -273,7 +322,7 @@ const AnimatedBackground: React.FC = () => {
           2 * Math.PI,
           false
         )
-        ctx.fillStyle = `rgba(${BASE_COLOR},` + this.active / 2 + ")"
+        ctx.fillStyle = `rgba(${BASE_COLOR},` + this.active / 1.5 + ")"
         ctx.fill()
       }
     }
@@ -291,7 +340,7 @@ const AnimatedBackground: React.FC = () => {
 
     const scrollCheckFunc = throttle(scrollCheck, 200)
     const mouseMoveFunc = throttle(mouseMove, 10)
-    const resizeFunc = throttle(resize, 1000)
+    const resizeFunc = throttle(resize, 125)
 
     const addListeners = () => {
       window.addEventListener("scroll", scrollCheckFunc)
@@ -303,6 +352,7 @@ const AnimatedBackground: React.FC = () => {
     addListeners()
 
     initializePoints()
+    animate()
 
     return () => {
       window.removeEventListener("scroll", scrollCheckFunc)

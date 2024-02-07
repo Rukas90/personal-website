@@ -14,7 +14,7 @@ $nav-btn-dot-size: 5px;
 
 // Global Styles
 *, *:before, *:after {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
     box-sizing: border-box;
     --cursor-scale: 1.0;
 }
@@ -26,33 +26,6 @@ html {
 .content-container {
     width: 100%;
     max-width: 120rem !important;
-}
-
-.text-color {
-    color: $text-color;
-
-    &-primary {
-        color: $primary-color;
-    }
-    &-secondary {
-        color: $secondary-color;
-    }
-    &-bg {
-        color: $bg-color;
-    }
-}
-.bg-color { 
-    color: $bg-color;
-
-    &-primary {
-        color: $primary-color;
-    }
-    &-secondary {
-        color: $secondary-color;
-    }
-    &-text {
-        color: $text-color;
-    }
 }
 
 .interactable:hover {
@@ -105,7 +78,7 @@ body {
 
 .social {
     &-btn {
-        width: 18px;
+        width: 24px;
         opacity: 1;
         transform: scale(1);
         transition: all 0.3s ease;
@@ -146,13 +119,18 @@ body {
     }
     color: #d9d9d9;
 }
-
+ 
 .skill {
     &-icon {
-        width: 68px;
-        height: 68px;
+        width: 64px;
+        height: 64px;
 
         transition: opacity 0.3s ease;
+
+        &.defocus { 
+            opacity: 0.5;
+            filter: blur(1px);
+        }
     }
     &-label {
         transition: all 0.15s ease;
@@ -160,6 +138,29 @@ body {
         &.inactive {
             transform: translateY(-85%) scale(0.5);
             opacity: 0;
+        }
+    }
+    &-bg {
+        position: relative;
+        flex-basis: 100%;
+        background-color: hsl(224, 71%, 3.5%);
+        border-radius: 4px;
+        transition: all 0.35s ease;
+
+        &:hover {
+            box-shadow: (0 0 4rem rgba(22, 106, 95, 0.05));
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            bottom: 0;
+            left: -1px;
+            background: linear-gradient(0deg, transparent, hsl(172, 66%, 25%));
+    
+            z-index: -1;
+            border-radius: 4px;
         }
     }
 }
@@ -190,6 +191,15 @@ body {
     &.active::before {
         top: 100%;
         opacity: 1;
+    }
+}
+
+.pale-light-blue {
+    &-text {
+        color: #eff8ff;
+    }
+    &-bg {
+        background-color: #eff8ff;
     }
 }
 

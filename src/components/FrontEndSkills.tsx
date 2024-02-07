@@ -13,19 +13,22 @@ import react from "img/skills/react.svg"
 
 const FrontEndSkills = () => {
   return (
-    <SkillsContainer
-      skills={[
-        { icon: html, label: "HTML5" },
-        { icon: css3, label: "CSS3" },
-        { icon: scss, label: "SCSS" },
-        { icon: bootstrap, label: "Bootstrap" },
-        { icon: tailwind, label: "Tailwind" },
-        { icon: javascript, label: "JavaScript" },
-        { icon: typescript, label: "TypeScript" },
-        { icon: react, label: "React" },
-        { icon: jquery, label: "JQuery" },
-      ]}
-    />
+    <>
+      <SkillsContainer
+        label="Front end"
+        skills={[
+          { icon: html, label: "HTML5" },
+          { icon: css3, label: "CSS3" },
+          { icon: scss, label: "SCSS" },
+          { icon: bootstrap, label: "Bootstrap" },
+          { icon: tailwind, label: "Tailwind" },
+          { icon: javascript, label: "JavaScript" },
+          { icon: typescript, label: "TypeScript" },
+          { icon: react, label: "React" },
+          { icon: jquery, label: "JQuery" },
+        ]}
+      />
+    </>
   )
 }
 export default FrontEndSkills

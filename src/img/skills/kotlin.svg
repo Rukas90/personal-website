@@ -1,2 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="a" x1="73.714" y1="910.226" x2="105.452" y2="878.134" gradientTransform="translate(-64.139 -782.556) scale(0.893)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0296d8"/><stop offset="1" stop-color="#8371d9"/></linearGradient><linearGradient id="b" x1="69.813" y1="905.226" x2="102.279" y2="875.745" gradientTransform="translate(-64.139 -782.556) scale(0.893)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#cb55c0"/><stop offset="1" stop-color="#f28e0e"/></linearGradient></defs><title>file_type_kotlin</title><path d="M2,2V30H30v-.047l-6.95-7L16.1,15.946l6.95-7.012L29.938,2Z" style="fill:url(#a)"/><path d="M16.318,2,2,16.318V30h.124L16.132,15.992l-.031-.031L23.05,8.95,29.938,2Z" style="fill:url(#b)"/></svg>
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_13_35)">
+<path d="M0 0V800H800V798.657L601.429 598.657L402.857 398.457L601.429 198.114L798.229 0H0Z" fill="url(#paint0_linear_13_35)"/>
+<path d="M408.969 0L0 409.086V800H3.54184L403.656 399.771L402.77 398.886L601.256 198.571L798 0H408.969Z" fill="url(#paint1_linear_13_35)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_13_35" x1="-8.92564" y1="807.881" x2="800.847" y2="-10.924" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C0C7CC"/>
+<stop offset="1" stop-color="#B4BABF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_13_35" x1="-108.426" y1="680.309" x2="719.898" y2="-71.6415" gradientUnits="userSpaceOnUse">
+<stop stop-color="#BFC6CC"/>
+<stop offset="1" stop-color="#EFF8FF"/>
+</linearGradient>
+<clipPath id="clip0_13_35">
+<rect width="800" height="800" fill="white"/>
+</clipPath>
+</defs>
+</svg>

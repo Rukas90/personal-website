@@ -8,8 +8,8 @@ interface Props {
 const SectionLabel = ({ text, bottomMargin = true }: Props) => {
   return (
     <>
-      <h1 className="text-teal-400 font-base text-4xl tracking-widest">
-        {text.toUpperCase()}
+      <h1 className="text-teal-400 font-light text-3xl tracking-widest uppercase">
+        {text}
       </h1>
       <div
         className={`mt-8 ${
