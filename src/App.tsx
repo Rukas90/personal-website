@@ -1,6 +1,6 @@
 import React from "react"
 import { Routes, Route } from "react-router-dom"
-import HomeView from "./components/HomeView"
+import HomeView from "./components/views/HomeView"
 import Cursor from "./components/Cursor"
 import Foreground from "./components/Foreground"
 

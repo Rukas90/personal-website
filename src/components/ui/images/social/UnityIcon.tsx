@@ -1,0 +1,20 @@
+import React from "react"
+import { SvgIconProps } from "src/components/props/SvgIconProps"
+
+const UnityIcon = ({ fill = "white" }: SvgIconProps) => {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 800 800"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill={fill}
+        d="M525.533 400.033L665.533 158.4L733.2 400.167L665.533 641.833L525.533 400.167V400.033ZM457.3 439.267L597.333 681.067L353.467 618.533L177.3 439.267H457.3ZM597.3 119L457.3 360.767H177.3L353.467 181.5L597.267 119H597.3ZM797.3 317.767L711.767 0L392.967 85.1667L345.767 168.133L250 167.433L16.6667 400.033L250 632.6L345.7 631.867L392.967 714.833L711.767 799.967L797.1 482.267L748.667 400L797.3 317.767Z"
+      />
+    </svg>
+  )
+}
+export default UnityIcon

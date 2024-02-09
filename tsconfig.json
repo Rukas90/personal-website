@@ -7,7 +7,7 @@
     "esModuleInterop": true, // Enables ES6 module interoperability
     "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
     "strict": true, // Enable all strict type-checking options
-    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+    "forceConsistentCasingInFileNames": false, // Disallow inconsistently-cased references to the same file
     "module": "esnext", // Specify module code generation
     "moduleResolution": "node", // Determine how modules get resolved
     "resolveJsonModule": true, // Include modules imported with '.json' extension
@@ -15,7 +15,9 @@
     "jsx": "react", // Support JSX in .tsx files
     "baseUrl": ".",
     "paths": {
+      "src/*": ["src/*"],
       "img/*": ["src/img/*"],
+      "sections/*": ["src/sections/*"],
       "utils/*": ["src/utils/*"],
     },
     "noEmit": true // Do not emit outputs (if using with Babel)

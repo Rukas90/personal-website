@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import LogoImg from "../img/logo_2.png"
 import { Clamp01, InverseLerp } from "../utils/Math"
+import HeaderNav from "./ui/HeaderNav"
 
 const Header = () => {
   const [overlayStrength, setOverlayStrength] = useState(0)
@@ -44,36 +45,25 @@ const Header = () => {
   return (
     <div
       style={overlayStyle}
-      className={`fixed top-header top-0 w-full py-6 px-12 flex flex-col items-center justify-center backdrop-blur z-20 ${
+      className={`fixed top-header top-0 w-full flex flex-col justify-center backdrop-blur z-20 ${
         !visible && "inactive"
       }`}
     >
-      <div className="content-container flex justify-between items-center">
-        <div className="flex items-center gap-6">
-          <div className="interactable relative rounded-full overflow-hidden w-[48px]">
-            <img className="zoom-rotate-in pointer-events-none" src={LogoImg} />
+      <div className="w-full flex items-center justify-center py-6 px-12">
+        <div className="content-container flex justify-between items-center">
+          <div className="flex items-center gap-6">
+            <div className="interactable relative rounded-full overflow-hidden w-[48px]">
+              <img
+                className="zoom-rotate-in pointer-events-none"
+                src={LogoImg}
+              />
+            </div>
+            <p className="text-white font-semibold tracking-widest">
+              PORTFOLIO
+            </p>
           </div>
-          <p className="text-white font-semibold tracking-widest">PORTFOLIO</p>
+          <HeaderNav />
         </div>
-        <ul className="list-none items-center flex gap-3 text-gray-400">
-          <li className="interactable navigation-btn active transition-colors px-5 py-2 hover:text-gray-200">
-            Home
-          </li>
-          <li className="interactable navigation-btn transition-colors px-5 py-2 hover:text-gray-200">
-            About
-          </li>
-          <li className="interactable navigation-btn transition-colors px-5 py-2 hover:text-gray-200">
-            Projects
-          </li>
-          <li className="interactable navigation-btn transition-colors px-5 py-2 hover:text-gray-200">
-            Contact
-          </li>
-          <li className="interactable btn-slide-hover overflow-hidden border-btn-effect relative px-5 py-2 transition-all rounded-md text-white hover:text-gray-950 border-white border-2">
-            <a className="interactable" href="#">
-              Resume
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   )
