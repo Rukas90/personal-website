@@ -14,7 +14,7 @@ html {
 
 .content-container {
   width: 100%;
-  max-width: 120rem !important;
+  max-width: 90rem !important;
 }
 
 .interactable:hover {
@@ -51,6 +51,11 @@ body::-webkit-scrollbar-thumb {
   content: "";
   width: 100%;
   height: 3px;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
   background-color: #2dd4bf;
   transform-origin: left;
   scale: 0 1;
@@ -60,12 +65,14 @@ body::-webkit-scrollbar-thumb {
 
 .btn-slide-hover::before {
   content: "";
-  background-color: white;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
   z-index: -1;
   transform: translateX(-100%);
   transition: transform 0.15s ease-out;
@@ -83,10 +90,39 @@ svg {
 
 .project-banner {
   width: 600px;
-  transform: perspective(1200px) rotateY(15deg);
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-  transition: transform 1s ease 0s;
+  transition: transform 0.15s ease-out 0s;
+}
+.project-banner-flipper {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+.project-banner-flipper > .front, .project-banner-flipper > .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.project-banner-flipper > .front {
+  position: relative;
+  transform: rotateY(180deg);
+}
+
+.tint::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #14FFEC;
+  opacity: 0.035;
 }
 
 .icon-btn {
@@ -163,11 +199,14 @@ svg {
 }
 .skill-bg::before {
   content: "";
+  width: auto;
+  height: auto;
   position: absolute;
   top: -1px;
+  left: -1px;
   right: -1px;
   bottom: 0;
-  left: -1px;
+  content: "";
   background: linear-gradient(0deg, transparent, hsl(172, 66%, 25%));
   z-index: -1;
   border-radius: 4px;
@@ -181,13 +220,15 @@ svg {
 }
 .navigation-btn::before {
   content: "";
-  background-color: #2dd4bf;
   width: 5px;
   height: 5px;
-  border-radius: 100%;
   position: absolute;
-  top: 50%;
+  top: -50%;
   left: calc(50% - 2.5px);
+  right: auto;
+  bottom: auto;
+  background-color: #2dd4bf;
+  border-radius: 100%;
   opacity: 0;
   z-index: -1;
   transition: all 0.3s ease;
@@ -206,6 +247,29 @@ svg {
 
 .bg-dark-950-darker {
   background-color: hsl(224, 71%, 3.5%);
+}
+
+.shimmer {
+  position: relative;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+}
+.shimmer.inactive::after {
+  opacity: 0;
+}
+.shimmer::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: shimmerEffect 1.25s infinite ease;
+  z-index: 2;
+  background: linear-gradient(to right, rgb(17, 24, 39) 8%, rgb(55, 65, 81) 20%, rgb(17, 24, 39) 33%);
+  background-size: 200%;
 }
 
 /*    MENU BUTTON :: START    */
@@ -318,6 +382,14 @@ svg {
 @keyframes scrollWatcher {
   100% {
     scale: 1 1;
+  }
+}
+@keyframes shimmerEffect {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
   }
 }
 .fade-in {

@@ -23,7 +23,7 @@ const SkillsContainer = ({ label, skills }: Props) => {
           {label}
         </p>
       </div>
-      <div className="flex flex-wrap justify-center gap-16">
+      <div className="flex flex-wrap justify-center gap-16 max-w-2xl mx-auto">
         {skills.map((props, index) => (
           <div className="place-self-center" key={`Skill_${index}`}>
             <SkillIcon

@@ -10,7 +10,7 @@ const Content = () => {
     <div className="min-h-dvh w-full flex justify-center">
       <div className="content-container flex flex-col tracking-wide">
         <IntroSection />
-        <div className="relative 2xl:px-64 md:px-32 sm:px-24 tn:px-16 px-6 text-gray-100 text-center flex flex-col items-center">
+        <div className="relative px-8 text-gray-100 text-center flex flex-col items-center">
           <AboutSection />
           <SkillsSection />
           <ProjectsSection />
