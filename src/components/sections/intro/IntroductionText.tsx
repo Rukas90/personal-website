@@ -15,7 +15,7 @@ const IntroductionText = () => {
         sentences={[
           {
             text: "> Hi",
-            className: "text-lg text-teal-400",
+            className: "text-lg dark:text-teal-400 text-black",
             typeSpeed: 0.03,
             pause: 0.4,
             inline: true,
@@ -29,14 +29,14 @@ const IntroductionText = () => {
           },
           {
             text: "Rukas Skirkevicius.",
-            className: "sm:text-7xl mn:text-4xl text-3xl",
+            className: "lg:text-7xl mn:text-4xl text-3xl",
             typeSpeed: 0.035,
             pause: 0.4,
           },
           {
-            text: "Web Developer",
+            text: "A Full-Stack Developer",
             className:
-              "sm:text-5xl mn:text-2xl text-lg text-gray-400 sm:font-extralight font-light",
+              "lg:text-5xl mn:text-2xl text-xl dark:text-gray-400 text-gray-600 sm:font-extralight font-light",
             typeSpeed: 0.035,
             pause: 0.4,
           },
@@ -44,10 +44,9 @@ const IntroductionText = () => {
         onFinished={() => setTimeout(() => setShowBtn(true), BTN_APPEAR_DELAY)}
       />
       <div className="flex flex-col items-center sm:w-fit">
-        <div className="w-[1px] h-16 bg-gray-800 mt-10" />
         <Button
           label="View Projects"
-          className={`sm:w-auto w-full mt-10 ${
+          className={`w-auto mt-16 ${
             showBtn ? "fade-in visible" : "invisible"
           }`}
         />

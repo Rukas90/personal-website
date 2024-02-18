@@ -2,12 +2,15 @@
     "featured": true,
     "title": "React Auth App",
     "subtitle": "Comprehensive Web Authentication Application",
-    "bannerSrc": "src/img/projects/react-auth-app.jpg",
+    "bannerBg": "src/img/projects/react-auth-app.jpg",
     "label": "Web App",
     "summary": "T.",
     "tools": [ "React", "TypeScript", "Express", "NodeJS", "Bootstrap", "SCSS", "Postgres", "REST" ],
-    "links": {
-        "GitHub": "#"
-    },
+    "links": [
+        {
+            "type": "GitHub",
+            "url": "#"
+        }
+    ],
     "slug": "/react-auth-app"
 }

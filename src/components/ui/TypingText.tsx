@@ -1,10 +1,10 @@
 import React, { useEffect } from "react"
 import { Sentence } from "src/types/Sentence"
+import { GeneralProps } from "../props/GeneralProps"
 
-interface Props {
+interface Props extends GeneralProps {
   sentences: Sentence[]
   typeSpeed?: number
-  className?: string
   sharedSentenceClasses?: string
   onFinished?: () => void
 }

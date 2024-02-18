@@ -9,7 +9,9 @@ export default defineConfig({
     alias: {
       'src': path.resolve(__dirname, './src'),
       'img': path.resolve(__dirname, './src/img'),
-      'sections': path.resolve(__dirname, './src/sections'),
+      'components': path.resolve(__dirname, './src/components'),
+      'sections': path.resolve(__dirname, './src/components/sections'),
+      'props': path.resolve(__dirname, './src/components/props'),
       'utils': path.resolve(__dirname, './src/utils'),
   }
 }})

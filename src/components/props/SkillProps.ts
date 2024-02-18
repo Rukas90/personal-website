@@ -1,5 +1,7 @@
+import { ReactNode } from "react"
+
 export type SkillIconProps = {
-    icon: string
+    icon: ReactNode
     label: string
 }
 export type SkillCardProps = {

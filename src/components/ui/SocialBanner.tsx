@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import MenuBtn from "src/components/ui/MenuBtn"
-import CodePenBtn from "./buttons/derives/CodePenBtn"
-import GitHubBtn from "./buttons/derives/GitHubBtn"
-import LinkedInBtn from "./buttons/derives/LinkedInBtn"
-import UnityBtn from "./buttons/derives/UnityBtn"
+import CodePenBtn from "./buttons/CodePenBtn"
+import GitHubBtn from "./buttons/GitHubBtn"
+import LinkedInBtn from "./buttons/LinkedInBtn"
+import UnityBtn from "./buttons/UnityBtn"
 
 const SocialBanner = () => {
   const [isVisible, setVisible] = useState(false)
@@ -17,7 +17,7 @@ const SocialBanner = () => {
     <div
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
-      className="absolute p-10 2xl:p-20 bottom-0 right-0 flex flex-col gap-8 items-center pointer-events-auto interactable"
+      className="absolute p-20 bottom-0 right-0 flex flex-col gap-8 items-center pointer-events-auto interactable"
     >
       <div>
         <CodePenBtn className={`${hoverBtnClass} pb-6`} hidden={!isVisible} />
@@ -30,7 +30,7 @@ const SocialBanner = () => {
           !isVisible && "inactive"
         }`}
       />
-      <MenuBtn mode={isVisible ? "close" : "list"} interactable={false} />
+      <MenuBtn mode={isVisible ? "close" : "list"} />
     </div>
   )
 }

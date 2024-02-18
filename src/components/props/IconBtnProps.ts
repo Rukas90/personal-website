@@ -1,9 +1,9 @@
+import { GeneralProps } from "./GeneralProps"
 import { SvgIconProps } from "./SvgIconProps"
 
-export interface IconButtonProps {
+export interface IconButtonProps extends GeneralProps {
     url?: string
     onClick?: () => void
-    className?: string
     svg?: SvgIconProps
     hidden?: boolean
 }

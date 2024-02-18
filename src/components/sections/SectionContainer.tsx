@@ -1,16 +1,29 @@
-import React, { ReactNode } from "react"
+import React, { useRef } from "react"
 import SectionLabel from "./SectionLabel"
+import BorderContainer from "./BorderContainer"
+import { ChildrenProps } from "../props/ChildrenProps"
+import useElementReveal from "../hooks/useElementReveal"
 
-interface Props {
+interface Props extends ChildrenProps {
   label: string
-  children: ReactNode
+  borders?: boolean
 }
 
-const SectionContainer = ({ label, children }: Props) => {
+const SectionContainer = ({ label, children, borders = true }: Props) => {
+  const ref = useRef<HTMLDivElement>(null)
+  useElementReveal(ref)
+
+  const Component = borders ? BorderContainer : "div"
+
   return (
-    <div className="section-container pt-12 xl:pt-32 pb-16 w-full">
-      <SectionLabel text={label} />
-      {children}
+    <div
+      ref={ref}
+      className={`reveal section-container pt-12 xl:pt-32 pb-14 w-full`}
+    >
+      <Component>
+        <SectionLabel text={label || ""} />
+        {children}
+      </Component>
     </div>
   )
 }

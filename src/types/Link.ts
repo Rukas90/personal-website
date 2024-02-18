@@ -1,4 +1,4 @@
 export type Link = {
-    type: string,
+    type: string
     url: string
 }

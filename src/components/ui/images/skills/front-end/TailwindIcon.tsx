@@ -1,0 +1,23 @@
+import React from "react"
+import useStyling from "src/components/contexts/Styling"
+
+const TailwindIcon = () => {
+  const style = useStyling()
+
+  return (
+    <svg
+      className="pointer-events-none"
+      width="100%"
+      height="100%"
+      viewBox="0 0 800 800"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M200 319.667C226.667 213.222 293.333 160 400 160C560 160 580 279.75 660 299.708C713.333 313.014 760 293.056 800 239.833C773.333 346.278 706.667 399.5 600 399.5C440 399.5 420 279.75 340 259.792C286.667 246.486 240 266.444 200 319.667ZM0 559.167C26.6667 452.722 93.3333 399.5 200 399.5C360 399.5 380 519.25 460 539.208C513.333 552.514 560 532.556 600 479.333C573.333 585.778 506.667 639 400 639C240 639 220 519.25 140 499.292C86.6667 485.986 40 505.944 0 559.167Z"
+        fill={style.iconColor.hex}
+      />
+    </svg>
+  )
+}
+export default TailwindIcon

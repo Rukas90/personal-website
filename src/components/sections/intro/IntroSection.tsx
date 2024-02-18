@@ -1,15 +1,31 @@
 import React from "react"
+import ScrollDownIndicator from "src/components/ui/ScrollDownIndicator"
+import { SCROLL_DOWN_THRESHOLD } from "src/utils/Constants"
+import useScrollPassedThreshold from "src/components/hooks/useScrollPassedThreshold"
+import BorderContainer from "../BorderContainer"
 import IntroductionText from "./IntroductionText"
-import AnimatedBackground from "./AnimatedBackground"
-import { useMediaQuery } from "react-responsive"
+import Background from "./canvas/Background"
 
 const IntroSection = () => {
-  const lg = useMediaQuery({ query: "(min-width: 1024px)" })
+  const isVisible = !useScrollPassedThreshold(SCROLL_DOWN_THRESHOLD)
 
   return (
-    <div className="w-full min-h-dvh text-white flex items-center justify-center sm:justify-start px-8 sm:px-24 md:px-48 pt-[110px]">
-      {lg && <AnimatedBackground />}
-      <IntroductionText />
+    <div className="relative w-full min-h-dvh text-start flex flex-col justify-center items-center sm:items-start px-8 sm:px-24 md:px-48 pt-[110px]">
+      <div className="absolute top-0 right-0 w-full h-full flex items-center justify-center overflow-hidden">
+        <div className="h-full aspect-square">
+          <Background />
+        </div>
+      </div>
+      <BorderContainer className="my-auto">
+        <IntroductionText />
+      </BorderContainer>
+      <div
+        className={`relative w-full min-h-8 h-8 mb-6 pointer-events-none fade-${
+          isVisible ? "up" : "out"
+        }`}
+      >
+        <ScrollDownIndicator className="fade-up mx-auto" />
+      </div>
     </div>
   )
 }

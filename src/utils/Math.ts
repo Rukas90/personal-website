@@ -1,3 +1,5 @@
+import { Position } from "src/types/Position"
+
 export const Lerp = (a: number, b: number, t: number) => {
     return (1.0 - t) * a + b * t
 }
@@ -12,4 +14,11 @@ export const Clamp01 = (v: number) => {
         return 1
     }
     return v
+}
+export const Distance = (a: Position, b: Position) => {
+
+    const xDistance = a.x - b.x;
+    const yDistance = a.y - b.y;
+
+    return Math.sqrt(xDistance ** 2 + yDistance ** 2);
 }

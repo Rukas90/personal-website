@@ -1,25 +1,24 @@
 import React from "react"
+import { GeneralProps } from "../props/GeneralProps"
 
-interface Props {
+interface Props extends GeneralProps {
   size?: null | "big"
   mode?: null | "list" | "close"
-  interactable?: boolean
-  className?: string
+  onClick?: () => void
 }
 
-const MenuBtn = ({ size, mode, interactable = true, className }: Props) => {
+const MenuBtn = ({ size, mode, onClick, className }: Props) => {
   return (
-    <div
-      className={`${className} menu-btn${
+    <button
+      className={`${className} interactable menu-btn${
         size ? `-${size}` : ""
-      } ${mode} flex fade-in flex-col justify-between pointer-events-${
-        interactable ? "auto" : "none"
-      }`}
+      } ${mode} flex fade-in flex-col justify-between`}
+      onClick={onClick}
     >
-      <div className="menu-line-top"></div>
-      <div className="menu-line-middle"></div>
-      <div className="menu-line-bottom"></div>
-    </div>
+      <div className="menu-line-top pointer-events-none"></div>
+      <div className="menu-line-middle pointer-events-none"></div>
+      <div className="menu-line-bottom pointer-events-none"></div>
+    </button>
   )
 }
 export default MenuBtn

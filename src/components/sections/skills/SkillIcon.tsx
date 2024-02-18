@@ -22,21 +22,22 @@ const SkillIcon = ({ icon, label, defocus, onHoverStateChange }: Props) => {
 
   return (
     <div className="relative flex justify-center items-end">
-      <img
+      <div
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
         className={`interactable skill-icon xl:w-14 xl:h-14 lg:w-12 lg:h-12 w-11 h-11 ${
           defocus && "defocus"
         }`}
-        src={icon}
-      />
+      >
+        {icon}
+      </div>
       <div
-        className={`absolute pointer-events-none skill-label bg-black top-full mt-4 rounded-lg z-10 ${
+        className={`absolute pointer-events-none skill-label dark:bg-white bg-black top-full mt-4 rounded-lg z-10 ${
           !isHovered && "inactive"
         }`}
       >
-        <div className="relative flex text-lg tracking-wider font-light m-0 px-4 py-2 justify-center">
-          <div className="absolute w-0 h-0 border-l-[12.5px] border-b-[15px] border-r-[12.5px] border-solid border-l-[transparent] border-r-[transparent] border-b-black -translate-y-full"></div>
+        <div className="relative flex text-lg dark:text-black text-white tracking-wider font-medium m-0 px-4 py-2 justify-center">
+          <div className="absolute w-0 h-0 border-l-[12.5px] border-b-[15px] border-r-[12.5px] border-solid border-l-[transparent] border-r-[transparent] dark:border-b-white border-b-black -translate-y-full"></div>
           {label}
         </div>
       </div>

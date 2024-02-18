@@ -1,9 +1,9 @@
 import React from "react"
+import { GeneralProps } from "src/components/props/GeneralProps"
 import { SkillCardProps } from "src/components/props/SkillProps"
+import ParagraphBlock from "src/components/ui/text/ParagraphBlock"
 
-interface Props extends SkillCardProps {
-  className?: string
-}
+interface Props extends SkillCardProps, GeneralProps {}
 
 const SkillCard = ({ title, text, className }: Props) => {
   return (
@@ -14,10 +14,10 @@ const SkillCard = ({ title, text, className }: Props) => {
         <p className="font-medium uppercase text-md sm:text-lg md:text-xl">
           {title}
         </p>
-        <div className="text-teal-600 text-3xl sm:text-4xl tracking-widest mb-4">
+        <div className="dark:text-teal-600 text-black text-3xl sm:text-4xl tracking-widest mb-4">
           ..
         </div>
-        <p className="font-light text-gray-250 text-sm sm:text-base">{text}</p>
+        <ParagraphBlock>{text}</ParagraphBlock>
       </div>
     </div>
   )

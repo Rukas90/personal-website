@@ -1,15 +1,16 @@
 import React from "react"
 import Profile from "img/profile.jpg"
 import SectionContainer from "../SectionContainer"
+import ParagraphBlock from "src/components/ui/text/ParagraphBlock"
 
 const AboutSection = () => {
   return (
     <SectionContainer label="About">
-      <div className="relative flex flex-col-reverse xl:flex-row items-center gap-12 2xl:gap-24">
+      <div className="relative flex flex-col-reverse lg:flex-row items-center gap-12 2xl:gap-24">
         <div className="relative xl:w-48 w-60 shrink-0">
           <img className="object-cover rounded-lg" src={Profile} />
         </div>
-        <p className="flex flex-col gap-8 sm:text-center xl:text-justify tracking-wider font-light text-sm sm:text-base leading-8">
+        <ParagraphBlock className="flex flex-col gap-8 sm:text-center lg:text-justify">
           <span>
             Hello there! I'm Rukas Skirkevicius, a Full Stack developer with a
             fervent passion for crafting intuitive and dynamic websites. My
@@ -29,7 +30,7 @@ const AboutSection = () => {
             to learning guitar. These hobbies not only bring me joy but also
             inspire my professional creativity and problem-solving skills.
           </span>
-        </p>
+        </ParagraphBlock>
       </div>
     </SectionContainer>
   )
