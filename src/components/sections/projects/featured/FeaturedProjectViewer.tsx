@@ -2,15 +2,15 @@ import React from "react"
 import Button from "src/components/ui/buttons/Button"
 import { ProjectData } from "src/types/ProjectData"
 import Banner from "./Banner"
-import Label from "./Label"
+import Label from "../ui/Label"
 import Header from "./Header"
 import Summary from "./Summary"
-import Tools from "./Tools"
-import Links from "./Links"
+import Tools from "../ui/Tools"
+import Links from "../ui/Links"
+import { SkeletonProps } from "src/components/props/SkeletonProps"
 
-interface Props extends ProjectData {
+interface Props extends ProjectData, SkeletonProps {
   index: number
-  showSkeleton?: boolean
 }
 
 const FeaturedProjectViewer = ({

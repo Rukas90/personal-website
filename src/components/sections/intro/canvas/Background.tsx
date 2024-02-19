@@ -181,7 +181,7 @@ const Background: React.FC = () => {
       <EffectComposer>
         <HueSaturation
           hue={-0.5}
-          saturation={-0.5}
+          saturation={isDark ? -0.5 : -1}
           blendFunction={BlendFunction.SOFT_LIGHT}
         />
         <WaterEffect
@@ -196,7 +196,7 @@ const Background: React.FC = () => {
         <Vignette
           darkness={1.5}
           blendFunction={
-            isDark ? BlendFunction.DIFFERENCE : BlendFunction.REFLECT
+            isDark ? BlendFunction.DIFFERENCE : BlendFunction.VIVID_LIGHT
           }
         />
         <Vignette darkness={1} />
