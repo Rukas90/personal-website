@@ -7,7 +7,7 @@ interface Props extends SkeletonProps {
   summary: string
 }
 
-const Summary = ({ showSkeleton, summary }: Props) => {
+const FeaturedProjectSummary = ({ showSkeleton, summary }: Props) => {
   return (
     <div className="py-4 dark:font-light text-sm text-justify">
       {showSkeleton ? (
@@ -27,4 +27,4 @@ const Summary = ({ showSkeleton, summary }: Props) => {
     </div>
   )
 }
-export default Summary
+export default FeaturedProjectSummary

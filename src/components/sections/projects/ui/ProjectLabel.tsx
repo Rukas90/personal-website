@@ -6,7 +6,7 @@ interface Props {
   label?: string
 }
 
-const Label = ({ showSkeleton, label }: Props) => {
+const ProjectLabel = ({ showSkeleton, label }: Props) => {
   return (
     <div className="flex gap-4 justify-end w-full mb-2">
       {showSkeleton ? (
@@ -19,4 +19,4 @@ const Label = ({ showSkeleton, label }: Props) => {
     </div>
   )
 }
-export default Label
+export default ProjectLabel

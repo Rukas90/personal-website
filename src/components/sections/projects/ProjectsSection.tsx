@@ -1,19 +1,19 @@
-import React, { useMemo } from "react"
+import React from "react"
 import SectionContainer from "../SectionContainer"
-import FeaturedProjects from "./FeaturedProjects"
-import ListedProjects from "./ListedProjects"
+import FeaturedProjectsSubsection from "./featured/FeaturedProjectsSubsection"
+import ListedProjectsSubsection from "./listed/ListedProjectsSubsection"
 import SectionLabel from "../SectionLabel"
 
 const FeaturedProjectsSection = () => {
   return (
     <>
       <SectionContainer label="Featured Projects">
-        <FeaturedProjects />
+        <FeaturedProjectsSubsection />
 
         <div className="mt-32">
           <SectionLabel text="Other Projects" />
 
-          <ListedProjects />
+          <ListedProjectsSubsection />
         </div>
       </SectionContainer>
     </>

@@ -1,8 +1,8 @@
 import React, { useMemo } from "react"
-import useListedProjects from "./hooks/useListedProjects"
-import ListedProjectDisplay from "./ui/ListedProjectDisplay"
+import useListedProjects from "../hooks/useListedProjects"
+import ListedProjectDisplay from "./ListedProjectDisplay"
 
-const ListedProjects = () => {
+const ListedProjectsSubsection = () => {
   const { loadedCount, projects, loadBatch, statuses } = useListedProjects()
 
   return (
@@ -19,4 +19,4 @@ const ListedProjects = () => {
     </>
   )
 }
-export default ListedProjects
+export default ListedProjectsSubsection

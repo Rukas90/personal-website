@@ -6,7 +6,7 @@ interface Props extends SkeletonProps {
   tools: string[]
 }
 
-const Tools = ({ showSkeleton, tools }: Props) => {
+const ProjectTools = ({ showSkeleton, tools }: Props) => {
   return (
     <div className="flex gap-3 text-sm">
       <span className="font-semibold text-nowrap dark:text-teal-400 text-red-600">
@@ -28,4 +28,4 @@ const Tools = ({ showSkeleton, tools }: Props) => {
     </div>
   )
 }
-export default Tools
+export default ProjectTools

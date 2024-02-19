@@ -5,7 +5,7 @@ interface Props {
   bannerBg: string
 }
 
-const Banner = ({ showSkeleton = false, bannerBg }: Props) => {
+const FeaturedProjectBanner = ({ showSkeleton = false, bannerBg }: Props) => {
   return (
     <>
       <div className="w-1/2 xl:flex hidden justify-center items-center">
@@ -32,4 +32,4 @@ const Banner = ({ showSkeleton = false, bannerBg }: Props) => {
     </>
   )
 }
-export default Banner
+export default FeaturedProjectBanner

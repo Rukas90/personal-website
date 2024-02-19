@@ -2,9 +2,9 @@ import Markdown from "markdown-to-jsx"
 import React from "react"
 import { SkeletonProps } from "src/components/props/SkeletonProps"
 import { ProjectData } from "src/types/ProjectData"
-import Links from "./Links"
-import Label from "./Label"
-import Tools from "./Tools"
+import ProjectLinks from "../ui/ProjectLinks"
+import ProjectLabel from "../ui/ProjectLabel"
+import ProjectTools from "../ui/ProjectTools"
 import Button from "src/components/ui/buttons/Button"
 
 interface Props extends ProjectData, SkeletonProps {}
@@ -20,10 +20,10 @@ const ListedProjectDisplay = ({
   slug,
 }: Props) => {
   return (
-    <div className="flex flex-col dark:bg-[#080f21] bg-[#e2e5e9] p-8 rounded-md dark:shadow-none shadow-lg">
+    <div className="flex flex-col transition-colors dark:bg-[#080f21] hover:dark:bg-[#0a1329] bg-[#e2e5e9] hover:bg-[#dce0e5] p-8 rounded-md dark:shadow-none shadow-lg">
       <div className="flex justify-between">
-        <Links links={links} showSkeleton={showSkeleton} />
-        <Label label={label} showSkeleton={showSkeleton} />
+        <ProjectLinks links={links} showSkeleton={showSkeleton} />
+        <ProjectLabel label={label} showSkeleton={showSkeleton} />
       </div>
       <div className="mt-6 text-start w-full">
         <div className="text-xl font-medium">{title}</div>
@@ -34,7 +34,7 @@ const ListedProjectDisplay = ({
           </span>
         </div>
         <div className="mt-8">
-          <Tools tools={tools} showSkeleton={showSkeleton} />
+          <ProjectTools tools={tools} showSkeleton={showSkeleton} />
         </div>
         <div className="w-full justify-end flex">
           <Button

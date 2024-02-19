@@ -43,7 +43,7 @@ const CreateSocialBtn = (link: Link, key: React.Key, style: ThemeStyling) => {
   ) : null
 }
 
-const Links = ({ showSkeleton, links }: Props) => {
+const ProjectLinks = ({ showSkeleton, links }: Props) => {
   const style = useStyling()
 
   return (
@@ -62,4 +62,4 @@ const Links = ({ showSkeleton, links }: Props) => {
     </div>
   )
 }
-export default Links
+export default ProjectLinks

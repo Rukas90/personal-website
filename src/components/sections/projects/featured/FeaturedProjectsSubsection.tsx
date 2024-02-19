@@ -1,8 +1,8 @@
 import React, { useMemo } from "react"
-import useFeaturedProjects from "./hooks/useFeaturedProjects"
-import FeaturedProjectViewer from "./featured/FeaturedProjectViewer"
+import useFeaturedProjects from "../hooks/useFeaturedProjects"
+import FeaturedProjectViewer from "./FeaturedProjectViewer"
 
-const FeaturedProjects = () => {
+const FeaturedProjectsSubsection = () => {
   const { viewingIndex, setViewingIndex, projects, fetchProject, statuses } =
     useFeaturedProjects()
 
@@ -47,4 +47,4 @@ const FeaturedProjects = () => {
     </>
   )
 }
-export default FeaturedProjects
+export default FeaturedProjectsSubsection

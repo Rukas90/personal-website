@@ -26,14 +26,14 @@ const Button = ({
    border-2 
    dark:border-teal-500 border-black 
    hover:-translate-y-1 
-   hover:border-black dark:hover:border-black
+   hover:border-white dark:hover:border-black
    rounded-md 
    px-6 py-3 
    dark:hover:bg-black 
    dark:bg-transparent bg-black 
    dark:hover:text-white text-white 
    dark:text-teal-400
-   hover:bg-transparent hover:text-gray-950 ${className || ""}`
+   hover:bg-white hover:text-black ${className || ""}`
   const content = (
     <>
       {label}

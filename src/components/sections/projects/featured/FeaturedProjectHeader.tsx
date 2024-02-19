@@ -9,7 +9,12 @@ interface Props extends SkeletonProps {
   index: number
 }
 
-const Header = ({ showSkeleton, title, subtitle, index }: Props) => {
+const FeaturedProjectHeader = ({
+  showSkeleton,
+  title,
+  subtitle,
+  index,
+}: Props) => {
   return (
     <>
       {showSkeleton ? (
@@ -43,4 +48,4 @@ const Header = ({ showSkeleton, title, subtitle, index }: Props) => {
     </>
   )
 }
-export default Header
+export default FeaturedProjectHeader
