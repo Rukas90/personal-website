@@ -1,14 +1,18 @@
 import React from "react"
 
 interface Props {
+  id?: string
   text: string
   bottomMargin?: boolean
 }
 
-const SectionLabel = ({ text, bottomMargin = true }: Props) => {
+const SectionLabel = ({ id, text, bottomMargin = true }: Props) => {
   return (
     <>
-      <h1 className="dark:text-teal-400 text-red-600 font-base text-3xl tracking-widest uppercase">
+      <h1
+        id={id}
+        className="dark:text-teal-400 text-red-600 font-base tn:text-3xl mn:text-2xl text-xl tracking-widest uppercase"
+      >
         {text}
       </h1>
       <div

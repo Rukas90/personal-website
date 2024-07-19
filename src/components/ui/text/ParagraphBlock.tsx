@@ -7,7 +7,7 @@ interface Props extends ChildrenProps, GeneralProps {}
 
 const ParagraphBlock = ({ children, className }: Props) => {
   return (
-    <TextBlock className={`tracking-wider leading-8 ${className}`}>
+    <TextBlock className={`tracking-wider tn:leading-8 leading-6 ${className}`}>
       {children}
     </TextBlock>
   )

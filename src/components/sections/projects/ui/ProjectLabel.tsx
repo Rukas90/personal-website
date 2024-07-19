@@ -1,14 +1,15 @@
 import React from "react"
+import { GeneralProps } from "src/components/props/GeneralProps"
+import { SkeletonProps } from "src/components/props/SkeletonProps"
 import RectangleSkeleton from "src/components/ui/skeletons/RectangleSkeleton"
 
-interface Props {
-  showSkeleton?: boolean
+interface Props extends SkeletonProps, GeneralProps {
   label?: string
 }
 
-const ProjectLabel = ({ showSkeleton, label }: Props) => {
+const ProjectLabel = ({ showSkeleton, label, className }: Props) => {
   return (
-    <div className="flex gap-4 justify-end w-full mb-2">
+    <div className={`flex gap-4 justify-end ${className}`}>
       {showSkeleton ? (
         <RectangleSkeleton className="w-24 h-4" />
       ) : (

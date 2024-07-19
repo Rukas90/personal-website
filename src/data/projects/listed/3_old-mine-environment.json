@@ -1,0 +1,21 @@
+{
+    "title": "Old Mine Environment",
+    "subtitle": "3D Environment Modeling",
+    "images": [
+        "src/img/projects/old-mine-environment.jpg"
+    ],
+    "label": "3D Environment",
+    "summary": "This project was all about experimenting with Unity’s high-definition rendering pipeline. Before this project, I haven’t used HDRP before. I have decided to undertake such a project, with the main goal of familiarizing myself with the new High-Definition rendering pipeline and all of its powerful capabilities.",
+    "tools": [ "3Ds Max", "Substance Painter", "Unity" ],
+    "links": [
+        {
+            "type": "ArtStation",
+            "url": "https://www.artstation.com/artwork/9NZAwo"
+        }
+    ],
+    "slug": {
+        "url": "https://www.artstation.com/artwork/9NZAwo",
+        "label": "Learn More",
+        "target": "blank"
+    }
+}

@@ -3,8 +3,8 @@ import { ProjectData } from "src/types/ProjectData"
 import useFetchFiles from "components/hooks/useFetchFiles"
 
 const useFeaturedProjects = () => {
-  const { fetch, files, statuses } = useFetchFiles<ProjectData>(
-    import.meta.glob<ProjectData[]>(`/public/data/projects/featured/*.json`, {
+  const { fetch, files, statuses, filesCount } = useFetchFiles<ProjectData>(
+    import.meta.glob<ProjectData[]>(`/src/data/projects/featured/*.json`, {
       eager: false,
     })
   )
@@ -19,16 +19,13 @@ const useFeaturedProjects = () => {
     setViewingIndex(index)
   }
 
-  useEffect(() => {
-    fetchProject(0)
-  }, [])
-
   return {
     viewingIndex,
     setViewingIndex,
     projects: files,
     statuses,
     fetchProject,
+    filesCount,
   }
 }
 export default useFeaturedProjects

@@ -7,6 +7,7 @@ import UnityBtn from "src/components/ui/buttons/UnityBtn"
 import SiteBtn from "src/components/ui/buttons/SiteBtn"
 import GitHubBtn from "src/components/ui/buttons/GitHubBtn"
 import CodePenBtn from "src/components/ui/buttons/CodePenBtn"
+import ArtStationBtn from "src/components/ui/buttons/ArtStationBtn"
 
 interface Props extends SkeletonProps {
   links: Link[]
@@ -17,6 +18,7 @@ const ButtonComponents = {
   site: SiteBtn,
   unity: UnityBtn,
   codepen: CodePenBtn,
+  artstation: ArtStationBtn,
 }
 const GetButtonComponent = (type: string) => {
   const key = type.toLowerCase()

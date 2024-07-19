@@ -11,6 +11,7 @@ interface Props extends ChildrenProps {
 
 const SectionContainer = ({ label, children, borders = true }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
+
   useElementReveal(ref)
 
   const Component = borders ? BorderContainer : "div"

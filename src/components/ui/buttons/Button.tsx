@@ -1,12 +1,14 @@
 import React from "react"
 import RectangleSkeleton from "../skeletons/RectangleSkeleton"
 import { GeneralProps } from "src/components/props/GeneralProps"
+import { LinkTarget } from "src/types/LinkTarget"
 
 interface Props extends GeneralProps {
   label?: string
   type?: "submit" | "reset" | "button"
   showSkeleton?: boolean
   href?: string
+  target?: LinkTarget
   onClick?: () => void
 }
 
@@ -16,6 +18,7 @@ const Button = ({
   showSkeleton,
   className,
   href,
+  target = "self",
   onClick,
 }: Props) => {
   const classes = `
@@ -53,7 +56,12 @@ const Button = ({
     )
   } else {
     return (
-      <a href={href} className={`${classes} inline-block`} role="button">
+      <a
+        href={href}
+        target={`_${target}`}
+        className={`${classes} inline-block`}
+        role="button"
+      >
         {content}
       </a>
     )

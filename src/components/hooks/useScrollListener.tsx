@@ -1,3 +1,4 @@
+import { throttle } from "lodash"
 import { useCallback, useEffect, useRef } from "react"
 
 type Subscriber = (scrollPosition: number) => void
@@ -26,7 +27,14 @@ const useScrollListener = () => {
     }
   }, [])
 
-  return { subscribe }
+  return {
+    subscribe,
+    maxScrollY:
+      Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      ) - window.innerHeight,
+  }
 }
 
 export default useScrollListener

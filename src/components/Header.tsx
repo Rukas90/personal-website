@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from "react"
 import LogoImg from "../img/logo_2.png"
 import { Clamp01, InverseLerp } from "../utils/Math"
 import MenuBtn from "./ui/MenuBtn"
-import HeaderNavItem from "./ui/HeaderNavItem"
 import { useLockBodyScroll } from "./hooks/useLockBodyScroll"
 import useScrollListener from "./hooks/useScrollListener"
 import ThemeToggle from "./ui/ThemeToggle"
 import { useTheme } from "./contexts/ThemeContext"
 import PlainText from "./ui/text/PlainText"
+import HeaderMenu from "./ui/HeaderMenu"
 
 const Header = () => {
   const { isDark } = useTheme()
@@ -100,11 +100,7 @@ const Header = () => {
               isExpanded ? "flex fade-up" : "lg:flex hidden"
             } lg:text-base sm:text-3xl text-2xl lg:dark:font-normal lg:font-medium font-light lg:bg-transparent lg:dark:bg-transparent dark:bg-gray-950 bg-white lg:relative absolute lg:w-auto w-dvw lg:h-auto h-dvh top-0 left-0 list-none lg:justify-start justify-center items-center lg:flex-row flex-col lg:gap-3 mn:gap-8 gap-4 dark:text-gray-400 lg:pt-0 pt-[55px]`}
           >
-            <HeaderNavItem label="Home" active />
-            <HeaderNavItem label="About" />
-            <HeaderNavItem label="Skills" />
-            <HeaderNavItem label="Projects" />
-            <HeaderNavItem label="Contact" />
+            <HeaderMenu />
 
             <li className="relative interactable lg:mt-0 sm:mt-6 mt-3 btn-slide-hover overflow-hidden border-btn-effect px-5 py-2 transition-all rounded-md dark:text-white text-black dark:hover:text-gray-950 hover:text-white dark:border-white border-black border-2">
               <a className="interactable" href="#">

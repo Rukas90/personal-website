@@ -7,7 +7,7 @@ const AboutSection = () => {
   return (
     <SectionContainer label="About">
       <div className="relative flex flex-col-reverse lg:flex-row items-center gap-12 2xl:gap-24">
-        <div className="relative xl:w-48 w-60 shrink-0">
+        <div className="relative xl:w-48 w-60 shrink-0 accent-outline rounded-lg">
           <img className="object-cover rounded-lg" src={Profile} />
         </div>
         <ParagraphBlock className="flex flex-col gap-8 sm:text-center lg:text-justify">

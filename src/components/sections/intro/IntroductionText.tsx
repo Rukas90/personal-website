@@ -49,6 +49,7 @@ const IntroductionText = () => {
           className={`w-auto mt-16 ${
             showBtn ? "fade-in visible" : "invisible"
           }`}
+          href="#projects"
         />
       </div>
     </div>

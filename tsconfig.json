@@ -21,6 +21,8 @@
       "sections/*": ["src/components/sections/*"],
       "props/*": ["src/components/props/*"],
       "utils/*": ["src/utils/*"],
+      "hooks/*": ["src/components/hooks/*"],
+      "types/*": ["src/types/*"],
     },
     "noEmit": true // Do not emit outputs (if using with Babel)
   },

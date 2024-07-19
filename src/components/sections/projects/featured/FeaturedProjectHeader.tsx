@@ -20,7 +20,7 @@ const FeaturedProjectHeader = ({
       {showSkeleton ? (
         <RectangleSkeleton className="w-1/4 h-4" />
       ) : (
-        <p className="dark:text-gray-400 text-gray-800 dark:font-normal font-medium fade-down pb-1">
+        <p className="dark:text-gray-400 tn:mx-0 mx-auto text-gray-800 dark:font-normal font-medium fade-down tn:pb-1 tn:text-base text-sm">
           {subtitle}
         </p>
       )}
@@ -28,7 +28,8 @@ const FeaturedProjectHeader = ({
         <RectangleSkeleton className="w-full h-8" />
       ) : (
         <TypingText
-          sharedSentenceClasses="text-4xl"
+          className="tn:mx-0 mx-auto"
+          sharedSentenceClasses="md:text-4xl tn:text-2xl text-xl"
           sentences={[
             {
               text: `${index}. `,

@@ -8,7 +8,7 @@ interface Props extends SkillCardProps, GeneralProps {}
 const SkillCard = ({ title, text, className }: Props) => {
   return (
     <div
-      className={`interactable p-8 skill-bg text-md tracking-wider shadow-2xl ${className}`}
+      className={`p-8 skill-bg text-md tracking-wider shadow-2xl ${className}`}
     >
       <div className="pointer-events-none">
         <p className="font-medium uppercase text-md sm:text-lg md:text-xl">

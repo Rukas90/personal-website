@@ -1,7 +1,7 @@
 import React from "react"
 import useScrollPassedThreshold from "src/components/hooks/useScrollPassedThreshold"
 import IconButton from "src/components/ui/buttons/IconButton"
-import ArrowUpIcon from "src/components/ui/images/misc/ArrowUpIcon"
+import ArrowIcon from "src/components/ui/images/misc/ArrowIcon"
 import { SCROLL_DOWN_THRESHOLD } from "src/utils/Constants"
 
 const BackToTop = () => {
@@ -19,7 +19,7 @@ const BackToTop = () => {
       } transition-transform`}
     >
       <IconButton
-        icon={<ArrowUpIcon />}
+        icon={<ArrowIcon />}
         className="p-10 hover:-translate-y-2"
         onClick={scrollBackUp}
       />

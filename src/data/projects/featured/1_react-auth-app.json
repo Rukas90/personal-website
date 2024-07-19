@@ -1,0 +1,20 @@
+{
+    "title": "React Auth App",
+    "subtitle": "Comprehensive Web Authentication Application",
+    "images": [
+        "src/img/projects/react_auth_app/picture_1.jpg"
+    ],
+    "label": "Web App",
+    "summary": "T.",
+    "tools": [ "React", "TypeScript", "Express", "NodeJS", "Bootstrap", "SCSS", "Postgres", "REST" ],
+    "links": [
+        {
+            "type": "GitHub",
+            "url": "#"
+        }
+    ],
+    "slug": {
+        "url": "/react-auth-app",
+        "label": "Learn more"
+    }
+}

@@ -1,0 +1,1 @@
+export type LinkTarget = "blank" | "self"

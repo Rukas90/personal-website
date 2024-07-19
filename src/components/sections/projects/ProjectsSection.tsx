@@ -4,7 +4,7 @@ import FeaturedProjectsSubsection from "./featured/FeaturedProjectsSubsection"
 import ListedProjectsSubsection from "./listed/ListedProjectsSubsection"
 import SectionLabel from "../SectionLabel"
 
-const FeaturedProjectsSection = () => {
+const ProjectsSection = () => {
   return (
     <>
       <SectionContainer label="Featured Projects">
@@ -19,4 +19,4 @@ const FeaturedProjectsSection = () => {
     </>
   )
 }
-export default FeaturedProjectsSection
+export default ProjectsSection

@@ -16,6 +16,8 @@ $nav-btn-dot-size: 5px;
     --scale-speed: 0.3s;
 }
 .dark {
+    --text-color: #e5e7eb;
+
     --shimmer-bg-color: rgb(17 24 39);
     --shimmer-color: rgb(55 65 81);
 
@@ -27,11 +29,15 @@ $nav-btn-dot-size: 5px;
     --accent: #14FFEC;
     --accent-dim: #2dd4bf;
 
+    --selection: rgba(20, 255, 236, 0.25);
+
     --invert-color: white;
 
     --skill-bg-outline: #166a5f;
 }
 .light {
+    --text-color: #000000;
+    
     --shimmer-bg-color: hsl(216, 12%, 84%);
     --shimmer-color: hsl(218, 11%, 65%);
 
@@ -43,9 +49,19 @@ $nav-btn-dot-size: 5px;
     --accent: #dc2626;
     --accent-dim: #991b1b;
 
+    --selection: rgba(220, 38, 38, 0.25);
+
     --invert-color: black;
 
     --skill-bg-outline: rgb(215, 215, 215); 
+}
+
+::-moz-selection { 
+  background: var(--selection);
+}
+
+::selection {
+  background: var(--selection);
 }
 
 // Global Styles
@@ -148,17 +164,6 @@ svg {
 
 .project-banner {
     width: 600px;
-}
-
-.parallax {
-    transition: transform 0.15s ease-out 0s;
-
-    &.shimmer {
-        --shimmer-bg-color: transparent;
-        --shimmer-speed: 0.65s;
-        --shimmer-color: rgba(255, 255, 255, 0.05);
-        --shimmer-animation-iteration: forwards;
-    }
 }
 
 .tint::after {
@@ -316,11 +321,22 @@ svg {
     width: 550px;
 }
 
+.slideshow {
+    transition: transform 0.15s ease-out 0s;
+
+    &.shimmer {
+        --shimmer-bg-color: transparent;
+        --shimmer-speed: 0.65s;
+        --shimmer-color: rgba(255, 255, 255, 0.05);
+        --shimmer-animation-iteration: forwards;
+    }
+}
+
 .shimmer {
     position: relative;
     transition: opacity 0.5s ease;
     overflow: hidden;
-
+    
     &.inactive::after {
         opacity: 0;
     }
@@ -408,7 +424,7 @@ input {
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
         transition: background-color 5000s ease-in-out 0s;
-        -webkit-text-fill-color: #e5e7eb !important;
+        -webkit-text-fill-color: var(--text-color) !important;
         box-shadow: 0 0 0px 1000px var(--body-darker-color) inset;
         letter-spacing: 0.1em;
     }

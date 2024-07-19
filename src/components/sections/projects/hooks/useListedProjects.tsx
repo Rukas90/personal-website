@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
+import { useMemo, useState } from "react"
 import { ProjectData } from "src/types/ProjectData"
 import useFetchFiles from "components/hooks/useFetchFiles"
 
 const useListedProjects = () => {
-  const LOAD_BATCH_SIZE = 6
+  const LOAD_BATCH_SIZE = 3
 
   const { fetch, files, statuses, filesCount } = useFetchFiles<ProjectData>(
-    import.meta.glob<ProjectData[]>(`/public/data/projects/listed/*.json`, {
+    import.meta.glob<ProjectData[]>(`/src/data/projects/listed/*.json`, {
       eager: false,
     })
   )
@@ -28,15 +28,16 @@ const useListedProjects = () => {
     }
   }
 
-  useEffect(() => {
-    loadBatch()
-  }, [])
+  const loadedProjects = useMemo(() => {
+    return files.slice(0, loadedCount)
+  }, [files, loadedCount, statuses])
 
   return {
     loadedCount,
-    projects: files,
+    projects: loadedProjects,
     statuses,
     loadBatch,
+    filesCount,
   }
 }
 export default useListedProjects
