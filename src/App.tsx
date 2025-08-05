@@ -1,4 +1,5 @@
 import React from "react"
+import { useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 import HomeView from "./components/views/HomeView"
 import Cursor from "./components/Cursor"
@@ -8,6 +9,17 @@ import { ThemeProvider } from "./components/contexts/ThemeContext"
 import { ForegroundProvider } from "./components/contexts/ForegroundContext"
 
 function App() {
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty("--vh", `${vh}px`)
+    }
+
+    setVh()
+    window.addEventListener("resize", setVh)
+    return () => window.removeEventListener("resize", setVh)
+  }, [])
+
   return (
     <ThemeProvider>
       <ForegroundProvider>
