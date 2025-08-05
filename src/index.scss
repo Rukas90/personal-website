@@ -91,9 +91,11 @@ html, body {
     background-attachment: fixed;
 
     min-height: 100dvh;
+    height: 100%;
 
     overscroll-behavior: contain;
     overflow-x: hidden;
+    position: absolute;
 
     &::-webkit-scrollbar {
         width: 6.5px;
