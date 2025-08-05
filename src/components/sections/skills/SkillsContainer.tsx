@@ -33,16 +33,18 @@ const SkillsContainer = ({ label, skills }: Props) => {
         </div>
         <div className="flex flex-wrap justify-center gap-16 max-w-2xl mx-auto">
           {skills.map((props, index) => (
-            <div className="place-self-center" key={`Skill_${index}`}>
-              <SkillIcon
-                icon={props.icon}
-                label={props.label}
-                defocus={hasFocus && hoverIndex !== index}
-                onHoverStateChange={(state) => {
-                  setHoverIndex(state ? index : -1)
-                }}
-              />
-            </div>
+            <a href={props.url == null ? "#" : props.url} target="_blank">
+              <div className="place-self-center" key={`Skill_${index}`}>
+                <SkillIcon
+                  icon={props.icon}
+                  label={props.label}
+                  defocus={hasFocus && hoverIndex !== index}
+                  onHoverStateChange={(state) => {
+                    setHoverIndex(state ? index : -1)
+                  }}
+                />
+              </div>
+            </a>
           ))}
         </div>
       </div>

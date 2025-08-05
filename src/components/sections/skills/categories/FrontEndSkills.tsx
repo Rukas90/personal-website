@@ -18,16 +18,48 @@ const FrontEndSkills = () => {
       <SkillsContainer
         label="Front end"
         skills={[
-          { icon: <HTML5Icon />, label: "HTML5" },
-          { icon: <CSS3Icon />, label: "CSS3" },
-          { icon: <SCSSIcon />, label: "SCSS" },
-          { icon: <BootstrapIcon />, label: "Bootstrap" },
-          { icon: <TailwindIcon />, label: "Tailwind" },
-          { icon: <JavaScriptIcon />, label: "JavaScript" },
-          { icon: <TypeScriptIcon />, label: "TypeScript" },
-          { icon: <ReactIcon />, label: "React" },
-          { icon: <JQueryIcon />, label: "JQuery" },
-          { icon: <ThreeJSIcon />, label: "ThreeJS" },
+          {
+            icon: <HTML5Icon />,
+            label: "HTML5",
+            url: "https://developer.mozilla.org/en-US/docs/Glossary/HTML5",
+          },
+          {
+            icon: <CSS3Icon />,
+            label: "CSS3",
+            url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+          },
+          {
+            icon: <SCSSIcon />,
+            label: "SCSS",
+            url: "https://medium.com/@Dev_Frank/curious-about-scss-heres-why-you-should-be-b260fc0bd7d3/",
+          },
+          {
+            icon: <BootstrapIcon />,
+            label: "Bootstrap",
+            url: "https://getbootstrap.com/",
+          },
+          {
+            icon: <TailwindIcon />,
+            label: "Tailwind",
+            url: "https://tailwindcss.com/",
+          },
+          {
+            icon: <JavaScriptIcon />,
+            label: "JavaScript",
+            url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+          },
+          {
+            icon: <TypeScriptIcon />,
+            label: "TypeScript",
+            url: "https://www.typescriptlang.org/",
+          },
+          { icon: <ReactIcon />, label: "React", url: "https://react.dev/" },
+          { icon: <JQueryIcon />, label: "JQuery", url: "https://jquery.com/" },
+          {
+            icon: <ThreeJSIcon />,
+            label: "ThreeJS",
+            url: "https://threejs.org/",
+          },
         ]}
       />
     </>

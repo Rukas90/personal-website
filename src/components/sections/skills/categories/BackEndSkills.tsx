@@ -14,12 +14,32 @@ const BackEndSkills = () => {
       <SkillsContainer
         label="Back end"
         skills={[
-          { icon: <PostmanIcon />, label: "Postman" },
-          { icon: <RESTIcon />, label: "REST" },
-          { icon: <NodeJSIcon />, label: "NodeJS" },
-          { icon: <ExpressJSIcon />, label: "ExpressJS" },
-          { icon: <PostgresIcon />, label: "Postgres" },
-          { icon: <FirebaseIcon />, label: "Firebase" },
+          {
+            icon: <PostmanIcon />,
+            label: "Postman",
+            url: "https://www.postman.com/",
+          },
+          { icon: <RESTIcon />, label: "REST", url: "https://restfulapi.net/" },
+          {
+            icon: <NodeJSIcon />,
+            label: "NodeJS",
+            url: "https://nodejs.org/en",
+          },
+          {
+            icon: <ExpressJSIcon />,
+            label: "ExpressJS",
+            url: "https://expressjs.com/",
+          },
+          {
+            icon: <PostgresIcon />,
+            label: "Postgres",
+            url: "https://www.postgresql.org/",
+          },
+          {
+            icon: <FirebaseIcon />,
+            label: "Firebase",
+            url: "https://firebase.google.com/",
+          },
         ]}
       />
     </>

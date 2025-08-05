@@ -12,10 +12,14 @@ const CollaborationSkills = () => {
       <SkillsContainer
         label="Collaboration"
         skills={[
-          { icon: <GitIcon />, label: "Git" },
-          { icon: <GitHubIcon />, label: "Github" },
-          { icon: <TrelloIcon />, label: "Trello" },
-          { icon: <VSCodeIcon />, label: "VS Code" },
+          { icon: <GitIcon />, label: "Git", url: "https://git-scm.com/" },
+          { icon: <GitHubIcon />, label: "Github", url: "https://github.com/" },
+          { icon: <TrelloIcon />, label: "Trello", url: "https://trello.com/" },
+          {
+            icon: <VSCodeIcon />,
+            label: "VS Code",
+            url: "https://code.visualstudio.com/",
+          },
         ]}
       />
     </>
