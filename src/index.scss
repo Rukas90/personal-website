@@ -81,28 +81,28 @@ $nav-btn-dot-size: 5px;
 }
 
 html, body {
-  height: auto;
-  min-height: calc(var(--vh, 1vh) * 100);
-
   position: static;
   overflow-x: hidden;
-}
-html {
-  -webkit-overflow-scrolling: touch; /* smoother on iOS */
+
   overscroll-behavior: contain;
   scroll-behavior: smooth;
 
+  -webkit-overflow-scrolling: touch; /* smoother on iOS */
+
+  height: auto;
+  min-height: calc(var(--vh, 1vh) * 100);
+
+  background-attachment: scroll;
   background-color: var(--primary-body-color);
+  background: radial-gradient(
+      at right top,
+      var(--primary-body-color),
+      var(--secondary-body-color)
+    );
 }
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(
-    at right top,
-    var(--primary-body-color),
-    var(--secondary-body-color)
-  );
-  background-attachment: scroll;
 
   /* scrollbar styles */
   &::-webkit-scrollbar {

@@ -10,17 +10,31 @@ import { ForegroundProvider } from "./components/contexts/ForegroundContext"
 
 function App() {
   useEffect(() => {
-    const setVh = () => {
+    let updating = false
+
+    const updateVh = () => {
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty("--vh", `${vh}px`)
+
+      updating = false
     }
-    setVh()
-    window.addEventListener("resize", setVh)
-    window.addEventListener("scroll", setVh)
+    const updateVhRequest = () => {
+      if (updating) {
+        return
+      }
+      window.requestAnimationFrame(updateVh)
+      updating = true
+    }
+    window.addEventListener("resize", updateVhRequest)
+    window.addEventListener("scroll", updateVhRequest)
+    window.addEventListener("touchmove", updateVhRequest)
+
+    updateVh()
 
     return () => {
-      window.removeEventListener("resize", setVh)
-      window.removeEventListener("scroll", setVh)
+      window.removeEventListener("resize", updateVhRequest)
+      window.removeEventListener("scroll", updateVhRequest)
+      window.removeEventListener("touchmove", updateVhRequest)
     }
   }, [])
   return (
