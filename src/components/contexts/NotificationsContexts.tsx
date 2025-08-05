@@ -6,7 +6,7 @@ import React, {
   ComponentType,
 } from "react"
 import { NotificationProps } from "props/NotificationProps"
-import Notification from "components/ui/notification"
+import Notification from "components/ui/Notification"
 
 interface NotificationsContextState {
   createNotification: (notification: NotificationProps) => void

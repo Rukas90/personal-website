@@ -2,7 +2,7 @@ import React from "react"
 import SkillsContainer from "../SkillsContainer"
 
 import PostmanIcon from "src/components/ui/images/skills/back-end/PostmanIcon"
-import RESTIcon from "src/components/ui/images/skills/back-end/RestIcon"
+import RESTIcon from "src/components/ui/images/skills/back-end/RESTIcon"
 import NodeJSIcon from "src/components/ui/images/skills/back-end/NodeJSIcon"
 import ExpressJSIcon from "src/components/ui/images/skills/back-end/ExpressJSIcon"
 import PostgresIcon from "src/components/ui/images/skills/back-end/PostgresIcon"
