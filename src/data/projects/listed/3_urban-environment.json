@@ -2,7 +2,7 @@
     "title": "Urban Environment",
     "subtitle": "3D Environment Modeling",
     "images": [
-        "src/img/projects/urban-environment.jpg"
+        "projects/urban-environment.jpg"
     ],
     "label": "3D Environment",
     "summary": "This urban environment was made as a solo project, where the main goal was to create a game-ready detailed city scenery and while doing so improve my skills in texturing and modular modeling.",
