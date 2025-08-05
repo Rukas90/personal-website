@@ -80,6 +80,9 @@ $nav-btn-dot-size: 5px;
     --cursor-scale: 10.0;
 }
 
+html {
+    -webkit-overflow-scrolling: auto;
+}
 html, body {
     scroll-behavior: smooth;
 
@@ -87,6 +90,7 @@ html, body {
     background: radial-gradient(at right top, var(--primary-body-color), var(--secondary-body-color));
     background-attachment: fixed;
 
+    overscroll-behavior: contain;
     overflow-x: hidden;
 
     &::-webkit-scrollbar {
