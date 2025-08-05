@@ -80,13 +80,17 @@ $nav-btn-dot-size: 5px;
     --cursor-scale: 10.0;
 }
 
+html, body {
+  height: 100vh; height: calc(var(--vh, 1vh) * 100);
+  min-height: 100dvh;
+}
 html {
   -webkit-overflow-scrolling: touch; /* smoother on iOS */
   overscroll-behavior: contain;
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: var(--primary-body-color);
-  min-height: 100dvh;
+  
 }
 body {
   margin: 0;
@@ -98,7 +102,6 @@ body {
     var(--secondary-body-color)
   );
   background-attachment: fixed;
-  min-height: 100dvh;
 
   /* scrollbar styles */
   &::-webkit-scrollbar {
