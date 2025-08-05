@@ -81,34 +81,38 @@ $nav-btn-dot-size: 5px;
 }
 
 html {
-    -webkit-overflow-scrolling: auto;
+  -webkit-overflow-scrolling: touch; /* smoother on iOS */
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: var(--primary-body-color);
+  min-height: 100dvh;
 }
-html, body {
-    scroll-behavior: smooth;
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: radial-gradient(
+    at right top,
+    var(--primary-body-color),
+    var(--secondary-body-color)
+  );
+  background-attachment: fixed;
+  min-height: 100dvh;
 
-    background: var(--primary-body-color);
-    background: radial-gradient(at right top, var(--primary-body-color), var(--secondary-body-color));
-    background-attachment: fixed;
-
-    min-height: 100dvh;
-    height: 100%;
-
-    overscroll-behavior: contain;
-    overflow-x: hidden;
-    position: absolute;
-
-    &::-webkit-scrollbar {
-        width: 6.5px;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-        border-radius: 10px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: hsl(223, 30%, 20%);
-        border-radius: 10px;
-    }
-} 
+  /* scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 6.5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(223, 30%, 20%);
+    border-radius: 10px;
+  }
+}
 
 @mixin BeforeAfterBase($w: 100%, $h: 100%, $p: absolute, $t: 0, $l: 0, $r: 0, $b: 0) {
     content: '';
