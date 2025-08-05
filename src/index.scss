@@ -81,8 +81,8 @@ $nav-btn-dot-size: 5px;
 }
 
 html, body {
-  height: 100vh; height: calc(var(--vh, 1vh) * 100);
-  min-height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
 }
 html {
   -webkit-overflow-scrolling: touch; /* smoother on iOS */
