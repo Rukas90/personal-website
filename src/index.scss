@@ -82,6 +82,7 @@ $nav-btn-dot-size: 5px;
 
 html {
     -webkit-overflow-scrolling: auto;
+     min-height: 100vh;
 }
 html, body {
     scroll-behavior: smooth;
