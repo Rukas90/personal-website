@@ -82,7 +82,6 @@ $nav-btn-dot-size: 5px;
 
 html {
     -webkit-overflow-scrolling: auto;
-     min-height: 100vh;
 }
 html, body {
     scroll-behavior: smooth;
@@ -90,6 +89,8 @@ html, body {
     background: var(--primary-body-color);
     background: radial-gradient(at right top, var(--primary-body-color), var(--secondary-body-color));
     background-attachment: fixed;
+
+    min-height: 100dvh;
 
     overscroll-behavior: contain;
     overflow-x: hidden;
