@@ -1,9 +1,9 @@
 import React from "react"
-import { SkillSvgIconProps } from "../props/SkillSvgIconProps"
+import { SvgIconProps } from "src/components/props/SvgIconProps"
 import { useTheme } from "src/components/contexts/ThemeContext"
 import useStyling from "src/components/contexts/Styling"
 
-const CSharpIcon = ({}: SkillSvgIconProps) => {
+const CSharpIcon = ({}: SvgIconProps) => {
   const style = useStyling()
   const { isDark } = useTheme()
 

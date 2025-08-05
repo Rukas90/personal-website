@@ -1,4 +1,4 @@
-import { NotificationType } from "Data/NotificationType"
+import { NotificationType } from "types/NotificationType"
 
 export type NotificationProps = {
     message: LocalizableText
