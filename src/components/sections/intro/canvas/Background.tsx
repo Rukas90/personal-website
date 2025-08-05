@@ -105,13 +105,7 @@ const Particles: React.FC<{ count: number }> = ({ count }) => {
     return geometry
   }, [data.current])
 
-  const isMobile = window.innerWidth < 768
-  let frame = 0
-
   useFrame(({ camera }) => {
-    if (isMobile && frame++ % 4 !== 0) {
-      return
-    }
     if (!mesh.current || !originalPositions.current) {
       return
     }
@@ -180,11 +174,10 @@ const Particles: React.FC<{ count: number }> = ({ count }) => {
 
 const Background: React.FC = () => {
   const { isDark } = useTheme()
-  const isMobile = window.innerWidth < 768
 
   return (
     <Canvas>
-      <Particles count={isMobile ? 50 : 10000} />
+      <Particles count={10000} />
       <EffectComposer>
         <HueSaturation
           hue={-0.5}
