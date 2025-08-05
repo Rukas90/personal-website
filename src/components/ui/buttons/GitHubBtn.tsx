@@ -1,5 +1,5 @@
 import React from "react"
-import GithubIcon from "src/components/ui/images/social/GithubIcon"
+import GithubIcon from "src/components/ui/images/social/GitHubIcon"
 import IconButton from "src/components/ui/buttons/IconButton"
 import { IconButtonProps } from "src/components/props/IconBtnProps"
 
