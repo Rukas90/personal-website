@@ -71,10 +71,6 @@ $nav-btn-dot-size: 5px;
     --cursor-scale: 1.0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 .content-container {
     width: 100%;
     max-width: 90rem !important;
@@ -84,7 +80,9 @@ html {
     --cursor-scale: 10.0;
 }
 
-body {
+html, body {
+    scroll-behavior: smooth;
+
     background: var(--primary-body-color);
     background: radial-gradient(at right top, var(--primary-body-color), var(--secondary-body-color));
     background-attachment: fixed;
