@@ -12,7 +12,7 @@ const HeaderNavItem = ({ activeId, id }: Props) => {
         activeId === id && "active dark:text-white text-black"
       } transition-all px-5 py-2 dark:hover:text-gray-200 hover:text-gray-800`}
     >
-      <a className="interactable" href={`/#${id}`}>
+      <a className="interactable" href={`#${id}`}>
         {formatFirstUpperChar(id)}
       </a>
     </li>

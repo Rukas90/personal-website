@@ -10,8 +10,15 @@ import { SectionsProvider } from "../contexts/SectionsContext"
 import SectionWrapper from "../sections/SectionWrapper"
 import FooterSection from "../sections/footer/FooterSection"
 import { PortfolioConfig } from "src/config/PortfolioConfig"
+import { useNavigate } from "react-router-dom"
 
-const PortfolioView = ({ config }: { config: PortfolioConfig }) => {
+const PortfolioView = ({ config }: { config?: PortfolioConfig }) => {
+  const navigate = useNavigate()
+
+  if (!config) {
+    navigate("/")
+    return
+  }
   return (
     <SectionsProvider>
       <Header resumeUrl={config.resumeUrl} />

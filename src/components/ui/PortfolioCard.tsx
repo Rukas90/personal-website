@@ -1,8 +1,7 @@
 import React from "react"
 import TextBlock from "./text/TextBlock"
 import Button from "./buttons/Button"
-
-const domain = import.meta.env.VITE_SUB_DOMAIN_TEMPLATE
+import { useNavigate } from "react-router-dom"
 
 interface Props {
   key: string
@@ -11,10 +10,10 @@ interface Props {
   subtitle: string
 }
 const PortfolioCard = (props: Props) => {
+  const navigate = useNavigate()
+
   return (
-    <div
-      className="flex flex-col gap-6 py-8 px-4 rounded-2xl dark:bg-[#080f21] bg-[#e2e5e9]"
-    >
+    <div className="flex flex-col gap-6 py-8 px-4 rounded-2xl dark:bg-[#080f21] bg-[#e2e5e9]">
       <h6 className="dark:text-teal-400 text-red-600 font-semibold tracking-wider">
         {props.role}
       </h6>
@@ -23,8 +22,7 @@ const PortfolioCard = (props: Props) => {
         className="text-lg mx-auto"
         label="Visit"
         onClick={() => {
-          console.log(domain)
-          window.location.href = domain.replace("{SUB-DOMAIN}", props.subdomain)
+          navigate("portfolio?key=" + props.subdomain)
         }}
       />
     </div>

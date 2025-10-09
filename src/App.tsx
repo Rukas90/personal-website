@@ -1,5 +1,5 @@
 import React from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useSearchParams, useNavigate } from "react-router-dom"
 import PortfolioView from "./components/views/PortfolioView"
 import Cursor from "./components/Cursor"
 import Foreground from "./components/Foreground"
@@ -9,27 +9,23 @@ import { ForegroundProvider } from "./components/contexts/ForegroundContext"
 import NotFoundView from "./components/views/NotFoundView"
 import { useFixedViewportHeight } from "./components/hooks/useFixedViewportHeight"
 import { portfolioConfigs } from "./config/PortfolioConfig"
-import { getSubdomain } from "./utils/PathUtils"
 import HomeView from "./components/views/HomeView"
 
 function App() {
   useFixedViewportHeight()
-  const subdomain = getSubdomain(window.location.hostname)
-  const portfolio = subdomain ? portfolioConfigs[subdomain] : null
+  const [searchParams] = useSearchParams()
+
+  const key = searchParams.get("key")
+  const portfolio = key ? portfolioConfigs[key] : undefined
 
   return (
     <ThemeProvider>
       <ForegroundProvider>
         <Routes>
+          <Route path="/" element={<HomeView />} />
           <Route
-            path="/"
-            element={
-              portfolio ? (
-                <PortfolioView config={portfolio} />
-              ) : (
-                <HomeView />
-              )
-            }
+            path="portfolio"
+            element={<PortfolioView config={portfolio} />}
           />
           <Route path="*" element={<NotFoundView />} />
         </Routes>
