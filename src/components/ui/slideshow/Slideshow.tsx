@@ -5,13 +5,16 @@ import RectangleSkeleton from "../skeletons/RectangleSkeleton"
 import ZoomInIcon from "../images/misc/ZoomInIcon"
 import { useForeground } from "src/components/contexts/ForegroundContext"
 import SlideshowAutoButton from "./SlideshowAutoButton"
+import ImagePicture from "../Picture"
 
 const Slideshow = ({ showSkeleton = false, images }: SlideshowProps) => {
   // Hooks and Refs
 
   const { setOverlayContent } = useForeground()
   const [zoomed, setZoomed] = useState(false)
-  const [autoEnabled, setAutoEnabled] = useState(true)
+  const [autoEnabled, setAutoEnabled] = useState(
+    (images && images.files && images.files.length > 1) ?? true
+  )
   const [imageIndex, setImageIndex] = useState(0)
   const timeoutRef = useRef<number | null>(null)
   const [timeoutDate, setTimeoutDate] = useState<number | null>(null)
@@ -33,10 +36,16 @@ const Slideshow = ({ showSkeleton = false, images }: SlideshowProps) => {
       onClick={closeZoomedView}
       className="pointer-events-auto fade-in flex justify-center backdrop-blur-sm pt-[110px] items-center w-full h-full bg-[rgba(0,0,0,0.5)]"
     >
-      <img
-        className="max-w-full scale-in max-h-full min-h-48 min-w-48 lg:px-48 md:px-24 sm:px-12 px-6 py-12 pointer-events-none"
-        src={images?.[imageIndex]}
-      />
+      {showSkeleton || !images ? (
+        <RectangleSkeleton className="max-w-full scale-in max-h-full min-h-48 min-w-48 lg:px-48 md:px-24 sm:px-12 px-6 py-12 pointer-events-none" />
+      ) : (
+        <ImagePicture
+          path={images.path}
+          extensions={images.extensions}
+          file={images.files[imageIndex]}
+          className="max-w-full scale-in max-h-full min-h-48 min-w-48 lg:px-48 md:px-24 sm:px-12 px-6 py-12 pointer-events-none"
+        />
+      )}
     </div>
   )
 
@@ -55,7 +64,7 @@ const Slideshow = ({ showSkeleton = false, images }: SlideshowProps) => {
         return -1
       }
       const newIndex = current - 1
-      return newIndex < 0 ? images.length - 1 : newIndex
+      return newIndex < 0 ? images.files.length - 1 : newIndex
     })
     updateTimeout()
   }
@@ -65,7 +74,7 @@ const Slideshow = ({ showSkeleton = false, images }: SlideshowProps) => {
         return -1
       }
       const newIndex = current + 1
-      return newIndex >= images.length ? 0 : newIndex
+      return newIndex >= images.files.length ? 0 : newIndex
     })
     updateTimeout()
   }
@@ -107,14 +116,16 @@ const Slideshow = ({ showSkeleton = false, images }: SlideshowProps) => {
 
   return (
     <>
-      <div
-        key={images?.[imageIndex]}
-        className="relative slideshow shimmer scale-in shadow-2xl pointer-events-none aspect-[3/2] bg-gray-500 rounded-md"
-      >
-        {showSkeleton ? (
+      <div className="relative slideshow shimmer scale-in shadow-2xl pointer-events-none aspect-[3/2] bg-gray-500 rounded-md">
+        {showSkeleton || !images ? (
           <RectangleSkeleton className="h-96" />
         ) : (
-          <img src={images?.[imageIndex]} className="rounded-md" />
+          <ImagePicture
+            path={images.path}
+            extensions={images.extensions}
+            file={images.files[imageIndex]}
+            className="rounded-md"
+          />
         )}
         <div className="absolute top-0 left-0 w-full h-full flex justify-between overflow-hidden rounded-md">
           <SlideshowAutoButton

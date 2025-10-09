@@ -13,17 +13,14 @@ const AndroidSkills = () => {
           {
             icon: <KotlinIcon />,
             label: "Kotlin",
-            url: "https://kotlinlang.org/",
           },
           {
             icon: <ARIcon />,
             label: "AR",
-            url: "https://en.wikipedia.org/wiki/Augmented_reality",
           },
           {
             icon: <AndroidStudioIcon />,
             label: "Android Studio",
-            url: "https://developer.android.com/studio",
           },
         ]}
       />

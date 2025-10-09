@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import useScrollPassedThreshold from "src/components/hooks/useScrollPassedThreshold"
 import IconButton from "src/components/ui/buttons/IconButton"
 import ArrowIcon from "src/components/ui/images/misc/ArrowIcon"
@@ -7,20 +7,19 @@ import { SCROLL_DOWN_THRESHOLD } from "src/utils/Constants"
 const BackToTop = () => {
   const isVisible = useScrollPassedThreshold(SCROLL_DOWN_THRESHOLD)
 
-  const scrollBackUp = () => {
+  const scrollBackUp = useCallback(() => {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
-  }
-
+  }, [])
   return (
     <div
-      className={`back-to-top-btn absolute bottom-10 left-10 ${
+      className={`back-to-top-btn absolute bottom-0 left-0 ${
         !isVisible && "inactive"
       } transition-transform`}
     >
       <IconButton
         icon={<ArrowIcon />}
-        className="p-10 hover:-translate-y-2"
+        className="p-20 hover:-translate-y-2"
         onClick={scrollBackUp}
       />
     </div>

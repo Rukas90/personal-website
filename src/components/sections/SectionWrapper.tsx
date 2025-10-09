@@ -12,7 +12,6 @@ const SectionWrapper = ({ name, children }: Props) => {
 
   useEffect(() => {
     const unregister = register(name, ref)
-
     return () => unregister()
   }, [name, register])
 

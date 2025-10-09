@@ -22,3 +22,9 @@ export const Distance = (a: Position, b: Position) => {
 
     return Math.sqrt(xDistance ** 2 + yDistance ** 2);
 }
+export const WrapIndex = (index: number, length: number): number => {
+  if (length <= 0) {
+    throw new Error('Length must be greater than 0')
+  }
+    return ((index % length) + length) % length
+}

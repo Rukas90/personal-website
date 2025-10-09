@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Fira+Code:wght@300..700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,7 +17,7 @@
   --primary-body-color: hsl(223, 71%, 8%);
   --secondary-body-color: hsl(223, 70%, 4%);
   --body-darker-color: hsl(224, 71%, 3.5%);
-  --accent: #14FFEC;
+  --accent: #14ffec;
   --accent-dim: #2dd4bf;
   --selection: rgba(20, 255, 236, 0.25);
   --invert-color: white;
@@ -37,6 +38,46 @@
   --skill-bg-outline: rgb(215, 215, 215);
 }
 
+:where(:not(.dark)) input:-webkit-autofill,
+:where(:not(.dark)) input:-webkit-autofill:hover,
+:where(:not(.dark)) input:-webkit-autofill:focus,
+:where(:not(.dark)) input:-webkit-autofill:active,
+:where(:not(.dark)) textarea:-webkit-autofill,
+:where(:not(.dark)) textarea:-webkit-autofill:hover,
+:where(:not(.dark)) textarea:-webkit-autofill:focus,
+:where(:not(.dark)) textarea:-webkit-autofill:active,
+:where(:not(.dark)) select:-webkit-autofill,
+:where(:not(.dark)) select:-webkit-autofill:hover,
+:where(:not(.dark)) select:-webkit-autofill:focus,
+:where(:not(.dark)) select:-webkit-autofill:active,
+:where(:not(.dark)) input:-internal-autofill-selected,
+:where(:not(.dark)) input:-internal-autofill-previewed {
+  box-shadow: 0 0 0 30px oklch(92.8% 0.006 264.531deg) inset !important;
+  -webkit-text-fill-color: black !important;
+  color: black !important;
+  caret-color: rgb(229, 231, 235) !important;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active,
+.dark textarea:-webkit-autofill,
+.dark textarea:-webkit-autofill:hover,
+.dark textarea:-webkit-autofill:focus,
+.dark textarea:-webkit-autofill:active,
+.dark select:-webkit-autofill,
+.dark select:-webkit-autofill:hover,
+.dark select:-webkit-autofill:focus,
+.dark select:-webkit-autofill:active,
+.dark input:-internal-autofill-selected,
+.dark input:-internal-autofill-previewed {
+  box-shadow: 0 0 0 30px rgb(16, 24, 40) inset !important;
+  -webkit-text-fill-color: rgb(229, 231, 235) !important;
+  color: rgb(229, 231, 235) !important;
+  caret-color: rgb(229, 231, 235) !important;
+}
+
 ::-moz-selection {
   background: var(--selection);
 }
@@ -45,41 +86,85 @@
   background: var(--selection);
 }
 
-*, *:before, *:after {
-  font-family: "Poppins", system-ui, sans-serif;
+*,
+*:before,
+*:after {
+  font-family: Calibre, "Poppins", system-ui, sans-serif;
   box-sizing: border-box;
-  --cursor-scale: 1.0;
+  --cursor-scale: 1;
 }
 
-html {
-  scroll-behavior: smooth;
+.fira-code,
+.fira-code > * {
+  font-family: "Fira Code", system-ui, sans-serif;
 }
 
-.content-container {
-  width: 100%;
-  max-width: 90rem !important;
+h1 {
+  font-size: 12rem;
+}
+
+h2 {
+  font-size: 10rem;
+}
+
+h3 {
+  font-size: 8rem;
+}
+
+h4 {
+  font-size: 6rem;
+}
+
+h5 {
+  font-size: 4rem;
+}
+
+h6 {
+  font-size: 2rem;
 }
 
 .interactable:hover {
-  --cursor-scale: 10.0;
+  --cursor-scale: 10;
+}
+
+html {
+  width: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--primary-body-color);
-  background: radial-gradient(at right top, var(--primary-body-color), var(--secondary-body-color));
-  background-attachment: fixed;
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* scrollbar styles */
 }
 body::-webkit-scrollbar {
   width: 6.5px;
 }
 body::-webkit-scrollbar-track {
-  background: transparent;
+  background: oklch(13% 0.028 261.692deg);
   border-radius: 10px;
 }
 body::-webkit-scrollbar-thumb {
   background-color: hsl(223, 30%, 20%);
   border-radius: 10px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch; /* smoother on iOS */
+  min-height: 100%;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-attachment: scroll;
+  background-color: var(--primary-body-color);
+  background: radial-gradient(at right top, var(--primary-body-color), var(--secondary-body-color));
 }
 
 .text-shadow {
@@ -88,22 +173,26 @@ body::-webkit-scrollbar-thumb {
 
 .top-header {
   top: 0;
-  min-height: 110px;
+  min-height: 100px;
+  max-height: 100px;
   transition: top 0.2s ease-out;
 }
 .top-header.inactive {
-  top: -100px;
+  top: -90px;
 }
-
-.top-header::after {
+.top-header > .header-content {
+  min-height: 97px;
+  max-height: 97px;
+}
+.top-header.closed::after {
   content: "";
   width: 100%;
   height: 3px;
   position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: var(--accent-dim);
   transform-origin: left;
   scale: 0 1;
@@ -134,6 +223,16 @@ svg {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.clamp-text.ct-name {
+  font-size: clamp(2.8rem, -0.475rem + 8.333vw, 6rem);
+}
+.clamp-text.ct-role {
+  font-size: clamp(1.6rem, -1.5rem + 8.333vw, 3.5rem);
+}
+.clamp-text.ct-text {
+  font-size: clamp(0.95rem, -2rem + 5.333vw, 1.2rem);
 }
 
 .preserve-3d {
@@ -300,10 +399,6 @@ svg {
   border-radius: inherit;
 }
 
-.contact-form {
-  width: 550px;
-}
-
 .slideshow {
   transition: transform 0.15s ease-out 0s;
 }
@@ -343,6 +438,7 @@ svg {
 
 .hide-scrollbar {
   -ms-overflow-style: none;
+  overflow: hidden;
 }
 
 .hide-scrollbar {

@@ -10,14 +10,12 @@ const CodePenBtn = ({
   hidden,
 }: IconButtonProps) => {
   return (
-    <>
-      <IconButton
-        icon={<CodePenIcon {...svg} />}
-        className={className}
-        url={url}
-        hidden={hidden}
-      />
-    </>
+    <IconButton
+      icon={<CodePenIcon {...svg} />}
+      className={className}
+      url={url}
+      hidden={hidden}
+    />
   )
 }
 export default CodePenBtn

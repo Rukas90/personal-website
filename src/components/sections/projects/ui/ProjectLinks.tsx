@@ -30,7 +30,7 @@ const GetButtonComponent = (type: string) => {
 }
 
 const CreateSocialBtn = (link: Link, key: React.Key, style: ThemeStyling) => {
-  const classes = "scale-75 hover:scale-125"
+  const classes = "tn:scale-75 scale-90 hover:scale-125"
   const fill = style.accentColor.hex
 
   const ButtonComponent = GetButtonComponent(link.type)

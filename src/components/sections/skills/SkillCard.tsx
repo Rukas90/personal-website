@@ -1,23 +1,29 @@
-import React from "react"
+import React, { ReactNode } from "react"
+import { useTheme } from "src/components/contexts/ThemeContext"
 import { GeneralProps } from "src/components/props/GeneralProps"
-import { SkillCardProps } from "src/components/props/SkillProps"
-import ParagraphBlock from "src/components/ui/text/ParagraphBlock"
 
-interface Props extends SkillCardProps, GeneralProps {}
+interface Props extends GeneralProps {
+  title: ReactNode | string
+  text: string
+}
 
 const SkillCard = ({ title, text, className }: Props) => {
+  const { isDark } = useTheme()
+
   return (
     <div
-      className={`p-8 skill-bg text-md tracking-wider shadow-2xl ${className}`}
+      className={`p-8 skill-bg text-sm font-light ${
+        isDark ? "shadow-2xl" : "shadow-lg"
+      } ${className}`}
     >
       <div className="pointer-events-none">
-        <p className="font-medium uppercase text-md sm:text-lg md:text-xl">
+        <p className="font-medium tracking-wide uppercase text-lg xl:text-md">
           {title}
         </p>
         <div className="dark:text-teal-600 text-black text-3xl sm:text-4xl tracking-widest mb-4">
           ..
         </div>
-        <ParagraphBlock>{text}</ParagraphBlock>
+        {text}
       </div>
     </div>
   )

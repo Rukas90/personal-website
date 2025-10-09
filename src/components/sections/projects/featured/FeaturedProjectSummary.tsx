@@ -22,7 +22,7 @@ const FeaturedProjectSummary = ({ showSkeleton, summary }: Props) => {
         </div>
       ) : (
         <div className="fade-in">
-          <ParagraphBlock className="tn:text-sm text-xs tn:text-start text-center">
+          <ParagraphBlock className="text-sm tn:text-start text-center">
             <Markdown>{summary || ""}</Markdown>
           </ParagraphBlock>
         </div>

@@ -10,14 +10,12 @@ const LinkedInBtn = ({
   hidden,
 }: IconButtonProps) => {
   return (
-    <>
-      <IconButton
-        icon={<LinkedinIcon {...svg} />}
-        className={className}
-        url={url}
-        hidden={hidden}
-      />
-    </>
+    <IconButton
+      icon={<LinkedinIcon {...svg} />}
+      className={className}
+      url={url}
+      hidden={hidden}
+    />
   )
 }
 export default LinkedInBtn

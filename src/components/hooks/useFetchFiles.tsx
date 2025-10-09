@@ -2,7 +2,6 @@ import { useRef, useState } from "react"
 
 const useFetchFiles = <T,>(imports: Record<string, () => Promise<T[]>>) => {
   const importFunctions = Object.values(imports)
-
   const currentTask = useRef<Promise<{ default: T }> | null>(null)
   const totalLength = Object.keys(imports).length
 

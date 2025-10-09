@@ -1,6 +1,6 @@
-import { GeneralProps } from "src/components/props/GeneralProps"
+import { GeneralProps, StyleProps } from "src/components/props/GeneralProps"
 
-export interface Sentence extends GeneralProps {
+export interface Sentence extends GeneralProps, StyleProps {
     text: string
     typeSpeed?: number
     pause?: number

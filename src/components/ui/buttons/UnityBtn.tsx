@@ -10,14 +10,12 @@ const UnityBtn = ({
   hidden,
 }: IconButtonProps) => {
   return (
-    <>
-      <IconButton
-        icon={<UnityIcon {...svg} />}
-        className={className}
-        url={url}
-        hidden={hidden}
-      />
-    </>
+    <IconButton
+      icon={<UnityIcon {...svg} />}
+      className={className}
+      url={url}
+      hidden={hidden}
+    />
   )
 }
 export default UnityBtn

@@ -5,14 +5,12 @@ import { IconButtonProps } from "src/components/props/IconBtnProps"
 
 const SiteBtn = ({ url, className, svg, hidden }: IconButtonProps) => {
   return (
-    <>
-      <IconButton
-        icon={<SiteIcon {...svg} />}
-        className={className}
-        url={url}
-        hidden={hidden}
-      />
-    </>
+    <IconButton
+      icon={<SiteIcon {...svg} />}
+      className={className}
+      url={url}
+      hidden={hidden}
+    />
   )
 }
 export default SiteBtn

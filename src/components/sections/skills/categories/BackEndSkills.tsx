@@ -7,6 +7,7 @@ import NodeJSIcon from "src/components/ui/images/skills/back-end/NodeJSIcon"
 import ExpressJSIcon from "src/components/ui/images/skills/back-end/ExpressJSIcon"
 import PostgresIcon from "src/components/ui/images/skills/back-end/PostgresIcon"
 import FirebaseIcon from "src/components/ui/images/skills/back-end/FirebaseIcon"
+import DotNetCoreIcon from "src/components/ui/images/skills/back-end/DotNetCoreIcon"
 
 const BackEndSkills = () => {
   return (
@@ -15,30 +16,32 @@ const BackEndSkills = () => {
         label="Back end"
         skills={[
           {
+            icon: <DotNetCoreIcon />,
+            label: "AspNetCore",
+          },
+          {
             icon: <PostmanIcon />,
             label: "Postman",
-            url: "https://www.postman.com/",
           },
-          { icon: <RESTIcon />, label: "REST", url: "https://restfulapi.net/" },
+          {
+            icon: <RESTIcon />,
+            label: "REST",
+          },
           {
             icon: <NodeJSIcon />,
             label: "NodeJS",
-            url: "https://nodejs.org/en",
           },
           {
             icon: <ExpressJSIcon />,
             label: "ExpressJS",
-            url: "https://expressjs.com/",
           },
           {
             icon: <PostgresIcon />,
             label: "Postgres",
-            url: "https://www.postgresql.org/",
           },
           {
             icon: <FirebaseIcon />,
             label: "Firebase",
-            url: "https://firebase.google.com/",
           },
         ]}
       />

@@ -2,61 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Fira+Code:wght@300..700&display=swap");
 
 $menu-btn-size: 20px;
 $menu-btn-line-thickness: 2px;
 $nav-btn-dot-size: 5px;
 
 :root {
-    --shimmer-speed: 1.25s;
-    --shimmer-animation-iteration: infinite;
+  --shimmer-speed: 1.25s;
+  --shimmer-animation-iteration: infinite;
 
-    --scale-initial: 0.965;
-    --scale-speed: 0.3s;
+  --scale-initial: 0.965;
+  --scale-speed: 0.3s;
 }
 .dark {
-    --text-color: #e5e7eb;
+  --text-color: #e5e7eb;
 
-    --shimmer-bg-color: rgb(17 24 39);
-    --shimmer-color: rgb(55 65 81);
+  --shimmer-bg-color: rgb(17 24 39);
+  --shimmer-color: rgb(55 65 81);
 
-    --primary-body-color: hsl(223, 71%, 8%);
-    --secondary-body-color: hsl(223, 70%, 4%);
+  --primary-body-color: hsl(223, 71%, 8%);
+  --secondary-body-color: hsl(223, 70%, 4%);
 
-    --body-darker-color: hsl(224, 71%, 3.5%);
+  --body-darker-color: hsl(224, 71%, 3.5%);
 
-    --accent: #14FFEC;
-    --accent-dim: #2dd4bf;
+  --accent: #14ffec;
+  --accent-dim: #2dd4bf;
 
-    --selection: rgba(20, 255, 236, 0.25);
+  --selection: rgba(20, 255, 236, 0.25);
 
-    --invert-color: white;
+  --invert-color: white;
 
-    --skill-bg-outline: #166a5f;
+  --skill-bg-outline: #166a5f;
 }
 .light {
-    --text-color: #000000;
-    
-    --shimmer-bg-color: hsl(216, 12%, 84%);
-    --shimmer-color: hsl(218, 11%, 65%);
+  --text-color: #000000;
 
-    --primary-body-color: hsl(0, 0%, 95%);
-    --secondary-body-color: hsl(0, 0%, 93%);
+  --shimmer-bg-color: hsl(216, 12%, 84%);
+  --shimmer-color: hsl(218, 11%, 65%);
 
-    --body-darker-color: hsl(0, 0%, 90%);
+  --primary-body-color: hsl(0, 0%, 95%);
+  --secondary-body-color: hsl(0, 0%, 93%);
 
-    --accent: #dc2626;
-    --accent-dim: #991b1b;
+  --body-darker-color: hsl(0, 0%, 90%);
 
-    --selection: rgba(220, 38, 38, 0.25);
+  --accent: #dc2626;
+  --accent-dim: #991b1b;
 
-    --invert-color: black;
+  --selection: rgba(220, 38, 38, 0.25);
 
-    --skill-bg-outline: rgb(215, 215, 215); 
+  --invert-color: black;
+
+  --skill-bg-outline: rgb(215, 215, 215);
 }
 
-::-moz-selection { 
+:where(:not(.dark)) input:-webkit-autofill,
+:where(:not(.dark)) input:-webkit-autofill:hover,
+:where(:not(.dark)) input:-webkit-autofill:focus,
+:where(:not(.dark)) input:-webkit-autofill:active,
+:where(:not(.dark)) textarea:-webkit-autofill,
+:where(:not(.dark)) textarea:-webkit-autofill:hover,
+:where(:not(.dark)) textarea:-webkit-autofill:focus,
+:where(:not(.dark)) textarea:-webkit-autofill:active,
+:where(:not(.dark)) select:-webkit-autofill,
+:where(:not(.dark)) select:-webkit-autofill:hover,
+:where(:not(.dark)) select:-webkit-autofill:focus,
+:where(:not(.dark)) select:-webkit-autofill:active,
+:where(:not(.dark)) input:-internal-autofill-selected,
+:where(:not(.dark)) input:-internal-autofill-previewed {
+  -webkit-box-shadow: 0 0 0 30px oklch(92.8% 0.006 264.531) inset !important;
+  box-shadow: 0 0 0 30px oklch(92.8% 0.006 264.531) inset !important;
+  -webkit-text-fill-color: black !important;
+  color: black !important;
+  caret-color: rgb(229, 231, 235) !important;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark input:-webkit-autofill:active,
+.dark textarea:-webkit-autofill,
+.dark textarea:-webkit-autofill:hover,
+.dark textarea:-webkit-autofill:focus,
+.dark textarea:-webkit-autofill:active,
+.dark select:-webkit-autofill,
+.dark select:-webkit-autofill:hover,
+.dark select:-webkit-autofill:focus,
+.dark select:-webkit-autofill:active,
+.dark input:-internal-autofill-selected,
+.dark input:-internal-autofill-previewed {
+  -webkit-box-shadow: 0 0 0 30px rgb(16, 24, 40) inset !important;
+  box-shadow: 0 0 0 30px rgb(16, 24, 40) inset !important;
+  -webkit-text-fill-color: rgb(229, 231, 235) !important;
+  color: rgb(229, 231, 235) !important;
+  caret-color: rgb(229, 231, 235) !important;
+}
+
+::-moz-selection {
   background: var(--selection);
 }
 
@@ -65,51 +108,61 @@ $nav-btn-dot-size: 5px;
 }
 
 // Global Styles
-*, *:before, *:after {
-    font-family: 'Poppins', system-ui, sans-serif;
-    box-sizing: border-box;
-    --cursor-scale: 1.0;
+*,
+*:before,
+*:after {
+  font-family: Calibre, "Poppins", system-ui, sans-serif;
+  box-sizing: border-box;
+  --cursor-scale: 1;
+}
+.fira-code,
+.fira-code > * {
+  font-family: "Fira Code", system-ui, sans-serif;
 }
 
-.content-container {
-    width: 100%;
-    max-width: 90rem !important;
+h1 {
+  font-size: 12rem;
+}
+h2 {
+  font-size: 10rem;
+}
+h3 {
+  font-size: 8rem;
+}
+h4 {
+  font-size: 6rem;
+}
+h5 {
+  font-size: 4rem;
+}
+h6 {
+  font-size: 2rem;
 }
 
 .interactable:hover {
-    --cursor-scale: 10.0;
+  --cursor-scale: 10;
 }
 
-html, body {
-  position: static;
-  overflow-x: hidden;
-
-  overscroll-behavior: contain;
+html {
+  width: 100%;
+  box-sizing: border-box;
   scroll-behavior: smooth;
-
-  -webkit-overflow-scrolling: touch; /* smoother on iOS */
-
-  height: auto;
-  min-height: calc(var(--vh, 1vh) * 100);
-
-  background-attachment: scroll;
-  background-color: var(--primary-body-color);
-  background: radial-gradient(
-      at right top,
-      var(--primary-body-color),
-      var(--secondary-body-color)
-    );
 }
 body {
   margin: 0;
   padding: 0;
+
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
 
   /* scrollbar styles */
   &::-webkit-scrollbar {
     width: 6.5px;
   }
   &::-webkit-scrollbar-track {
-    background: transparent;
+    background: oklch(13% 0.028 261.692);
     border-radius: 10px;
   }
   &::-webkit-scrollbar-thumb {
@@ -117,331 +170,397 @@ body {
     border-radius: 10px;
   }
 }
+html,
+body {
+  overflow-x: hidden;
 
-@mixin BeforeAfterBase($w: 100%, $h: 100%, $p: absolute, $t: 0, $l: 0, $r: 0, $b: 0) {
-    content: '';
-    width: $w;
-    height: $h;
-    position: $p;
-    top: $t;
-    left: $l;
-    right: $r;
-    bottom: $b;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch; /* smoother on iOS */
+
+  min-height: 100%;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  background-attachment: scroll;
+  background-color: var(--primary-body-color);
+  background: radial-gradient(
+    at right top,
+    var(--primary-body-color),
+    var(--secondary-body-color)
+  );
+}
+.text-shadow {
+  text-shadow: 0 0 50px rgba(0, 0, 0, 1);
 }
 
-.text-shadow {
-    text-shadow: 0 0 50px rgba(0, 0, 0, 1);
+@mixin BeforeAfterBase(
+  $w: 100%,
+  $h: 100%,
+  $p: absolute,
+  $t: 0,
+  $l: 0,
+  $r: 0,
+  $b: 0
+) {
+  content: "";
+  width: $w;
+  height: $h;
+  position: $p;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
 }
 
 .top-header {
-    top: 0;
-    min-height: 110px;
-    transition: top 0.2s ease-out;
+  $height: 100px;
+  $tracker: 3px;
 
-    &.inactive {
-        top: -100px;
-    }
-}
-.top-header::after {
+  top: 0;
+  min-height: $height;
+  max-height: $height;
+  transition: top 0.2s ease-out;
 
-    @include BeforeAfterBase(100%, 3px, relative, auto, auto, auto, auto);
+  &.inactive {
+    top: calc($height * -1 + 10px);
+  }
+  & > .header-content {
+    min-height: $height - $tracker;
+    max-height: $height - $tracker;
+  }
+  &.closed::after {
+    @include BeforeAfterBase(100%, $tracker, relative);
 
     background-color: var(--accent-dim);
     transform-origin: left;
     scale: 0 1;
     animation: scrollWatcher linear;
     animation-timeline: scroll();
+  }
 }
 
 .btn-slide-hover::before {
-    @include BeforeAfterBase();
+  @include BeforeAfterBase();
 
-    background-color: var(--invert-color);
-    z-index: -1;
-    transform: translateX(-100%);
+  background-color: var(--invert-color);
+  z-index: -1;
+  transform: translateX(-100%);
 
-    transition: transform 0.15s ease-out;
+  transition: transform 0.15s ease-out;
 }
 .btn-slide-hover:hover::before {
-    transform: translateX(0%);
+  transform: translateX(0%);
 }
 
 svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
-} 
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.clamp-text {
+  &.ct-name {
+    font-size: clamp(2.8rem, -0.475rem + 8.333vw, 6rem);
+  }
+  &.ct-role {
+    font-size: clamp(1.6rem, -1.5rem + 8.333vw, 3.5rem);
+  }
+  &.ct-text {
+    font-size: clamp(0.95rem, -2rem + 5.333vw, 1.2rem);
+  }
+}
 
 .preserve-3d {
-    transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 .project-banner {
-    width: 600px;
+  width: 600px;
 }
 
 .tint::after {
-    @include BeforeAfterBase();
+  @include BeforeAfterBase();
 
-    background-color: var(--accent);
-    opacity: 0.035;
+  background-color: var(--accent);
+  opacity: 0.035;
 }
 
 .accent-outline {
-    position: relative;
+  position: relative;
 }
 .accent-outline::before {
-    @include BeforeAfterBase(100%, 100%, absolute, -20px, -20px);
-    
-    z-index: -5;
-    border-radius: inherit;
-    border-width: 2px;
-    border-color: var(--accent);
+  @include BeforeAfterBase(100%, 100%, absolute, -20px, -20px);
+
+  z-index: -5;
+  border-radius: inherit;
+  border-width: 2px;
+  border-color: var(--accent);
 }
 
 .icon {
-    &-btn {
-        width: 24px;
-        opacity: 1; 
-        transform: scale(1);
-        transition: all 0.3s ease;
-        
-        &.inactive {
-            opacity: 0;
-            transform: scale(0);
-        }
+  &-btn {
+    width: 24px;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+
+    &.inactive {
+      opacity: 0;
+      transform: scale(0);
     }
+  }
 }
 
 .social {
-    &-line {
-        width: 1px;
-        height: 40px;
-        transition: height 0.3s ease;
+  &-line {
+    width: 1px;
+    height: 40px;
+    transition: height 0.3s ease;
 
-        &.inactive {
-            height: 0px;
-        }
+    &.inactive {
+      height: 0px;
     }
-    &-arrow {
-        transition: transform 0.3s ease;
+  }
+  &-arrow {
+    transition: transform 0.3s ease;
 
-        &.inactive {
-            transform: rotateZ(180deg);
-        }
+    &.inactive {
+      transform: rotateZ(180deg);
     }
+  }
 }
 
 .back-to-top-btn {
-
-    &.inactive {
-        transform: translateY(100%);
-        bottom: 0;
-    }
-    color: #d9d9d9;
+  &.inactive {
+    transform: translateY(100%);
+    bottom: 0;
+  }
+  color: #d9d9d9;
 }
 
 .scroll-wrapper {
-    scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
 }
 
 ::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
 
-    height: 8px;
-    width: 8px;
-
-    &-thumb {
-        background-color: #434e64;
-        border-radius: 8px;
-    }
-    &-track {
-        background-color: transparent;
-        box-shadow: none;
-    }
-    &-button, &-corner {
-        display: none;
-    }
+  &-thumb {
+    background-color: #434e64;
+    border-radius: 8px;
+  }
+  &-track {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &-button,
+  &-corner {
+    display: none;
+  }
 }
 
 .skill {
-    &-icon {
-        transition: opacity 0.3s ease;
+  &-icon {
+    transition: opacity 0.3s ease;
 
-        &.defocus { 
-            opacity: 0.5;
-            filter: blur(1px);
-        }
+    &.defocus {
+      opacity: 0.5;
+      filter: blur(1px);
     }
-    &-label {
-        transition: all 0.15s ease;
+  }
+  &-label {
+    transition: all 0.15s ease;
 
-        &.inactive {
-            transform: translateY(-85%) scale(0.5);
-            opacity: 0;
-        }
+    &.inactive {
+      transform: translateY(-85%) scale(0.5);
+      opacity: 0;
     }
-    &-bg {
-        position: relative;
-        flex-basis: 100%;
-        background-color: var(--body-darker-color);
-        border-radius: 4px;
-        transition: all 0.35s ease;
+  }
+  &-bg {
+    position: relative;
+    flex-basis: 100%;
+    background-color: var(--body-darker-color);
+    border-radius: 4px;
+    transition: all 0.35s ease;
 
-        &:hover {
-            box-shadow: (0 0 4rem rgba(22, 106, 95, 0.05));
-        }
-        &::before {
-            @include BeforeAfterBase(auto, auto, absolute, -1px, -1px, -1px, 0);
-
-            content: '';
-            background: linear-gradient(0deg, transparent, var(--skill-bg-outline));
-    
-            z-index: -1;
-            border-radius: 4px;
-        }
+    &:hover {
+      box-shadow: (0 0 4rem rgba(22, 106, 95, 0.05));
     }
+    &::before {
+      @include BeforeAfterBase(auto, auto, absolute, -1px, -1px, -1px, 0);
+
+      content: "";
+      background: linear-gradient(0deg, transparent, var(--skill-bg-outline));
+
+      z-index: -1;
+      border-radius: 4px;
+    }
+  }
 }
 .navigation-btn {
+  position: relative;
 
-    position: relative;
+  $size: $nav-btn-dot-size;
 
-    $size: $nav-btn-dot-size;
+  &::before {
+    @include BeforeAfterBase(
+      $size,
+      $size,
+      absolute,
+      -50%,
+      calc(50% - $size / 2),
+      auto,
+      auto
+    );
 
-    &::before {
-        @include BeforeAfterBase($size, $size, absolute, -50%, calc(50% - $size / 2), auto, auto);
+    background-color: var(--accent-dim);
+    border-radius: 100%;
+    opacity: 0;
+    z-index: -1;
 
-        background-color: var(--accent-dim);
-        border-radius: 100%;
-        opacity: 0;
-        z-index: -1;
-
-        transition: all 0.3s ease;
-    }
-    &.active::before {
-        top: 100%;
-        opacity: 1;
-    }
+    transition: all 0.3s ease;
+  }
+  &.active::before {
+    top: 100%;
+    opacity: 1;
+  }
 }
 
 .body-darker-color {
-    background-color: var(--body-darker-color);
+  background-color: var(--body-darker-color);
 }
 
 .rounded-inherit {
-    border-radius: inherit;
-}
-
-.contact-form {
-    width: 550px;
+  border-radius: inherit;
 }
 
 .slideshow {
-    transition: transform 0.15s ease-out 0s;
+  transition: transform 0.15s ease-out 0s;
 
-    &.shimmer {
-        --shimmer-bg-color: transparent;
-        --shimmer-speed: 0.65s;
-        --shimmer-color: rgba(255, 255, 255, 0.05);
-        --shimmer-animation-iteration: forwards;
-    }
+  &.shimmer {
+    --shimmer-bg-color: transparent;
+    --shimmer-speed: 0.65s;
+    --shimmer-color: rgba(255, 255, 255, 0.05);
+    --shimmer-animation-iteration: forwards;
+  }
 }
 
 .shimmer {
-    position: relative;
-    transition: opacity 0.5s ease;
-    overflow: hidden;
-    
-    &.inactive::after {
-        opacity: 0;
-    }
-    &::after {
-        @include BeforeAfterBase();
-    
-        animation: shimmerEffect var(--shimmer-speed) var(--shimmer-animation-iteration) ease;
-    
-        z-index: 2;
-        background: linear-gradient(to right, var(--shimmer-bg-color) 8%, var(--shimmer-color) 20%, var(--shimmer-bg-color) 33%);
-        background-size: 200%;
-    }
+  position: relative;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+
+  &.inactive::after {
+    opacity: 0;
+  }
+  &::after {
+    @include BeforeAfterBase();
+
+    animation: shimmerEffect var(--shimmer-speed)
+      var(--shimmer-animation-iteration) ease;
+
+    z-index: 2;
+    background: linear-gradient(
+      to right,
+      var(--shimmer-bg-color) 8%,
+      var(--shimmer-color) 20%,
+      var(--shimmer-bg-color) 33%
+    );
+    background-size: 200%;
+  }
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .hide-scrollbar {
-    -ms-overflow-style: none;
+  -ms-overflow-style: none;
+  overflow: hidden;
 }
 .hide-scrollbar {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 /*    MENU BUTTON :: START    */
 
 @mixin MenuLine($size, $thickness) {
-    width: $size;
-    height: $thickness;
-    background-color: var(--accent);
-    border-radius: 16px;
-    transition: all 0.3s ease;
+  width: $size;
+  height: $thickness;
+  background-color: var(--accent);
+  border-radius: 16px;
+  transition: all 0.3s ease;
 }
 @mixin CalculateMenuOffset($size, $thickness) {
-    --offset: calc(#{$size} / 2 - #{$thickness} / 2);
+  --offset: calc(#{$size} / 2 - #{$thickness} / 2);
 }
 
-@mixin MenuBtnBase($size, $thickness, $topSizeMultiplier: 1.0, $middleSizeMultiplier: 1.0, $bottomSizeMultiplier: 1.0) {
-    width: $size;
-    height: $size;
+@mixin MenuBtnBase(
+  $size,
+  $thickness,
+  $topSizeMultiplier: 1,
+  $middleSizeMultiplier: 1,
+  $bottomSizeMultiplier: 1
+) {
+  width: $size;
+  height: $size;
 
-    @include CalculateMenuOffset($size, $thickness);
+  @include CalculateMenuOffset($size, $thickness);
 
-    .menu-line {
-        &-top { @include MenuLine($size * $topSizeMultiplier, $thickness); }
-        &-middle { @include MenuLine($size * $middleSizeMultiplier, $thickness); }
-        &-bottom { @include MenuLine($size * $bottomSizeMultiplier, $thickness); }
+  .menu-line {
+    &-top {
+      @include MenuLine($size * $topSizeMultiplier, $thickness);
     }
+    &-middle {
+      @include MenuLine($size * $middleSizeMultiplier, $thickness);
+    }
+    &-bottom {
+      @include MenuLine($size * $bottomSizeMultiplier, $thickness);
+    }
+  }
 }
 
 .menu-btn {
-    
-    @include MenuBtnBase($menu-btn-size, $menu-btn-line-thickness);
+  @include MenuBtnBase($menu-btn-size, $menu-btn-line-thickness);
 
-    &.list { 
-        @include MenuBtnBase($menu-btn-size, $menu-btn-line-thickness, 0.7, 1.0, 0.8);
+  &.list {
+    @include MenuBtnBase($menu-btn-size, $menu-btn-line-thickness, 0.7, 1, 0.8);
+  }
+  &-big {
+    @include MenuBtnBase(30px, 3px);
+  }
+  &.close {
+    .menu-line {
+      &-top {
+        transform: translateY(var(--offset)) rotateZ(45deg);
+      }
+      &-middle {
+        opacity: 0;
+      }
+      &-bottom {
+        transform: translateY(calc(-1 * var(--offset))) rotateZ(-45deg);
+      }
     }
-    &-big {
-        @include MenuBtnBase(30px, 3px);
-    }
-    &.close {
-        .menu-line {
-            &-top {
-                transform: translateY(var(--offset)) rotateZ(45deg);
-            }
-            &-middle {
-                opacity: 0;
-            }
-            &-bottom {
-                transform: translateY(calc(-1 * var(--offset))) rotateZ(-45deg);
-            }
-        }
-    }
+  }
 }
 
 input {
-    outline: 0;
+  outline: 0;
 
-    :hover {
-        outline-width: 1px;
-    }
+  :hover {
+    outline-width: 1px;
+  }
 
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-        transition: background-color 5000s ease-in-out 0s;
-        -webkit-text-fill-color: var(--text-color) !important;
-        box-shadow: 0 0 0px 1000px var(--body-darker-color) inset;
-        letter-spacing: 0.1em;
-    }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--text-color) !important;
+    box-shadow: 0 0 0px 1000px var(--body-darker-color) inset;
+    letter-spacing: 0.1em;
+  }
 }
 
 /*    MENU BUTTON :: END    */
@@ -490,24 +609,24 @@ input {
 /*    ANIMATIONS :: START    */
 
 @keyframes revealUp {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes revealDown {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .reveal {
@@ -537,20 +656,24 @@ input {
   }
 }
 @keyframes scaleIn {
-    0% { transform: scale(var(--scale-initial)) }
-    100% { transform: scale(1) }
+  0% {
+    transform: scale(var(--scale-initial));
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @mixin fadeAnimation($direction, $opacityIn: 0, $opacityOut: 1, $speed: 0.3s) {
   $translate: null;
 
-  @if $direction == 'up' {
+  @if $direction == "up" {
     $translate: translateY(100%);
-  } @else if $direction == 'down' {
+  } @else if $direction == "down" {
     $translate: translateY(-100%);
-  } @else if $direction == 'right' {
+  } @else if $direction == "right" {
     $translate: translateX(-100%);
-  } @else if $direction == 'left' {
+  } @else if $direction == "left" {
     $translate: translateX(100%);
   }
 
@@ -568,19 +691,37 @@ input {
   animation: fade#{$direction} $speed forwards ease;
 }
 
-.fade-in { @include fadeAnimation('in') }
-.instant-fade-in { @include fadeAnimation('in', 0, 1, 0s) }
-.fade-out { @include fadeAnimation('out') }
-.instant-fade-out { @include fadeAnimation('out', 1, 0, 0s) }
-.fade-up { @include fadeAnimation('up') } 
-.fade-down { @include fadeAnimation('down') }
-.fade-right { @include fadeAnimation('right') }
-.fade-left { @include fadeAnimation('left') }
-
-@mixin scaleAnimation($animName) {
-    animation: $animName var(--scale-speed) forwards ease;
+.fade-in {
+  @include fadeAnimation("in");
+}
+.instant-fade-in {
+  @include fadeAnimation("in", 0, 1, 0s);
+}
+.fade-out {
+  @include fadeAnimation("out");
+}
+.instant-fade-out {
+  @include fadeAnimation("out", 1, 0, 0s);
+}
+.fade-up {
+  @include fadeAnimation("up");
+}
+.fade-down {
+  @include fadeAnimation("down");
+}
+.fade-right {
+  @include fadeAnimation("right");
+}
+.fade-left {
+  @include fadeAnimation("left");
 }
 
-.scale-in { @include scaleAnimation(scaleIn) }
+@mixin scaleAnimation($animName) {
+  animation: $animName var(--scale-speed) forwards ease;
+}
+
+.scale-in {
+  @include scaleAnimation(scaleIn);
+}
 
 /*    ANIMATIONS :: END    */

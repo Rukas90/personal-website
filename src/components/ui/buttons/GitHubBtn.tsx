@@ -10,14 +10,12 @@ const GitHubBtn = ({
   hidden,
 }: IconButtonProps) => {
   return (
-    <>
-      <IconButton
-        icon={<GithubIcon {...svg} />}
-        className={className}
-        url={url}
-        hidden={hidden}
-      />
-    </>
+    <IconButton
+      icon={<GithubIcon {...svg} />}
+      className={className}
+      url={url}
+      hidden={hidden}
+    />
   )
 }
 export default GitHubBtn

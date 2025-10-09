@@ -10,6 +10,7 @@ interface Props extends GeneralProps {
 const MenuBtn = ({ size, mode, onClick, className }: Props) => {
   return (
     <button
+      aria-label="Menu"
       className={`${className} interactable menu-btn${
         size ? `-${size}` : ""
       } ${mode} flex fade-in flex-col justify-between`}

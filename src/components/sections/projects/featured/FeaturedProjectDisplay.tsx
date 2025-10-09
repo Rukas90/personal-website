@@ -8,13 +8,18 @@ import ProjectTools from "../ui/ProjectTools"
 import ProjectLinks from "../ui/ProjectLinks"
 import { SkeletonProps } from "src/components/props/SkeletonProps"
 import ProjectSlugButton from "../ui/ProjectSlugButton"
+import { useMediaQuery } from "react-responsive"
+import { useSwipeable } from "react-swipeable"
 
 interface Props extends ProjectData, SkeletonProps {
   index: number
+  showPrevious?: () => void
+  showNext?: () => void
 }
-
 const FeaturedProjectDisplay = ({
   index = -1,
+  showPrevious,
+  showNext,
   showSkeleton = false,
   title,
   subtitle,
@@ -25,11 +30,30 @@ const FeaturedProjectDisplay = ({
   links,
   slug,
 }: Props) => {
+  const isCollapsed = useMediaQuery({
+    query: "(max-width: 1280px)",
+  })
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isCollapsed && showPrevious) {
+        showPrevious()
+      }
+    },
+    onSwipedRight: () => {
+      if (isCollapsed && showNext) {
+        showNext()
+      }
+    },
+    trackMouse: true,
+  })
   return (
     <div className="relative flex rounded-2xl my-4 w-full xl:overflow-visible overflow-hidden">
       <FeaturedProjectBanner showSkeleton={showSkeleton} images={images} />
 
-      <div className="xl:w-1/2 w-full xl:ps-8 p-8 flex z-10 flex-col dark:text-gray-100 text-black justify-center items-start tracking-wider tn:space-y-3 space-y-6">
+      <div
+        {...handlers}
+        className="xl:w-1/2 w-full xl:ps-8 p-8 flex z-10 flex-col dark:text-gray-100 text-black justify-center items-start tracking-wider tn:space-y-3 space-y-6"
+      >
         <ProjectLabel
           showSkeleton={showSkeleton}
           label={label}

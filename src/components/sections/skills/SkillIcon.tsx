@@ -5,7 +5,6 @@ interface Props extends SkillIconProps {
   defocus?: boolean
   onHoverStateChange?: (newState: boolean) => void
 }
-
 const SkillIcon = ({ icon, label, defocus, onHoverStateChange }: Props) => {
   const [isHovered, setHovered] = useState(false)
 
@@ -19,13 +18,12 @@ const SkillIcon = ({ icon, label, defocus, onHoverStateChange }: Props) => {
       onHoverStateChange(state)
     }
   }
-
   return (
-    <div className="relative flex justify-center items-end">
+    <div aria-labels={label} className="relative flex justify-center items-end">
       <div
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
-        className={`interactable skill-icon xl:w-14 xl:h-14 lg:w-12 lg:h-12 w-11 h-11 ${
+        className={`interactable skill-icon xl:size-13 size-12 ${
           defocus && "defocus"
         }`}
       >

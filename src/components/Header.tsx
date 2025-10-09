@@ -8,8 +8,13 @@ import ThemeToggle from "./ui/ThemeToggle"
 import { useTheme } from "./contexts/ThemeContext"
 import PlainText from "./ui/text/PlainText"
 import HeaderMenu from "./ui/HeaderMenu"
+import BorderContainer from "./sections/BorderContainer"
 
-const Header = () => {
+interface Props {
+  resumeUrl?: string
+  showNav?: boolean
+}
+const Header = ({ resumeUrl, showNav = true }: Props) => {
   const { isDark } = useTheme()
   const { subscribe } = useScrollListener()
   const [overlayStrength, setOverlayStrength] = useState(0)
@@ -58,12 +63,25 @@ const Header = () => {
 
   useEffect(() => {
     const unsubscribe = subscribe(onScroll)
-
     return () => unsubscribe()
   }, [])
 
-  const bgRGB = isDark ? "3, 7, 18" : "225, 225, 225"
+  useEffect(() => {
+    if (isExpanded) {
+      document.documentElement.classList.add("hide-scrollbar")
+    } else {
+      document.documentElement.classList.remove("hide-scrollbar")
+    }
+    return () => {
+      document.documentElement.classList.remove("hide-scrollbar")
+    }
+  }, [isExpanded])
 
+  const openResume = () => {
+    window.open(resumeUrl, "_blank")
+  }
+
+  const bgRGB = isDark ? "3, 7, 18" : "225, 225, 225"
   const overlayStyle = {
     boxShadow: `0 10px 15px -3px rgba(0, 0, 0, ${overlayStrength * 0.2}), 
                 0 4px 6px -4px rgba(0, 0, 0, ${overlayStrength * 0.1})`,
@@ -75,18 +93,22 @@ const Header = () => {
       style={overlayStyle}
       className={`fixed top-header w-full fade-down flex flex-col justify-center z-20 ${
         !visible && !isExpanded ? "inactive" : ""
-      }`}
+      } ${isExpanded ? "opened" : "closed"}`}
     >
-      <div className="w-full flex items-center justify-center py-6 px-12">
-        <div className="content-container flex justify-between items-center">
-          <div className="flex z-20 items-center gap-6">
-            <div className="interactable relative rounded-full overflow-hidden w-[48px]">
+      <div className="header-content w-full h-100 flex items-center justify-center py-6 px-10">
+        <BorderContainer
+          className="flex justify-between items-center"
+          applyMargin={false}
+          applyPadding={false}
+        >
+          <div className="flex z-20 items-center gap-4">
+            <div className="relative rounded-full overflow-hidden w-[48px]">
               <img
                 className="zoom-rotate-in pointer-events-none dark:invert-0 invert"
                 src={LogoImg}
               />
             </div>
-            <PlainText className="font-semibold tracking-widest hidden tn:block">
+            <PlainText className="font-semibold text-xl tracking-widest block">
               PORTFOLIO
             </PlainText>
           </div>
@@ -95,23 +117,26 @@ const Header = () => {
             mode={isExpanded ? "close" : null}
             onClick={toggleMenu}
           />
+
           <ul
             className={`${
               isExpanded ? "flex fade-up" : "lg:flex hidden"
             } lg:text-base sm:text-3xl text-2xl lg:dark:font-normal lg:font-medium font-light lg:bg-transparent lg:dark:bg-transparent dark:bg-gray-950 bg-white lg:relative absolute lg:w-auto w-dvw lg:h-auto h-dvh top-0 left-0 list-none lg:justify-start justify-center items-center lg:flex-row flex-col lg:gap-3 mn:gap-8 gap-4 dark:text-gray-400 lg:pt-0 pt-[55px]`}
           >
-            <HeaderMenu />
-
-            <li className="relative interactable lg:mt-0 sm:mt-6 mt-3 btn-slide-hover overflow-hidden border-btn-effect px-5 py-2 transition-all rounded-md dark:text-white text-black dark:hover:text-gray-950 hover:text-white dark:border-white border-black border-2">
-              <a className="interactable" href="#">
-                Resume
-              </a>
-            </li>
-            <li>
+            {showNav && <HeaderMenu />}
+            {showNav && (
+              <li
+                onClick={openResume}
+                className="relative interactable cursor-pointer lg:mt-0 sm:mt-6 mt-3 btn-slide-hover overflow-hidden border-btn-effect px-5 py-2 transition-all rounded-md dark:text-white text-black dark:hover:text-gray-950 hover:text-white dark:border-white border-black border-2"
+              >
+                <span className="pointer-events-none">Resume</span>
+              </li>
+            )}
+            <li className="flex items-center">
               <ThemeToggle className="lg:ml-4 ml-0 lg:mt-0 mt-8" />
             </li>
           </ul>
-        </div>
+        </BorderContainer>
       </div>
     </div>
   )

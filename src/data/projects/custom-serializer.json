@@ -1,0 +1,16 @@
+{
+    "title": "Serializer and Deserializer",
+    "subtitle": "Data Serialization System",
+    "label": "Serialization Library",
+    "summary": "Initially for the Pixel Harmony project, I developed a custom C# serialization system to efficiently handle complex data types like RenderTexture and Texture2D, which standard tools struggled with. This endeavor not only streamlined data processing within the project but also satisfied my curiosity in crafting specialized serialization solutions.",
+    "tools": [ "C#", "Unity" ],
+    "links": [
+        {
+            "type": "GitHub",
+            "url": "https://github.com/Rukas90/Pixel-Hamrony-Serializer"
+        }
+    ],
+    "slug": {
+        "url": "https://github.com/Rukas90/Pixel-Hamrony-Serializer"
+    }
+}

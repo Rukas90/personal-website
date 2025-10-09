@@ -16,7 +16,7 @@ const ProjectTools = ({ showSkeleton, tools, className }: Props) => {
       {showSkeleton ? (
         <RectangleSkeleton className="w-24 h-4 self-center" />
       ) : (
-        <ul className="flex flex-wrap gap-2 dark:text-gray-300 text-black dark:font-normal font-medium">
+        <ul className="flex flex-wrap gap-2 dark:text-gray-400 text-black dark:font-normal font-medium">
           {tools.map((tool, index) => (
             <li
               className="fade-in"

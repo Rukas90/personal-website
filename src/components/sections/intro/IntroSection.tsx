@@ -4,25 +4,24 @@ import { SCROLL_DOWN_THRESHOLD } from "src/utils/Constants"
 import useScrollPassedThreshold from "src/components/hooks/useScrollPassedThreshold"
 import BorderContainer from "../BorderContainer"
 import IntroductionText from "./IntroductionText"
-import Background from "./canvas/Background"
+import BackgroundElement from "./BackgroundElement"
+import { PortfolioIntroData } from "src/config/PortfolioConfig"
 
-const IntroSection = () => {
+const IntroSection = (props: PortfolioIntroData) => {
   const isVisible = !useScrollPassedThreshold(SCROLL_DOWN_THRESHOLD)
-  const isMobile = window.innerWidth < 768
 
   return (
-    <div className="relative w-full min-h-dvh text-start flex flex-col justify-center items-center sm:items-start px-8 sm:px-24 md:px-48 pt-[110px]">
-      <div className="absolute top-0 right-0 w-full h-full flex items-center justify-center overflow-hidden">
-        <div id="home" className="absolute top-0 left-0 w-full h-48" />
-        <div className="h-full aspect-square">
-          {isMobile ? <></> : <Background />}
-        </div>
-      </div>
-      <BorderContainer className="my-auto">
-        <IntroductionText />
+    <div className="relative w-full h-svh min-h-min text-start flex flex-col justify-center items-center sm:items-start px-8 sm:px-24 md:px-28 lg:px-64 pt-[110px]">
+      <BackgroundElement />
+      <BorderContainer
+        className="m-auto"
+        applyMargin={false}
+        applyPadding={false}
+      >
+        <IntroductionText {...props} />
       </BorderContainer>
       <div
-        className={`relative w-full min-h-8 h-8 mb-6 pointer-events-none fade-${
+        className={`relative w-full min-h-8 h-8 my-6 pointer-events-none fade-${
           isVisible ? "up" : "out"
         }`}
       >

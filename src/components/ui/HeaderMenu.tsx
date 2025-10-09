@@ -1,19 +1,14 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import HeaderNavItem from "./HeaderNavItem"
 import useScrollListener from "../hooks/useScrollListener"
 import { useSections } from "../contexts/SectionsContext"
-
-type HeaderMenuItem = {
-  id: string
-  label: string
-}
+import { useLocation } from "react-router-dom"
 
 const HeaderMenu = () => {
   const { subscribe, maxScrollY } = useScrollListener()
   const { sections, count } = useSections()
-  const [items, setItems] = useState<HeaderMenuItem[]>([])
-
   const [activeID, setActiveID] = useState("")
+  const { hash } = useLocation()
 
   const THRESHOLD = 100
 
@@ -48,46 +43,33 @@ const HeaderMenu = () => {
       if (!active) {
         return
       }
-
       setActiveID(id)
     })
   }
-  useEffect(() => {
-    setItems((_) => {
-      const items = Array<HeaderMenuItem>(sections.size)
-
-      let index = -1
-
-      sections.forEach((section) => {
-        index++
-
-        items[index] = {
-          id: section.name.toLowerCase(),
-          label: section.name,
-        }
-      })
-      return items
-    })
-  }, [sections, count])
 
   useEffect(() => {
     const unsubscribe = subscribe(onScroll)
-
     onScroll(0)
 
     return () => unsubscribe()
   }, [sections])
 
+  useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(hash.substring(1))
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }, [hash])
+
   return (
     <>
-      {items.map((item, index) => (
-        <HeaderNavItem
-          key={`item_${index}`}
-          id={item.id}
-          active={activeID === item.id}
-          label={item.label}
-        />
-      ))}
+      <HeaderNavItem id="home" activeId={activeID} />
+      <HeaderNavItem id="about" activeId={activeID} />
+      <HeaderNavItem id="skills" activeId={activeID} />
+      <HeaderNavItem id="projects" activeId={activeID} />
+      <HeaderNavItem id="contact" activeId={activeID} />
     </>
   )
 }

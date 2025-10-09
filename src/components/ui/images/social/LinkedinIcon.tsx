@@ -4,23 +4,23 @@ import { SvgIconProps } from "src/components/props/SvgIconProps"
 
 const LinkedinIcon = ({ fill }: SvgIconProps) => {
   const style = useStyling()
-  const f = fill || style.textColor.hex
+  const f = fill || style.iconColor.hex
 
   return (
-    <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none">
-      <g clipPath="url(#clip0_1_6)">
-        <path
-          d="M780 462.324V780H660V520.039C660 479.075 651.013 444.121 631.152 419.008C610.725 393.181 580.875 380.391 545.36 380.391C507.554 380.391 475.358 393.327 452.872 418.876C430.683 444.088 420 479.236 420 520.039V780H300V300H420V338.477V413.964L457.337 348.448L457.347 348.431C457.352 348.422 457.359 348.41 457.368 348.395C457.413 348.319 457.505 348.164 457.645 347.936C457.925 347.479 458.395 346.729 459.058 345.727C460.385 343.722 462.476 340.72 465.351 337.052C471.116 329.698 479.941 319.784 491.968 309.86C515.904 290.112 552.376 270.391 603.32 270.391C655.857 270.391 699.472 286.353 729.933 316.9C760.347 347.399 780 394.801 780 462.324ZM175.32 98.3984V98.4058V98.4132C175.352 141.856 140.415 176.836 97.6801 176.836C54.9135 176.836 20 141.861 20 98.3984C20 54.9808 54.9085 20 97.6801 20C140.406 20 175.32 54.9754 175.32 98.3984ZM180 300V780H20V300H180Z"
-          fill={f}
-          stroke={f}
-          strokeWidth="40"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_1_6">
-          <rect width="100%" height="100%" fill={f} />
-        </clipPath>
-      </defs>
+    <svg
+      className="feather feather-linkedin"
+      fill="none"
+      width="24"
+      height="24"
+      stroke={f}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect height="12" width="4" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
     </svg>
   )
 }

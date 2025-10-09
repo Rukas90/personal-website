@@ -8,9 +8,13 @@ const useElementReveal = (
   const isVisible = useRef<boolean | null>(null)
   const lastScroll = useRef<number>(0)
   const { subscribe } = useScrollListener()
+  const revealed = useRef<boolean>(false)
 
   useEffect(() => {
     const updateVisibilityAndDirection = () => {
+      if (revealed.current) {
+        return
+      }
       const currentScrollY = window.scrollY
       const scrollDirection =
         currentScrollY > lastScroll.current ? "down" : "up"
@@ -25,11 +29,10 @@ const useElementReveal = (
           rect.bottom - threshold > 0
 
         if (visible) {
-          ref.current.classList.add("visiblevisible")
+          ref.current.classList.add("visible")
         } else {
-          ref.current.classList.remove("visiblevisible")
+          ref.current.classList.remove("visible")
         }
-
         if (isVisible.current === visible) {
           return
         }
@@ -43,11 +46,13 @@ const useElementReveal = (
           "reveal-down",
           isVisible && scrollDirection === "down"
         )
-
         if (scrollDirection === "up") {
           ref.current.classList.remove("reveal-down")
         } else {
           ref.current.classList.remove("reveal-up")
+        }
+        if (isVisible.current) {
+          revealed.current = true
         }
       }
     }

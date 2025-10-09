@@ -13,8 +13,8 @@ const ProjectSlugButton = ({ slug, showSkeleton, className }: Props) => {
     <div className={className}>
       <Button
         showSkeleton={showSkeleton}
-        className="fade-left text-sm"
-        label={slug?.label || "Learn more"}
+        className="fade-left tn:text-sm text-base"
+        label={slug?.label ?? "Learn More"}
         href={slug?.url}
         target={slug?.target}
       />

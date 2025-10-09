@@ -26,6 +26,8 @@ const Button = ({
    relative 
    transition-all 
    hover:shadow-xl 
+   fira-code
+   tracking-tighter
    border-2 
    dark:border-teal-500 border-black 
    hover:-translate-y-1 

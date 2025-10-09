@@ -1,10 +1,11 @@
+import { GalleryData } from "src/components/props/PictureData"
 import { Link } from "./Link"
 import { Slug } from "./Slug"
 
 export type ProjectData = {
     title: string,
     subtitle: string,
-    images: string[],
+    images?: GalleryData,
     label: string,
     summary: string,
     tools: string[],

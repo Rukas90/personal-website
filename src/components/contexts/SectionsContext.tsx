@@ -36,7 +36,6 @@ export const SectionsProvider = ({ children }: ChildrenProps) => {
 
       return newSections
     })
-
     return () => {
       setSections((current) => {
         const newSections = new Set(current)

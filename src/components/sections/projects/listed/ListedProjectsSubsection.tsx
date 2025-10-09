@@ -1,51 +1,43 @@
-import React, { useEffect, useMemo, useRef, useState } from "react"
-import useListedProjects from "../hooks/useListedProjects"
+import React, { useState } from "react"
 import ListedProjectDisplay from "./ListedProjectDisplay"
 import Button from "src/components/ui/buttons/Button"
-import useSelfIntersection, {
-  IntersectionChangeData,
-} from "src/components/hooks/useSelfIntersection"
+import { ProjectData } from "src/types/ProjectData"
 
-const ListedProjectsSubsection = () => {
-  const ref = useRef<HTMLDivElement | null>(null)
-  const { loadedCount, projects, loadBatch, statuses, filesCount } =
-    useListedProjects()
+const ListedProjectsSubsection = ({
+  projects,
+}: {
+  projects: ProjectData[]
+}) => {
+  const defaultShowCount = 3
+  const [showMore, setShowMore] = useState(false)
 
-  const onIntersectionChange = (data: IntersectionChangeData) => {
-    if (!data.isIntersecting || data.observed) {
-      return
-    }
-    loadBatch()
-  }
-  const _ = useSelfIntersection(ref, onIntersectionChange)
-
-  const loadMore = () => {
-    loadBatch()
-
-    setTimeout(() => {
-      if (ref.current) {
-        ref.current.scrollIntoView()
-      }
-    }, 100)
-  }
+  const projectsCount = projects.length
 
   return (
     <>
       <div
-        ref={ref}
-        className="w-full basis-full grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-8 mt-24"
+        aria-label="Listed Projects"
+        className="w-full basis-full grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-8"
       >
-        {projects?.map((project, index) => (
-          <ListedProjectDisplay
-            key={index}
-            {...project}
-            showSkeleton={statuses.at(index) || !project}
-          />
-        ))}
+        {projects?.map((project, index) => {
+          if (!showMore && index >= defaultShowCount) {
+            return
+          }
+          return (
+            <ListedProjectDisplay
+              key={index}
+              {...project}
+              showSkeleton={!project}
+            />
+          )
+        })}
       </div>
-      {loadedCount < filesCount && (
+      {projectsCount > defaultShowCount && (
         <div className="mt-8">
-          <Button onClick={loadMore} label="Load more" />
+          <Button
+            onClick={() => setShowMore((current) => !current)}
+            label={`Show ${showMore ? "More" : "Less"}`}
+          />
         </div>
       )}
     </>

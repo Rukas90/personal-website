@@ -1,0 +1,75 @@
+[
+  {
+    "label": "Coding Languages",
+    "skills": ["C#", "Kotlin", "Lua", "HTML", "CSS"]
+  },
+  {
+    "label": "Frontend & Backend Frameworks",
+    "skills": [
+      ".NET Core",
+      ".NET Framework",
+      "ASP.NET Core",
+      "ASP.NET MVC",
+      "Blazor",
+      "React",
+      "jQuery",
+      "Tailwind",
+      "Bootstrap",
+      "SCSS"
+    ]
+  },
+  {
+    "label": "API Design",
+    "skills": [
+      "REST",
+      "MediatR",
+      "FastEndpoints",
+      "MinimalApi",
+      "API Versioning"
+    ]
+  },
+  { "label": "ORM", "skills": ["EF Core", "Entity Framework"] },
+  {
+    "label": "Databases",
+    "skills": [
+      "PostgreSQL",
+      "SQL Server",
+      "Firebase",
+      "Triggers",
+      "Indexing",
+      "Migrations"
+    ]
+  },
+  {
+    "label": "Architecture & Approaches",
+    "skills": ["DDD", "SOLID", "CQRS", "EDA", "DRY", "YAGNI", "KISS"]
+  },
+  {
+    "label": "Testing",
+    "skills": [
+      "Unit & Integration Testing",
+      "xUnit",
+      "NUnit",
+      "Moq",
+      "Testcontainers"
+    ]
+  },
+  {
+    "label": "Auth & Security",
+    "skills": ["JWT & Refresh", "OAuth", "Identity", "Anti-Forgery"]
+  },
+  { "label": "Logging & Cache", "skills": ["Serilog", "FusionCache", "Redis"] },
+  {
+    "label": "Cloud & Deployment",
+    "skills": ["Azure Web App Services", "Key Vault", "Netlify"]
+  },
+  {
+    "label": "CI/CD",
+    "skills": ["Azure DevOps", "Docker", "GitHub", "GitLab", "Git"]
+  },
+  { "label": "Documentation", "skills": ["Swagger", "Scalar"] },
+  {
+    "label": "Workflow & Communication",
+    "skills": ["Trello", "Clickup", "Slack", "Teams", "Zoom"]
+  }
+]

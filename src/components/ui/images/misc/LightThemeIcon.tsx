@@ -1,7 +1,6 @@
 import React from "react"
-import { SvgIconProps } from "src/components/props/SvgIconProps"
 
-const LightThemeIcon = ({ fill = "#2DD4BF" }: SvgIconProps) => {
+const LightThemeIcon = () => {
   return (
     <svg
       className="pointer-events-none"

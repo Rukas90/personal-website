@@ -17,7 +17,6 @@ const Cursor = () => {
       setScale(targetScale)
     })
   }
-
   const handleMouseEnter = (_: any) => setIsVisible(true)
   const handleMouseLeave = (_: any) => setIsVisible(false)
 

@@ -5,7 +5,6 @@ interface Props {
   text: string
   bottomMargin?: boolean
 }
-
 const SectionLabel = ({ id, text, bottomMargin = true }: Props) => {
   return (
     <>
@@ -16,9 +15,10 @@ const SectionLabel = ({ id, text, bottomMargin = true }: Props) => {
         {text}
       </h1>
       <div
-        className={`mt-8 ${
+        className={`mt-8 w-20
+        } ${
           bottomMargin && "mb-12"
-        } mx-auto w-20 h-[1px] dark:bg-teal-600 bg-red-400`}
+        } mx-auto h-[1px] dark:bg-teal-600 bg-red-400`}
       />
     </>
   )

@@ -1,0 +1,39 @@
+import React from "react"
+import Header from "../Header"
+import Content from "../Content"
+import AboutSection from "src/components/sections/about/AboutSection"
+import IntroSection from "src/components/sections/intro/IntroSection"
+import ProjectsSection from "src/components/sections/projects/ProjectsSection"
+import SkillsSection from "src/components/sections/skills/SkillsSection"
+import ContactSection from "src/components/sections/contact/ContactSection"
+import { SectionsProvider } from "../contexts/SectionsContext"
+import SectionWrapper from "../sections/SectionWrapper"
+import FooterSection from "../sections/footer/FooterSection"
+import { PortfolioConfig } from "src/config/PortfolioConfig"
+
+const PortfolioView = ({ config }: { config: PortfolioConfig }) => {
+  return (
+    <SectionsProvider>
+      <Header resumeUrl={config.resumeUrl} />
+      <Content>
+        <SectionWrapper name="Home">
+          <IntroSection {...config.intro} />
+        </SectionWrapper>
+        <SectionWrapper name="About">
+          <AboutSection content={config.about} />
+        </SectionWrapper>
+        <SectionWrapper name="Skills">
+          <SkillsSection skills={config.skills} />
+        </SectionWrapper>
+        <SectionWrapper name="Projects">
+          <ProjectsSection {...config.projects} />
+        </SectionWrapper>
+        <SectionWrapper name="Contact">
+          <ContactSection />
+        </SectionWrapper>
+      </Content>
+      <FooterSection />
+    </SectionsProvider>
+  )
+}
+export default PortfolioView

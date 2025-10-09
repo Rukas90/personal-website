@@ -1,47 +1,37 @@
 import React from "react"
-import { useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
-import HomeView from "./components/views/HomeView"
+import PortfolioView from "./components/views/PortfolioView"
 import Cursor from "./components/Cursor"
 import Foreground from "./components/Foreground"
 import "perfect-scrollbar/css/perfect-scrollbar.css"
 import { ThemeProvider } from "./components/contexts/ThemeContext"
 import { ForegroundProvider } from "./components/contexts/ForegroundContext"
+import NotFoundView from "./components/views/NotFoundView"
+import { useFixedViewportHeight } from "./components/hooks/useFixedViewportHeight"
+import { portfolioConfigs } from "./config/PortfolioConfig"
+import { getSubdomain } from "./utils/PathUtils"
+import HomeView from "./components/views/HomeView"
 
 function App() {
-  useEffect(() => {
-    let updating = false
+  useFixedViewportHeight()
+  const subdomain = getSubdomain(window.location.hostname)
+  const portfolio = subdomain ? portfolioConfigs[subdomain] : null
 
-    const updateVh = () => {
-      const vh = window.innerHeight * 0.01
-      document.documentElement.style.setProperty("--vh", `${vh}px`)
-
-      updating = false
-    }
-    const updateVhRequest = () => {
-      if (updating) {
-        return
-      }
-      window.requestAnimationFrame(updateVh)
-      updating = true
-    }
-    window.addEventListener("resize", updateVhRequest)
-    window.addEventListener("scroll", updateVhRequest)
-    window.addEventListener("touchmove", updateVhRequest)
-
-    updateVh()
-
-    return () => {
-      window.removeEventListener("resize", updateVhRequest)
-      window.removeEventListener("scroll", updateVhRequest)
-      window.removeEventListener("touchmove", updateVhRequest)
-    }
-  }, [])
   return (
     <ThemeProvider>
       <ForegroundProvider>
         <Routes>
-          <Route path="/" element={<HomeView />} />
+          <Route
+            path="/"
+            element={
+              portfolio ? (
+                <PortfolioView config={portfolio} />
+              ) : (
+                <HomeView />
+              )
+            }
+          />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
         <Foreground />
       </ForegroundProvider>

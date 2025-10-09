@@ -7,6 +7,7 @@ import useElementReveal from "../hooks/useElementReveal"
 interface Props extends ChildrenProps {
   label: string
   borders?: boolean
+  applyPadding?: boolean
 }
 
 const SectionContainer = ({ label, children, borders = true }: Props) => {

@@ -1,5 +1,6 @@
 import React from "react"
 import { SlideshowProps } from "src/components/props/SlideshowProps"
+import ImagePicture from "src/components/ui/Picture"
 import Slideshow from "src/components/ui/slideshow/Slideshow"
 
 const FeaturedProjectBanner = ({
@@ -18,13 +19,16 @@ const FeaturedProjectBanner = ({
 
       {/* MOBILE / TABLET VERSION */}
       <div className="absolute top-0 left-0 -z-10 w-full h-full xl:hidden block pointer-events-none">
-        {showSkeleton ? (
+        {showSkeleton || !images ? (
           <div className="bg-gray-950 w-full h-full"></div>
         ) : (
           <div className="tint">
-            <img
+            <ImagePicture
+              path={images.path}
+              extensions={images.extensions}
+              file={images.files[0]}
+              alt="bar"
               className="object-cover scale-110 grayscale opacity-5 brightness-50"
-              src={images?.[0]}
             />
           </div>
         )}

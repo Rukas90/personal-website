@@ -13,7 +13,6 @@ const SkillsContainer = ({ label, skills }: Props) => {
   useElementReveal(ref)
 
   const [hoverIndex, setHoverIndex] = useState(-1)
-
   const hasFocus = useMemo(() => hoverIndex !== -1, [hoverIndex])
 
   return (
@@ -31,20 +30,18 @@ const SkillsContainer = ({ label, skills }: Props) => {
             {label}
           </p>
         </div>
-        <div className="flex flex-wrap justify-center gap-16 max-w-2xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-10 max-w-2xl mx-auto">
           {skills.map((props, index) => (
-            <a href={props.url == null ? "#" : props.url} target="_blank">
-              <div className="place-self-center" key={`Skill_${index}`}>
-                <SkillIcon
-                  icon={props.icon}
-                  label={props.label}
-                  defocus={hasFocus && hoverIndex !== index}
-                  onHoverStateChange={(state) => {
-                    setHoverIndex(state ? index : -1)
-                  }}
-                />
-              </div>
-            </a>
+            <div className="place-self-center" key={`Skill_${index}`}>
+              <SkillIcon
+                icon={props.icon}
+                label={props.label}
+                defocus={hasFocus && hoverIndex !== index}
+                onHoverStateChange={(state) => {
+                  setHoverIndex(state ? index : -1)
+                }}
+              />
+            </div>
           ))}
         </div>
       </div>

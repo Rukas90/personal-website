@@ -1,0 +1,37 @@
+{
+    "title": "Pixel Harmony",
+    "subtitle": "Image Editing Software",
+    "images": {
+        "path": "projects/pixel_harmony/",
+        "extensions": {
+            "sources": ["avif", "webp"],
+            "fallback": "jpg"
+        },
+        "files": [
+            "picture_1",
+            "picture_2",
+            "picture_3",
+            "picture_4",
+            "picture_5",
+            "picture_6",
+            "picture_7",
+            "picture_8"
+        ]
+    },
+    "label": "Editor Plugin",
+    "summary": "Pixel Harmony is an image editing software for the Unity engine. It offers an array of image manipulation tools, extending your creative scope without leaving the Unity environment.<br /><br />Greatly minimize the back-and-forth with external software. With Pixel Harmony, enjoy the convenience of making timely, efficient edits to your images within the Unity workspace.",
+    "tools": [ "Unity", "C#", "HLSL" ],
+    "links": [
+        {
+            "type": "Unity",
+            "url": "https://assetstore.unity.com/packages/tools/painting/pixel-harmony-202614"
+        },
+        {
+            "type": "Site",
+            "url": "https://pixel-harmony.com/docs/requirements"
+        }
+    ],
+    "slug": {
+        "url": "/pixel-harmony"
+    }
+}

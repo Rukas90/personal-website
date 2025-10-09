@@ -176,7 +176,10 @@ const Background: React.FC = () => {
   const { isDark } = useTheme()
 
   return (
-    <Canvas>
+    <Canvas
+      gl={{ preserveDrawingBuffer: true }}
+      style={{ background: "rgba(0, 0, 0, 0)" }}
+    >
       <Particles count={10000} />
       <EffectComposer>
         <HueSaturation

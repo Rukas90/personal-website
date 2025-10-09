@@ -10,7 +10,9 @@ export type IntersectionChangeCallback = (
 
 const useSelfIntersection = (
   target: React.MutableRefObject<Element | null>,
-  callback: IntersectionChangeCallback
+  callback: IntersectionChangeCallback,
+  margin?: string,
+  threshold?: number
 ) => {
   const [observed, setObserved] = useState(false)
   const [intersecting, setIntersecting] = useState(false)
@@ -36,8 +38,8 @@ const useSelfIntersection = (
         })
       },
       {
-        rootMargin: "0px",
-        threshold: 1.0,
+        rootMargin: margin,
+        threshold: threshold,
       }
     )
     observer.observe(target.current)
@@ -49,7 +51,7 @@ const useSelfIntersection = (
       observer.unobserve(target.current)
       observer.disconnect()
     }
-  }, [target.current])
+  }, [target.current, margin, callback])
 
   return { intersecting, observed }
 }

@@ -2,6 +2,7 @@ import React from "react"
 import { SkeletonProps } from "src/components/props/SkeletonProps"
 import TypingText from "src/components/ui/TypingText"
 import RectangleSkeleton from "src/components/ui/skeletons/RectangleSkeleton"
+import { paddedNumber } from "src/utils/FormattingUtils"
 
 interface Props extends SkeletonProps {
   title: string
@@ -29,11 +30,11 @@ const FeaturedProjectHeader = ({
       ) : (
         <TypingText
           className="tn:mx-0 mx-auto"
-          sharedSentenceClasses="md:text-4xl tn:text-2xl text-xl"
+          sharedSentenceClasses="md:text-4xl text-3xl"
           sentences={[
             {
-              text: `${index}. `,
-              className: "font-light dark:text-teal-400 text-red-600",
+              text: `${paddedNumber(index)}.`,
+              className: "font-light dark:text-teal-400 text-red-600 fira-code",
               inline: true,
               pause: 0.1,
             },

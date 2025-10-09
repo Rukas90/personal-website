@@ -4,7 +4,7 @@ import { SvgIconProps } from "src/components/props/SvgIconProps"
 
 const CodePenIcon = ({ fill }: SvgIconProps) => {
   const style = useStyling()
-  const f = fill || style.textColor.hex
+  const f = fill || style.iconColor.hex
 
   return (
     <svg width="100%" height="100%" viewBox="0 0 496 496" fill="none">
