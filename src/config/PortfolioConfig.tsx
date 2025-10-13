@@ -35,7 +35,7 @@ export const portfolioConfigs: Record<string, PortfolioConfig> = {
     intro: {
       role: "Full Stack Developer",
       subtitle:
-        "Primarly Specializing in building scalable and efficient backend systems.",
+        "Primarily specializing in building scalable and efficient backend systems.",
     },
     about: (
       <>
@@ -70,7 +70,7 @@ export const portfolioConfigs: Record<string, PortfolioConfig> = {
     intro: {
       role: ".NET Developer",
       subtitle:
-        "Primarly Specializing in building scalable and efficient backend systems.",
+        "Primarily specializing in building scalable and efficient backend systems.",
     },
     about: (
       <>
