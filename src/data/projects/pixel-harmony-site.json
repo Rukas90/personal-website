@@ -1,0 +1,32 @@
+{
+    "title": "Pixel Harmony Site",
+    "subtitle": "Official documentation website",
+    "label": "Website",
+    "images": {
+        "path": "projects/",
+        "extensions": {
+            "sources": ["avif", "webp"],
+            "fallback": "jpg"
+        },
+        "files": [
+            "pixel_harmony_site_picture_1"
+        ]
+    },
+    "summary": "Documentation website made for Pixel Harmony.",
+    "tools": [ "React", "Typescript", "Tailwind", "Vite" ],
+    "links": [
+        {
+            "type": "GitHub",
+            "url": "https://github.com/Rukas90/pixel-harmony-site"
+        },
+        {
+            "type": "Site",
+            "url": "https://pixel-harmony.com/"
+        }
+    ],
+    "slug": {
+        "url": "https://pixel-harmony.com/",
+        "label": "Visit",
+        "target": "blank"
+    }
+}

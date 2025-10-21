@@ -13,8 +13,9 @@ import BorderContainer from "./sections/BorderContainer"
 interface Props {
   resumeUrl?: string
   showNav?: boolean
+  navItems?: string[]
 }
-const Header = ({ resumeUrl, showNav = true }: Props) => {
+const Header = ({ resumeUrl, showNav = true, navItems }: Props) => {
   const { isDark } = useTheme()
   const { subscribe } = useScrollListener()
   const [overlayStrength, setOverlayStrength] = useState(0)
@@ -123,7 +124,7 @@ const Header = ({ resumeUrl, showNav = true }: Props) => {
               isExpanded ? "flex fade-up" : "lg:flex hidden"
             } lg:text-base sm:text-3xl text-2xl lg:dark:font-normal lg:font-medium font-light lg:bg-transparent lg:dark:bg-transparent dark:bg-gray-950 bg-white lg:relative absolute lg:w-auto w-dvw lg:h-auto h-dvh top-0 left-0 list-none lg:justify-start justify-center items-center lg:flex-row flex-col lg:gap-3 mn:gap-8 gap-4 dark:text-gray-400 lg:pt-0 pt-[55px]`}
           >
-            {showNav && <HeaderMenu />}
+            {showNav && <HeaderMenu navItems={navItems} />}
             {showNav && (
               <li
                 onClick={openResume}

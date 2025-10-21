@@ -32,6 +32,7 @@ const ImagePicture = ({ path, file, extensions, alt, className }: Props) => {
         src={formatFilePath(path, fileSrc, extensions.fallback)}
         alt={alt ?? "fallback image"}
         loading="lazy"
+        className="w-full h-full object-cover"
       />
     </picture>
   )

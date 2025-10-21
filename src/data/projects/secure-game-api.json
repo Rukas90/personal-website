@@ -1,27 +1,28 @@
 {
-    "title": "Secure Dashboard",
+    "title": "Secure Game API",
     "subtitle": "Comprehensive Web Authentication Application",
     "images": {
-        "path": "projects/react_auth_app/",
+        "path": "projects/",
         "extensions": {
             "sources": ["avif", "webp"],
             "fallback": "jpg"
         },
         "files": [
-            "picture_1"
+            "game_stats_project_picture_1",
+            "game_stats_project_picture_2"
         ]
     },
-    "label": "Web App",
+    "label": "Backend API",
     "summary": "The purpose of this project was to experiment with various authentication security methods.",
-    "tools": [ "React", "TypeScript", "Express", "NodeJS", "Bootstrap", "SCSS", "Postgres", "REST" ],
+    "tools": [ "ASP.NET Core", "C#", "PostgreSQL", "REST", "Flurl", "Serilog", "MailKit", "FastEndpoints" ],
     "links": [
         {
             "type": "GitHub",
-            "url": "https://github.com/Rukas90/ReactAuthApp"
+            "url": "https://github.com/Rukas90/WebGameStats"
         }
     ],
     "slug": {
-        "url": "https://github.com/Rukas90/ReactAuthApp",
+        "url": "https://github.com/Rukas90/WebGameStats",
         "target": "blank"
     }
 }

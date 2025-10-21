@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "../Header"
 import Content from "../Content"
 import AboutSection from "src/components/sections/about/AboutSection"
@@ -11,17 +11,26 @@ import SectionWrapper from "../sections/SectionWrapper"
 import FooterSection from "../sections/footer/FooterSection"
 import { PortfolioConfig } from "src/config/PortfolioConfig"
 import { useNavigate } from "react-router-dom"
+import LoadingScreen from "../ui/LoadingScreen"
 
 const PortfolioView = ({ config }: { config?: PortfolioConfig }) => {
   const navigate = useNavigate()
 
+  useEffect(() => {
+    if (!config) {
+      navigate("/")
+    }
+  }, [])
   if (!config) {
-    navigate("/")
     return
   }
   return (
     <SectionsProvider>
-      <Header resumeUrl={config.resumeUrl} />
+      <LoadingScreen />
+      <Header
+        resumeUrl={config.resumeUrl}
+        navItems={["home", "about", "skills", "projects", "contact"]}
+      />
       <Content>
         <SectionWrapper name="Home">
           <IntroSection {...config.intro} />

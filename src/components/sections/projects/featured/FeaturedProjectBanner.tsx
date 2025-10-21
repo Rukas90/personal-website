@@ -20,15 +20,15 @@ const FeaturedProjectBanner = ({
       {/* MOBILE / TABLET VERSION */}
       <div className="absolute top-0 left-0 -z-10 w-full h-full xl:hidden block pointer-events-none">
         {showSkeleton || !images ? (
-          <div className="bg-gray-950 w-full h-full"></div>
+          <div className="dark:bg-gray-950 bg-[#e2e5e9] w-full h-full"></div>
         ) : (
-          <div className="tint">
+          <div className="tint h-full">
             <ImagePicture
               path={images.path}
               extensions={images.extensions}
               file={images.files[0]}
               alt="bar"
-              className="object-cover scale-110 grayscale opacity-5 brightness-50"
+              className="object-fill scale-110 grayscale opacity-5 brightness-50"
             />
           </div>
         )}

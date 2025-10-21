@@ -4,7 +4,10 @@ import useScrollListener from "../hooks/useScrollListener"
 import { useSections } from "../contexts/SectionsContext"
 import { useLocation } from "react-router-dom"
 
-const HeaderMenu = () => {
+interface Props {
+  navItems?: string[]
+}
+const HeaderMenu = ({ navItems }: Props) => {
   const { subscribe, maxScrollY } = useScrollListener()
   const { sections, count } = useSections()
   const [activeID, setActiveID] = useState("")
@@ -64,13 +67,12 @@ const HeaderMenu = () => {
   }, [hash])
 
   return (
-    <>
-      <HeaderNavItem id="home" activeId={activeID} />
-      <HeaderNavItem id="about" activeId={activeID} />
-      <HeaderNavItem id="skills" activeId={activeID} />
-      <HeaderNavItem id="projects" activeId={activeID} />
-      <HeaderNavItem id="contact" activeId={activeID} />
-    </>
+    <div className="flex">
+      {navItems &&
+        navItems.map((item, index) => (
+          <HeaderNavItem key={index} id={item} activeId={activeID} />
+        ))}
+    </div>
   )
 }
 export default HeaderMenu

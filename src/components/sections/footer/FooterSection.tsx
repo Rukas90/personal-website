@@ -6,7 +6,7 @@ import UnityBtn from "src/components/ui/buttons/UnityBtn"
 
 const FooterSection = () => {
   return (
-    <footer className="relative w-full justify-center my-8 text-gray-300 opacity-50 tracking-wider text-center text-sm leading-6">
+    <footer className="relative w-full justify-center my-8 dark:text-gray-300 opacity-50 tracking-wider text-center text-sm leading-6">
       <div className="flex 3xl:hidden flex-row max-w-[200px] mx-auto justify-between gap-4 mb-6">
         <CodePenBtn className={`hover:scale-150`} />
         <GitHubBtn className={`hover:scale-150`} />

@@ -36,7 +36,7 @@ const ListedProjectsSubsection = ({
         <div className="mt-8">
           <Button
             onClick={() => setShowMore((current) => !current)}
-            label={`Show ${showMore ? "More" : "Less"}`}
+            label={`Show ${showMore ? "Less" : "More"}`}
           />
         </div>
       )}

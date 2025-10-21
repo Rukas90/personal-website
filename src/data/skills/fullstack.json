@@ -17,7 +17,7 @@
     ]
   },
   { "label": "API Design", "skills": ["Express", "API Versioning"] },
-  { "label": "ORM", "skills": ["Prisma"] },
+  { "label": "ORM", "skills": ["Prisma", "Drizzle"] },
   {
     "label": "Databases",
     "skills": ["PostgreSQL", "SQL Server", "Firebase", "Triggers", "Indexing"]
@@ -31,7 +31,7 @@
     "label": "Auth & Security",
     "skills": ["JWT & Refresh", "OAuth", "Identity", "Anti-Forgery"]
   },
-  { "label": "Logging & Cache", "skills": ["Redis"] },
+  { "label": "Cache", "skills": ["Redis"] },
   {
     "label": "Cloud & Deployment",
     "skills": ["Azure Web App Services", "Key Vault", "Netlify"]
