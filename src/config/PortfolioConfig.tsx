@@ -12,8 +12,8 @@ import pixelHarmony from "src/data/projects/pixel-harmony.json"
 import pixelHarmonySite from "src/data/projects/pixel-harmony-site.json"
 import secureGameApi from "src/data/projects/secure-game-api.json"
 
-import dotnetPortfolio from "public/Rukas CV .NET.pdf"
-import fullstackPortfolio from "public/Rukas CV FullStack.pdf"
+import dotnetPortfolio from "/rukas-cv-dotnet.pdf"
+import fullstackPortfolio from "/rukas-cv-fullstack.pdf"
 
 export type SkillData = {
   label: string
