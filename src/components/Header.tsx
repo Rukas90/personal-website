@@ -62,10 +62,33 @@ const Header = ({ resumeUrl, showNav = true, navItems }: Props) => {
     lastScollPosition.current = scrollY
   }
 
+  const setMenuState = (opened: boolean) => {
+    setExpanded(opened)
+    switch (opened) {
+      case true:
+        lockScroll()
+        break
+      case false:
+        unlockScroll()
+        break
+    }
+  }
+
   useEffect(() => {
     const unsubscribe = subscribe(onScroll)
     return () => unsubscribe()
   }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isDesktop = window.innerWidth >= 1024
+      if (isDesktop && isExpanded) {
+        setMenuState(false)
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [isExpanded, unlockScroll])
 
   useEffect(() => {
     if (isExpanded) {
@@ -124,8 +147,10 @@ const Header = ({ resumeUrl, showNav = true, navItems }: Props) => {
               isExpanded ? "flex fade-up" : "lg:flex hidden"
             } lg:text-base sm:text-3xl text-2xl lg:dark:font-normal lg:font-medium font-light lg:bg-transparent lg:dark:bg-transparent dark:bg-gray-950 bg-white lg:relative absolute lg:w-auto w-dvw lg:h-auto h-dvh top-0 left-0 list-none lg:justify-start justify-center items-center lg:flex-row flex-col lg:gap-3 mn:gap-8 gap-4 dark:text-gray-400 lg:pt-0 pt-[55px]`}
           >
-            {showNav && <HeaderMenu navItems={navItems} />}
             {showNav && (
+              <HeaderMenu navItems={navItems} setMenuState={setMenuState} />
+            )}
+            {resumeUrl && (
               <li
                 onClick={openResume}
                 className="relative interactable cursor-pointer lg:mt-0 sm:mt-6 mt-3 btn-slide-hover overflow-hidden border-btn-effect px-5 py-2 transition-all rounded-md dark:text-white text-black dark:hover:text-gray-950 hover:text-white dark:border-white border-black border-2"

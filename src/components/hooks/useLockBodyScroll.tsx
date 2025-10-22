@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react"
 
 export const useLockBodyScroll = () => {
   const lockRequests = useRef(0)
@@ -22,6 +22,10 @@ export const useLockBodyScroll = () => {
       unlockScroll()
     }
   }, [unlockScroll])
+  
+  useLayoutEffect(() => {
+    document.body.style.overflow = ""
+  }, [])
 
   return { lockScroll, unlockScroll }
 }

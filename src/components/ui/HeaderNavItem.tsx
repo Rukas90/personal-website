@@ -4,15 +4,16 @@ import { formatFirstUpperChar } from "src/utils/FormattingUtils"
 interface Props {
   activeId: string
   id: string
+  onClicked?: () => void
 }
-const HeaderNavItem = ({ activeId, id }: Props) => {
+const HeaderNavItem = ({ activeId, id, onClicked }: Props) => {
   return (
     <li
       className={`interactable navigation-btn ${
         activeId === id && "active dark:text-white text-black"
       } transition-all px-5 py-2 dark:hover:text-gray-200 hover:text-gray-800`}
     >
-      <a className="interactable" href={`#${id}`}>
+      <a className="interactable" href={`#${id}`} onClick={onClicked}>
         {formatFirstUpperChar(id)}
       </a>
     </li>

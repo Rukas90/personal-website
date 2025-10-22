@@ -6,8 +6,9 @@ import { useLocation } from "react-router-dom"
 
 interface Props {
   navItems?: string[]
+  setMenuState?: (opened: boolean) => void
 }
-const HeaderMenu = ({ navItems }: Props) => {
+const HeaderMenu = ({ navItems, setMenuState }: Props) => {
   const { subscribe, maxScrollY } = useScrollListener()
   const { sections, count } = useSections()
   const [activeID, setActiveID] = useState("")
@@ -67,12 +68,21 @@ const HeaderMenu = ({ navItems }: Props) => {
   }, [hash])
 
   return (
-    <div className="flex">
+    <>
       {navItems &&
         navItems.map((item, index) => (
-          <HeaderNavItem key={index} id={item} activeId={activeID} />
+          <HeaderNavItem
+            key={index}
+            id={item}
+            activeId={activeID}
+            onClicked={() => {
+              if (setMenuState) {
+                setMenuState(false)
+              }
+            }}
+          />
         ))}
-    </div>
+    </>
   )
 }
 export default HeaderMenu
