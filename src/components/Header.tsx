@@ -126,14 +126,19 @@ const Header = ({ resumeUrl, showNav = true, navItems }: Props) => {
           applyPadding={false}
         >
           <div className="flex z-20 items-center gap-4">
-            <div className="relative rounded-full overflow-hidden w-[48px]">
-              <img
-                className="zoom-rotate-in pointer-events-none dark:invert-0 invert"
-                src={LogoImg}
-              />
-            </div>
-            <PlainText className="font-semibold text-xl tracking-widest block">
-              PORTFOLIO
+            <a href="/">
+              <div className="relative rounded-full overflow-hidden w-[48px] interactable">
+                <img
+                  className="zoom-rotate-in pointer-events-none dark:invert-0 invert"
+                  src={LogoImg}
+                />
+              </div>
+            </a>
+            <PlainText
+              className="fira-code dark:text-teal-400 text-red-500 text-lg tracking-widest block"
+              overridesColor
+            >
+              portfolio
             </PlainText>
           </div>
           <MenuBtn
