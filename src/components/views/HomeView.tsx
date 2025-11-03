@@ -31,40 +31,46 @@ const HomeView = () => {
       <Content>
         <SectionWrapper name="Home">
           <div className="flex flex-col items-center justify-center min-h-svh mt-[100px] px-4 py-8">
-            <TypingText
-              className="justify-center items-center"
-              onFinished={() => setTimeout(beginReveal, ARROW_APPEAR_DELAY)}
-              sentences={[
-                {
-                  pause: 1,
-                  text: "Hi, ",
-                  className: "xl:text-xl text-lg fira-code mb-6 text-center dark:text-teal-400 text-red-500",
-                  inline: true
-                },
-                {
-                  pause: 0.6,
-                  text: "My name is Rukas Skirkevicius",
-                  useLastSentenceClasses: true,
-                  inline: true
-                },
-                {
-                  pause: 0.7,
-                  text: "Welcome to My Portfolio",
-                  className: "xl:text-5xl text-3xl font-bold mb-6 text-center mt-6",
-                },
-                {
-                  pause: 0.5,
-                  text: "Explore my work across different tech stacks",
-                  className: "xl:text-xl text-gray-600 mb-4 text-center",
-                },
-              ]}
-            />
             <div
-              className={`w-14 my-14 ${
-                arrowShow ? "fade-down visible" : "invisible"
-              }`}
+              className="flex flex-col items-center justify-center h-[calc(100svh-8.5rem)] xl:h-auto"
             >
-              <ArrowUpIcon className="rotate-180" />
+              <TypingText
+                className="justify-center items-center"
+                onFinished={() => setTimeout(beginReveal, ARROW_APPEAR_DELAY)}
+                sentences={[
+                  {
+                    pause: 1,
+                    text: "Hi, ",
+                    className:
+                      "lg:text-xl text-lg fira-code mb-6 text-center dark:text-teal-400 text-red-500",
+                    inline: true,
+                  },
+                  {
+                    pause: 0.6,
+                    text: "My name is Rukas Skirkevicius",
+                    useLastSentenceClasses: true,
+                    inline: true,
+                  },
+                  {
+                    pause: 0.7,
+                    text: "Welcome to My Portfolio",
+                    className:
+                      "lg:text-5xl text-3xl font-bold mb-6 text-center mt-6",
+                  },
+                  {
+                    pause: 0.5,
+                    text: "Explore my work across different tech stacks",
+                    className: "lg:text-xl text-gray-600 mb-4 text-center",
+                  },
+                ]}
+              />
+              <div
+                className={`w-14 my-14 lg:relative absolute lg:bottom-auto bottom-0 ${
+                  arrowShow ? "fade-down visible" : "invisible"
+                }`}
+              >
+                <ArrowUpIcon className="rotate-180" />
+              </div>
             </div>
             <div
               className={`relative flex flex-wrap justify-center items-center w-full gap-8 ${
