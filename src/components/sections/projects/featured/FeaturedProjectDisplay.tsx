@@ -58,16 +58,14 @@ const FeaturedProjectDisplay = ({
   })
   const [entryIndex, setEntryIndex] = useState(0)
 
-  const viewingSummary = useMemo(() => {
-    if (isCollapsed) {
-      return summary
-    }
+  const viewingCustomEntry = useMemo(() => {
     const viewingEntry = gallery?.entries[entryIndex]
-    const entrySummary = viewingEntry
-      ? GetGalleryEntrySummary(viewingEntry)
-      : null
-    return entrySummary ?? summary
-  }, [gallery, entryIndex, summary, isCollapsed])
+
+    if (typeof viewingEntry === "string") {
+      return null
+    }
+    return viewingEntry
+  }, [gallery, entryIndex])
 
   return (
     <div
@@ -127,7 +125,12 @@ const FeaturedProjectDisplay = ({
         <div className="flex flex-col min-h-60 xl:max-h-60 justify-between">
           <FeaturedProjectSummary
             showSkeleton={showSkeleton}
-            summary={viewingSummary}
+            sources={viewingCustomEntry?.sources}
+            summary={
+              viewingCustomEntry && viewingCustomEntry.summary
+                ? viewingCustomEntry.summary
+                : summary
+            }
           />
           <ProjectTools
             showSkeleton={showSkeleton}

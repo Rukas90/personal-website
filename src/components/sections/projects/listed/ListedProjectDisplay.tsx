@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { SkeletonProps } from "src/components/props/SkeletonProps"
 import { ProjectData } from "src/types/ProjectData"
 import ProjectLinks from "../ui/ProjectLinks"
@@ -8,13 +8,14 @@ import ProjectSlugButton from "../ui/ProjectSlugButton"
 import ParagraphBlock from "src/components/ui/text/ParagraphBlock"
 import ImagePicture from "src/components/ui/ImagePicture"
 import Markdown from "markdown-to-jsx"
+import { FindFirstGalleryImageIndex, GalleryEntryType } from "src/components/props/PictureData"
 
 interface Props extends ProjectData, SkeletonProps {}
 
 const ListedProjectDisplay = ({
   showSkeleton = false,
   title,
-  images,
+  gallery,
   subtitle,
   label,
   summary,
@@ -22,14 +23,22 @@ const ListedProjectDisplay = ({
   links,
   slug,
 }: Props) => {
+  const firstImage = useMemo(() => {
+    const index = FindFirstGalleryImageIndex(gallery)
+
+    if (index === -1 || !gallery) {
+      return null
+    }
+    return gallery.entries[index]
+  }, [gallery])
   return (
     <div className="relative listed-project-display flex flex-col overflow-hidden transition-colors dark:bg-[#080f21] h-[465px] hover:dark:bg-[#0a1329] bg-[#e2e5e9] hover:bg-[#dce0e5] tn:p-8 px-4 py-6 rounded-md dark:shadow-none shadow-lg">
       {/* Overlay BG */}
-      {images && images.files.length > 0 && (
+      {gallery && firstImage && GalleryEntryType.isImage(firstImage) && (
         <ImagePicture
-          path={images.path}
-          extensions={images.extensions}
-          file={images.files[0]}
+          path={gallery.path}
+          extensions={gallery.extensions}
+          file={firstImage}
           className="absolute pointer-events-none top-0 left-0 w-full h-full object-cover grayscale opacity-5"
         />
       )}
@@ -53,9 +62,7 @@ const ListedProjectDisplay = ({
       {/* SUMMARY */}
       <div className="mt-4 w-full h-80 dark:text-gray-300 text-gray-700 overflow-y-scroll tn:pe-4 pe-0 ">
         <ParagraphBlock className="tn:text-start text-center px-4">
-          <Markdown>
-            {summary}
-          </Markdown>
+          <Markdown>{summary}</Markdown>
         </ParagraphBlock>
       </div>
 

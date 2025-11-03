@@ -11,14 +11,84 @@
       "picture_1",
       {
         "src": "picture_2",
-        "summary": "Pixel Harmony has a fully integrated toolset for creating comprehensive 2D pixel perfect art."
+        "summary": "Pixel Harmony includes a fully integrated toolset for creating detailed 2D pixel art. Features such as Pixel Perfect mode ensure precise, crisp pixel-level accuracy.",
+        "sources": [
+          {
+            "label": "Pixel Art",
+            "url": "https://pixel-harmony.com/docs/pixel-art"
+          }
+        ]
       },
-      "picture_3",
-      "picture_4",
-      "picture_5",
-      "picture_6",
-      "picture_7",
-      "picture_8"
+      {
+        "src": "picture_7",
+        "summary": "Beyond pixel art, Pixel Harmony features advanced painting tools with configurable brushes for a variety of artistic styles.",
+        "sources": [
+          {
+            "label": "Painting Tools",
+            "url": "https://pixel-harmony.com/docs/painting-tool"
+          }
+        ]
+      },
+      {
+        "src": "picture_8",
+        "summary": "An extensive library of over 55 image adjustments and filters, from Levels and Replace Color to stylized effects like Glowing Edge and Custom Matrix Filter, all optimized for performance and easy to use through an inspector interface.",
+        "sources": [
+          {
+            "label": "Custom Filter",
+            "url": "https://pixel-harmony.com/docs/custom"
+          },
+          {
+            "label": "Levels",
+            "url": "https://pixel-harmony.com/docs/levels"
+          },
+          {
+            "label": "Glowing Edge",
+            "url": "https://pixel-harmony.com/docs/glowing-edge"
+          },
+          {
+            "label": "Replace Color",
+            "url": "https://pixel-harmony.com/docs/replace-color"
+          }
+        ]
+      },
+      {
+        "src": "picture_3",
+        "summary": "Pixel Harmony features a fully functional Brush Creator tool, allowing users to design and preview custom brushes similar to those in Photoshop. All brushes can be saved and shared across multiple Unity projects.",
+        "sources": [
+          {
+            "label": "Brush Settings",
+            "url": "https://pixel-harmony.com/docs/brush-settings"
+          },
+          {
+            "label": "Brush Management",
+            "url": "https://pixel-harmony.com/docs/brushes-management"
+          }
+        ]
+      },
+      {
+        "src": "picture_4",
+        "summary": "Pixel Harmony includes a wide range of tools, from standard move and transform to clone, dodge, burn, and perspective editing. Each tool offers flexible settings such as resampling methods to preserve pixel clarity or enhance detail during transformations."
+      },
+      {
+        "src": "picture_5",
+        "summary": "Includes a complete PBR generation suite capable of producing normal maps, height maps, and ambient occlusion maps. All tools offer adjustable parameters and leverage GPU acceleration for optimal performance.",
+        "sources": [
+          {
+            "label": "Docs PBR Filters",
+            "url": "https://pixel-harmony.com/docs/normal-map"
+          }
+        ]
+      },
+      {
+        "src": "picture_6",
+        "summary": "Pixel Harmony supports 32 different blending modes, offering full compatibility with standard workflows and creative flexibility for artists.",
+        "sources": [
+          {
+            "label": "Available Blending Modes",
+            "url": "https://pixel-harmony.com/docs/blending-modes"
+          }
+        ]
+      }
     ]
   },
   "label": "Editor Plugin",

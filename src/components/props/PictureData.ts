@@ -4,8 +4,13 @@ export type ImageExtensions = {
     sources: ImageExtension[]
     fallback: ImageExtension
 }
+export type ContextSource = {
+    label: string,
+    url: string
+}
 type BaseEntry = {
     summary?: string
+    sources?: ContextSource[]
 }
 export type ImageFile = BaseEntry & {
     kind: "image",
