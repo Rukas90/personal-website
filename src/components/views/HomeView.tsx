@@ -38,13 +38,13 @@ const HomeView = () => {
                 {
                   pause: 1,
                   text: "Hi, ",
-                  className: "text-xl fira-code mb-6 text-center dark:text-teal-400 text-red-500",
+                  className: "xl:text-xl text-lg fira-code mb-6 text-center dark:text-teal-400 text-red-500",
                   inline: true
                 },
                 {
                   pause: 0.6,
                   text: "My name is Rukas Skirkevicius",
-                  className: "text-xl fira-code mb-6 text-center dark:text-teal-400 text-red-500",
+                  useLastSentenceClasses: true,
                   inline: true
                 },
                 {
