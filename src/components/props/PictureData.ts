@@ -57,9 +57,3 @@ export const GalleryEntryType = {
         return GalleryEntryType.isVideo(entry) && entry.kind === "youtube"
     }
 }
-export const GetGalleryEntrySummary = (entry: GalleryEntry): string | null => {
-    if (typeof entry === "string") {
-        return null
-    }
-    return entry.summary ?? null
-}

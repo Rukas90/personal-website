@@ -1,5 +1,5 @@
 import React from "react"
-import { GalleryEntryType } from "src/components/props/PictureData"
+import { GalleryEntry, GalleryEntryType } from "src/components/props/PictureData"
 import { SlideshowProps } from "src/components/props/SlideshowProps"
 import ImagePicture from "src/components/ui/ImagePicture"
 import Slideshow from "src/components/ui/slideshow/Slideshow"
@@ -17,8 +17,25 @@ const FeaturedProjectBanner = ({
   reverse,
   entryIndex,
   setEntryIndex,
-  state
+  state,
 }: Props) => {
+  const renderMobileImage = () => {
+    if (!gallery) {
+      return <></>
+    }
+    const entry = gallery.entries[entryIndex] as GalleryEntry
+
+    if (!GalleryEntryType.isImage(entry)) {
+      return <></>
+    }
+    return (
+      <ImagePicture
+        path={gallery?.path}
+        extensions={gallery?.extensions}
+        file={entry}
+      />
+    )
+  }
   return (
     <>
       <div className="w-full xl:flex hidden justify-center items-center">
@@ -43,14 +60,7 @@ const FeaturedProjectBanner = ({
       <div className="absolute top-0 left-0 -z-10 w-full h-full xl:hidden block pointer-events-none">
         {
           <div className="tint h-full opacity-5 blur-sm">
-            {gallery &&
-              GalleryEntryType.isImage(gallery.entries[entryIndex]) && (
-                <ImagePicture
-                  path={gallery?.path}
-                  extensions={gallery?.extensions}
-                  file={gallery?.entries[entryIndex]}
-                />
-              )}
+            {renderMobileImage()}
           </div>
         }
       </div>

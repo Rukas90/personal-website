@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react"
+import React, { useMemo, useState } from "react"
 import { ProjectData } from "src/types/ProjectData"
 import FeaturedProjectBanner from "./FeaturedProjectBanner"
 import ProjectLabel from "../ui/ProjectLabel"
@@ -13,14 +13,8 @@ import { useSwipeable } from "react-swipeable"
 import FeaturedProjectSelectionNav from "./FeaturedProjectSelectionNav"
 import SwipeRightIcon from "src/components/ui/images/misc/SwipeRightIcon"
 import PlainText from "src/components/ui/text/PlainText"
-import { GetGalleryEntrySummary } from "src/components/props/PictureData"
 import useGallery from "src/components/hooks/useGallery"
 import GalleryAutoButton from "src/components/ui/slideshow/GalleryAutoButton"
-import ArrowPrevIcon from "src/components/ui/images/misc/ArrowPrevIcon"
-import IconButton from "src/components/ui/buttons/IconButton"
-import ArrowNextIcon from "src/components/ui/images/misc/ArrowNextIcon"
-import SlideshowArrow from "src/components/ui/slideshow/SlideshowArrow"
-import ArrowBtn from "src/components/ui/buttons/ArrowBtn"
 
 interface Props extends ProjectData, SkeletonProps {
   projectsCount: number
