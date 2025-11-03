@@ -1,5 +1,5 @@
-import React from "react"
-import { Routes, Route, useSearchParams, useNavigate } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Routes, Route, useSearchParams, useNavigate, useLocation } from "react-router-dom"
 import PortfolioView from "./components/views/PortfolioView"
 import Cursor from "./components/Cursor"
 import Foreground from "./components/Foreground"
@@ -14,9 +14,14 @@ import HomeView from "./components/views/HomeView"
 function App() {
   useFixedViewportHeight()
   const [searchParams] = useSearchParams()
+  const { pathname } = useLocation()
 
   const key = searchParams.get("key")
   const portfolio = key ? portfolioConfigs[key] : undefined
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [pathname])
 
   return (
     <ThemeProvider>
