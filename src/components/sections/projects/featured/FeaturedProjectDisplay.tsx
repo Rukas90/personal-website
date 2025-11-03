@@ -14,6 +14,13 @@ import FeaturedProjectSelectionNav from "./FeaturedProjectSelectionNav"
 import SwipeRightIcon from "src/components/ui/images/misc/SwipeRightIcon"
 import PlainText from "src/components/ui/text/PlainText"
 import { GetGalleryEntrySummary } from "src/components/props/PictureData"
+import useGallery from "src/components/hooks/useGallery"
+import GalleryAutoButton from "src/components/ui/slideshow/GalleryAutoButton"
+import ArrowPrevIcon from "src/components/ui/images/misc/ArrowPrevIcon"
+import IconButton from "src/components/ui/buttons/IconButton"
+import ArrowNextIcon from "src/components/ui/images/misc/ArrowNextIcon"
+import SlideshowArrow from "src/components/ui/slideshow/SlideshowArrow"
+import ArrowBtn from "src/components/ui/buttons/ArrowBtn"
 
 interface Props extends ProjectData, SkeletonProps {
   projectsCount: number
@@ -43,20 +50,34 @@ const FeaturedProjectDisplay = ({
   const isCollapsed = useMediaQuery({
     query: "(max-width: 1280px)",
   })
-  const handlers = useSwipeable({
+  const nextProjectSwipeHandlers = useSwipeable({
     onSwipedLeft: () => {
+      if (isCollapsed && showNext) {
+        showNext()
+      }
+    },
+    onSwipedRight: () => {
       if (isCollapsed && showPrevious) {
         showPrevious()
       }
     },
+    trackMouse: true,
+  })
+  const nextProjectEntrySwipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (isCollapsed) {
+        state.viewNext()
+      }
+    },
     onSwipedRight: () => {
-      if (isCollapsed && showNext) {
-        showNext()
+      if (isCollapsed) {
+        state.viewPrevious()
       }
     },
     trackMouse: true,
   })
   const [entryIndex, setEntryIndex] = useState(0)
+  const state = useGallery(entryIndex, setEntryIndex, showSkeleton, gallery)
 
   const viewingCustomEntry = useMemo(() => {
     const viewingEntry = gallery?.entries[entryIndex]
@@ -84,6 +105,7 @@ const FeaturedProjectDisplay = ({
           reverse={reverse}
           entryIndex={entryIndex}
           setEntryIndex={setEntryIndex}
+          state={state}
         />
         {projectsCount > 1 && (
           <FeaturedProjectSelectionNav
@@ -94,27 +116,34 @@ const FeaturedProjectDisplay = ({
           />
         )}
       </div>
-      <div
-        {...handlers}
-        className="xl:w-1/2 w-full xl:ps-8 p-8 flex z-10 flex-col dark:text-gray-100 text-black justify-center items-start tracking-wider tn:space-y-3 space-y-6"
-      >
-        <div className="flex flex-row w-full">
+      <div className="xl:w-1/2 w-full xl:ps-8 p-8 flex z-10 flex-col dark:text-gray-100 text-black justify-center items-start tracking-wider tn:space-y-3 space-y-6">
+        <div className="flex sm:flex-row flex-col w-full justify-between">
           {projectsCount > 1 && (
-            <div className="xl:hidden flex flex-row items-center gap-4">
+            <div
+              {...nextProjectSwipeHandlers}
+              className="xl:hidden flex flex-row items-center gap-4 sm:mb-0 mb-4"
+            >
               <SwipeRightIcon className="w-8 h-8" />
               <PlainText
                 overridesColor
-                className="text-gray-500 text-sm fira-code"
+                className="text-gray-500 text-sm fira-code cursor-grab select-none"
               >
-                Swipe next
+                Swipe here view next project
               </PlainText>
             </div>
           )}
-          <ProjectLabel
-            showSkeleton={showSkeleton}
-            label={label}
-            className="mb-2 tn:ms-auto tn:me-0 mx-auto"
-          />
+          <div className="flex flex-row sm:items-end items-center justify-between mb-2 sm:ml-auto ml-0">
+            <ProjectLabel showSkeleton={showSkeleton} label={label} />
+            {isCollapsed && (
+              <GalleryAutoButton
+                enabled={state.autoEnabled}
+                onToggleEnabled={() => state.toggleAutoState()}
+                startTime={state.timeoutDate}
+                delay={state.delay}
+                className="ml-4"
+              />
+            )}
+          </div>
         </div>
         <FeaturedProjectHeader
           showSkeleton={showSkeleton}
@@ -122,16 +151,24 @@ const FeaturedProjectDisplay = ({
           subtitle={subtitle}
           index={index + 1}
         />
-        <div className="flex flex-col min-h-60 xl:max-h-60 justify-between">
-          <FeaturedProjectSummary
-            showSkeleton={showSkeleton}
-            sources={viewingCustomEntry?.sources}
-            summary={
-              viewingCustomEntry && viewingCustomEntry.summary
-                ? viewingCustomEntry.summary
-                : summary
-            }
-          />
+        <div
+          {...nextProjectEntrySwipeHandlers}
+          className={`flex flex-col min-h-60 xl:max-h-60 justify-between ${
+            isCollapsed && "cursor-grab select-none"
+          }`}
+        >
+          <div className="mb-4">
+            <FeaturedProjectSummary
+              showSkeleton={showSkeleton}
+              sources={viewingCustomEntry?.sources}
+              summary={
+                viewingCustomEntry && viewingCustomEntry.summary
+                  ? viewingCustomEntry.summary
+                  : summary
+              }
+            />
+          </div>
+
           <ProjectTools
             showSkeleton={showSkeleton}
             tools={tools}

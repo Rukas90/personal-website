@@ -3,19 +3,21 @@ import useStyling from "src/components/contexts/Styling"
 import { useTheme } from "src/components/contexts/ThemeContext"
 import PlayIcon from "../images/misc/PlayIcon"
 import StopIcon from "../images/misc/StopIcon"
+import { GeneralProps } from "src/components/props/GeneralProps"
 
-interface Props {
+interface Props extends GeneralProps {
   enabled: boolean
   onToggleEnabled: () => void
   startTime: number | null
   delay: number
 }
 
-const SlideshowAutoButton = ({
+const GalleryAutoButton = ({
   enabled,
-  onToggleEnabled: onEnabledChanged,
+  onToggleEnabled,
   startTime,
   delay,
+  className,
 }: Props) => {
   const { isDark } = useTheme()
   const { accentColor } = useStyling()
@@ -47,8 +49,6 @@ const SlideshowAutoButton = ({
     clearInterval(timeout.current)
   }
 
-  // Progress styling ...
-
   const progressBackground = isDark ? "#042f2e" : "#FFFFFF"
   const progressFill = accentColor.hex
   const progressGradientStyle: React.CSSProperties = {
@@ -57,12 +57,12 @@ const SlideshowAutoButton = ({
 
   return (
     <button
-      onClick={onEnabledChanged}
+      onClick={onToggleEnabled}
       style={progressGradientStyle}
-      className="interactable absolute right-4 top-4 w-6 z-10 pointer-events-auto rounded-full drop-shadow-xl"
+      className={`interactable ${className} w-6 h-6 z-10 pointer-events-auto rounded-full drop-shadow-xl`}
     >
       {enabled ? <StopIcon /> : <PlayIcon />}
     </button>
   )
 }
-export default SlideshowAutoButton
+export default GalleryAutoButton

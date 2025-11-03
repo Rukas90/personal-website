@@ -37,9 +37,8 @@ const FeaturedProjectSummary = ({ showSkeleton, sources, summary }: Props) => {
                 </div>
                 {sources.map((source, index) => {
                   return (
-                    <>
+                    <div key={"project-link-source-text-" + index}>
                       <LinkText
-                        key={"project-link-source-text-" + index}
                         label={source.label}
                         url={source.url}
                         target={"_blank"}
@@ -52,7 +51,7 @@ const FeaturedProjectSummary = ({ showSkeleton, sources, summary }: Props) => {
                           ,
                         </span>
                       )}
-                    </>
+                    </div>
                   )
                 })}
               </div>

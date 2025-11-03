@@ -10,7 +10,7 @@ const SlideshowArrow = ({ isLeft, onClick }: Props) => {
   return (
     <button
       onClick={onClick}
-      className={`interactable h-10 my-auto w-1/4 transition-opacity from-gray-200 hover:opacity-50 opacity-15 pointer-events-auto`}
+      className={`interactable h-10 my-auto w-1/4 transition-opacity from-gray-200 hover:opacity-85 opacity-50 pointer-events-auto`}
     >
       <div
         className={`my-auto w-16 pointer-events-none ${
