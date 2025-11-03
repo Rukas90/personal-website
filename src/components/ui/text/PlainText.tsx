@@ -2,11 +2,17 @@ import React from "react"
 import { ChildrenProps } from "props/ChildrenProps"
 import { GeneralProps } from "props/GeneralProps"
 
-interface Props extends ChildrenProps, GeneralProps {}
+interface Props extends ChildrenProps, GeneralProps {
+  overridesColor?: boolean
+}
 
-const PlainText = ({ children, className }: Props) => {
+const PlainText = ({ overridesColor = false, children, className }: Props) => {
   return (
-    <div className={`dark:text-gray-200 text-gray-950 ${className}`}>
+    <div
+      className={`${
+        !overridesColor && "dark:text-gray-200 text-gray-950"
+      } ${className}`}
+    >
       {children}
     </div>
   )

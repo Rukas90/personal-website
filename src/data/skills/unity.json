@@ -1,0 +1,61 @@
+[
+  {
+    "label": "Languages & Principles",
+    "skills": ["C#", "OOP", "Design Patterns"]
+  },
+  {
+    "label": "Unity Engine & Systems",
+    "skills": [
+      "Jobs",
+      "Burst",
+      "ECS",
+      "UniTask",
+      "ZLinq",
+      "Zenject",
+      "VContainer",
+      "Addressables",
+      "Localization",
+      "Editor Tools",
+      "Timeline & Animations",
+      "ScriptableObjects"
+    ]
+  },
+  {
+    "label": "Visual Design",
+    "skills": [
+      "HLSL",
+      "Shader Programming",
+      "Compute Shader",
+      "Post Processing",
+      "Level Design",
+      "UI/UX",
+      "UIToolkit",
+      "Affinity Photo 2", 
+      "Photoshop"
+    ]
+  },
+  {
+    "label": "3D Graphics",
+    "skills": ["Blender", "3Ds Max", "Texture Baking", "Substance Painter"]
+  },
+  {
+    "label": "Gameplay & Systems",
+    "skills": ["Finite State Machine", "Behaviour Trees", "Goal Oriented Action Planning", "Agumented Reality (AR)"]
+  },
+  {
+    "label": "Architecture & Development Practices",
+    "skills": ["SOLID", "DRY", "Modular Programming", "CI/CD", "Automated Testing"]
+  },
+  {
+    "label": "Workflow & Version Control",
+    "skills": ["Trello", "ClickUp", "Slack", "Teams", "Zoom", "Git", "GitHub", "GitLab"]
+  },
+  {
+    "label": "Cloud & Deployment",
+    "skills": ["Azure Web App Services", "Key Vault", "Netlify"]
+  },
+  {
+    "label": "Auth & Security",
+    "skills": ["JWT & Refresh", "OAuth", "Identity", "Anti-Forgery"]
+  }
+]

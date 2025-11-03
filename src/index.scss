@@ -286,25 +286,46 @@ svg {
   opacity: 0.035;
 }
 
-.accent-outline {
-  position: relative;
-}
-.accent-outline::before {
-  @include BeforeAfterBase(100%, 100%, absolute, -20px, -20px);
+@mixin accent-outline-before($reverse-x: false, $reverse-y: false) {
+  $offset-x: if($reverse-x, 20px, -20px);
+  $offset-y: if($reverse-y, 20px, -20px);
 
+  @include BeforeAfterBase(100%, 100%, absolute, $offset-y, $offset-x);
   z-index: -5;
   border-radius: inherit;
   border-width: 2px;
   border-color: var(--accent);
 }
 
+.accent-outline {
+  position: relative;
+
+  &::before {
+    @include accent-outline-before();
+  }
+
+  &.reverse-x::before {
+    @include accent-outline-before(true, false);
+  }
+
+  &.reverse-y::before {
+    @include accent-outline-before(false, true);
+  }
+
+  &.reverse-x.reverse-y::before {
+    @include accent-outline-before(true, true);
+  }
+}
+
 .icon {
   &-btn {
-    width: 24px;
     opacity: 1;
     transform: scale(1);
     transition: all 0.3s ease;
-
+    
+    &.default {
+      width: 24px;
+    }
     &.inactive {
       opacity: 0;
       transform: scale(0);

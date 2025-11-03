@@ -1,13 +1,13 @@
 {
     "title": "Secure Dashboard",
     "subtitle": "Comprehensive Web Authentication Application",
-    "images": {
+    "gallery": {
         "path": "projects/react_auth_app/",
         "extensions": {
             "sources": ["avif", "webp"],
             "fallback": "jpg"
         },
-        "files": [
+        "entries": [
             "picture_1"
         ]
     },

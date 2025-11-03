@@ -1,0 +1,18 @@
+{
+  "title": "Speed Level Design",
+  "subtitle": "Speed level designing Video videos",
+  "label": "Videos",
+  "summary": "A YouTube series showcasing the creative process of speed level design in Unity. Each video demonstrates designing a single-shot environment from scratch, focusing on composition, lighting, and atmosphere. Initially created for practice and community feedback, the series now serves as a visual record of my growth and evolving design approach over the years.",
+  "tools": ["Unity"],
+  "links": [
+    {
+      "type": "Youtube",
+      "url": "https://www.youtube.com/playlist?list=PLfDfpN1H_F6Evf00bwebGQ-bu91YHvyR1"
+    }
+  ],
+  "slug": {
+    "url": "https://www.youtube.com/playlist?list=PLfDfpN1H_F6Evf00bwebGQ-bu91YHvyR1",
+    "target": "blank",
+    "label": "Playlist"
+  }
+}

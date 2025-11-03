@@ -6,7 +6,7 @@ import ProjectLabel from "../ui/ProjectLabel"
 import ProjectTools from "../ui/ProjectTools"
 import ProjectSlugButton from "../ui/ProjectSlugButton"
 import ParagraphBlock from "src/components/ui/text/ParagraphBlock"
-import ImagePicture from "src/components/ui/Picture"
+import ImagePicture from "src/components/ui/ImagePicture"
 import Markdown from "markdown-to-jsx"
 
 interface Props extends ProjectData, SkeletonProps {}

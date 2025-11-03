@@ -10,7 +10,7 @@ interface Props extends SkeletonProps {
 
 const FeaturedProjectSummary = ({ showSkeleton, summary }: Props) => {
   return (
-    <div className="tn:py-4 pb-6 dark:font-light tn:text-sm text-xs tn:text-justify tn:tracking-wider tracking-widest">
+    <div className="tn:py-4 pb-6 min-h-52 xl:max-h-52 overflow-y-scroll dark:font-light tn:text-sm text-xs tn:text-justify tn:tracking-wider tracking-widest">
       {showSkeleton ? (
         <div className="space-y-3">
           <RectangleSkeleton className="w-1/2 h-4" />

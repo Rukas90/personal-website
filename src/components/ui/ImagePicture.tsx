@@ -1,6 +1,6 @@
 import React, { useMemo } from "react"
 import { GeneralProps } from "../props/GeneralProps"
-import { ImageExtensions, ImageFile, IsImageFile } from "../props/PictureData"
+import { GalleryEntryType, ImageExtensions, ImageFile } from "../props/PictureData"
 import { formatFilePath } from "src/utils/FormattingUtils"
 
 interface Props extends GeneralProps {
@@ -17,7 +17,7 @@ const ImagePicture = ({ path, file, extensions, alt, className }: Props) => {
   return (
     <picture className={className}>
       {extensions.sources.map((source) => {
-        if (IsImageFile(file) && file.excludeFormats?.includes(source)) {
+        if (GalleryEntryType.isImage(file) && file.excludeFormats?.includes(source)) {
           return
         }
         return (

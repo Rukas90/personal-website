@@ -2,13 +2,13 @@
     "title": "Pixel Harmony Site",
     "subtitle": "Official documentation website",
     "label": "Website",
-    "images": {
+    "gallery": {
         "path": "projects/",
         "extensions": {
             "sources": ["avif", "webp"],
             "fallback": "jpg"
         },
-        "files": [
+        "entries": [
             "pixel_harmony_site_picture_1"
         ]
     },

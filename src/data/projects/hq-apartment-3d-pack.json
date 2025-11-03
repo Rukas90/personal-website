@@ -1,0 +1,39 @@
+{
+  "title": "Apartment Interior",
+  "subtitle": "Realistic 3D Environment",
+  "gallery": {
+    "path": "projects/hq_apartment_3d_pack/",
+    "extensions": {
+      "sources": ["avif", "webp"],
+      "fallback": "jpg"
+    },
+    "entries": [
+      "picture_1",
+      {
+        "kind": "youtube",
+        "videoId": "lIPXoMt-k-0"
+      },
+      "picture_2",
+      "picture_3",
+      "picture_4",
+      "picture_5",
+      "picture_6",
+      "picture_7",
+      "picture_8"
+    ]
+  },
+  "label": "3D Models",
+  "summary": "A realistic, game-ready 3D environment made in 3Ds Max, textured with Substance Painter and Photoshop and published on the Unity AssetStore.",
+  "tools": ["3Ds Max", "Substance Painter", "Photoshop", "Unity"],
+  "links": [
+    {
+      "type": "Unity",
+      "url": "https://assetstore.unity.com/packages/3d/props/interior/hq-mega-home-interior-pack-vol-1-179770"
+    }
+  ],
+  "slug": {
+    "url": "https://assetstore.unity.com/packages/3d/props/interior/hq-mega-home-interior-pack-vol-1-179770",
+    "target": "blank",
+    "label": "Store"
+  }
+}

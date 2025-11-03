@@ -1,0 +1,39 @@
+{
+  "title": "Hospital Interior",
+  "subtitle": "Low-Poly 3D Environment",
+  "gallery": {
+    "path": "projects/hospital_interior_3d_environment/",
+    "extensions": {
+      "sources": ["avif", "webp"],
+      "fallback": "jpg"
+    },
+    "entries": [
+      "picture_1",
+      {
+        "kind": "youtube",
+        "videoId": "lIPXoMt-k-0"
+      },
+      "picture_2",
+      "picture_3",
+      "picture_4",
+      "picture_5",
+      "picture_6",
+      "picture_7",
+      "picture_8"
+    ]
+  },
+  "label": "3D Models",
+  "summary": "A low-poly style 3D environment made in Blender and published on the Unity AssetStore.",
+  "tools": ["Blender", "Affinity Photo 2", "Unity"],
+  "links": [
+    {
+      "type": "Unity",
+      "url": "https://assetstore.unity.com/packages/3d/environments/hospital-interior-low-poly-3d-environment-assets-287356"
+    }
+  ],
+  "slug": {
+    "url": "https://assetstore.unity.com/packages/3d/environments/hospital-interior-low-poly-3d-environment-assets-287356",
+    "target": "blank",
+    "label": "Store"
+  }
+}

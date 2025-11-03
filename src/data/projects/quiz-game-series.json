@@ -1,0 +1,22 @@
+{
+  "title": "Quiz Game",
+  "subtitle": "Unity Mini-Game Tutorial Series",
+  "label": "Mini Game",
+  "summary": "A beginner-friendly tutorial series created for my YouTube channel, demonstrating how to build a simple quiz game in Unity from start to finish. The project covers core gameplay mechanics, UI/UX design, and sound integration, providing a complete overview of small-scale game development.",
+  "tools": ["Unity", "C#"],
+  "links": [
+    {
+      "type": "Github",
+      "url": "https://github.com/WatchFindDo/QuizGameProject"
+    },
+    {
+      "type": "Youtube",
+      "url": "https://www.youtube.com/playlist?list=PLfDfpN1H_F6FxLLSz5oVN-BwH2am0nPSg"
+    }
+  ],
+  "slug": {
+    "url": "https://www.youtube.com/playlist?list=PLfDfpN1H_F6FxLLSz5oVN-BwH2am0nPSg",
+    "target": "blank",
+    "label": "Watch Course"
+  }
+}

@@ -4,9 +4,10 @@ import FeaturedProjectsSubsection from "./featured/FeaturedProjectsSubsection"
 import ListedProjectsSubsection from "./listed/ListedProjectsSubsection"
 import SectionLabel from "../SectionLabel"
 import { ProjectData } from "src/types/ProjectData"
+import { FeaturedProjects } from "src/config/PortfolioConfig"
 
 interface Props {
-  featured: ProjectData[]
+  featured: FeaturedProjects[]
   listed: ProjectData[]
 }
 const ProjectsSection = ({ featured, listed }: Props) => {

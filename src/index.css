@@ -259,7 +259,6 @@ svg {
 .accent-outline {
   position: relative;
 }
-
 .accent-outline::before {
   content: "";
   width: 100%;
@@ -274,12 +273,56 @@ svg {
   border-width: 2px;
   border-color: var(--accent);
 }
+.accent-outline.reverse-x::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+  border-radius: inherit;
+  border-width: 2px;
+  border-color: var(--accent);
+}
+.accent-outline.reverse-y::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+  border-radius: inherit;
+  border-width: 2px;
+  border-color: var(--accent);
+}
+.accent-outline.reverse-x.reverse-y::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 0;
+  bottom: 0;
+  z-index: -5;
+  border-radius: inherit;
+  border-width: 2px;
+  border-color: var(--accent);
+}
 
 .icon-btn {
-  width: 24px;
   opacity: 1;
   transform: scale(1);
   transition: all 0.3s ease;
+}
+.icon-btn.default {
+  width: 24px;
 }
 .icon-btn.inactive {
   opacity: 0;

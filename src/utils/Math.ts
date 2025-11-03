@@ -28,3 +28,6 @@ export const WrapIndex = (index: number, length: number): number => {
   }
     return ((index % length) + length) % length
 }
+export const IsEven = (value: number) => {
+  return value % 2 === 0;
+}

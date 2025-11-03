@@ -1,0 +1,17 @@
+{
+  "title": "Comment Participation System",
+  "subtitle": "Interactive Player Feedback and Rating System",
+  "label": "Game System",
+  "summary": "A modular Unity system that enables players to leave comments and ratings on in-game elements. Designed as a standalone component, it can be easily integrated into external Unity projects. The system supports lightweight data persistence using JSON and promotes dynamic player engagement through feedback interaction.",
+  "tools": ["Unity", "C#"],
+  "links": [
+    {
+      "type": "Github",
+      "url": "https://github.com/Rukas90/Comment-Participation-System"
+    }
+  ],
+  "slug": {
+    "url": "https://github.com/Rukas90/Comment-Participation-System",
+    "target": "blank"
+  }
+}

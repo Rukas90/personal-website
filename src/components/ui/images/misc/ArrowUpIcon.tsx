@@ -2,7 +2,7 @@ import React from "react"
 import useStyling from "src/components/contexts/Styling"
 import { SvgIconProps } from "src/components/props/SvgIconProps"
 
-const ArrowIcon = ({ fill }: SvgIconProps) => {
+const ArrowUpIcon = ({ fill }: SvgIconProps) => {
   const style = useStyling()
 
   const color = fill || style.accentColor.hex
@@ -16,4 +16,4 @@ const ArrowIcon = ({ fill }: SvgIconProps) => {
     </svg>
   )
 }
-export default ArrowIcon
+export default ArrowUpIcon

@@ -25,6 +25,7 @@ const HomeView = () => {
               {Object.entries(portfolioConfigs).map(([key, config]) => (
                 <PortfolioCard
                   key={key}
+                  resume={config.resumeUrl}
                   subdomain={key}
                   role={config.intro.role}
                   subtitle={config.intro.subtitle}

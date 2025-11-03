@@ -1,13 +1,13 @@
 {
     "title": "Secure Game API",
     "subtitle": "Comprehensive Web Authentication Application",
-    "images": {
+    "gallery": {
         "path": "projects/",
         "extensions": {
             "sources": ["avif", "webp"],
             "fallback": "jpg"
         },
-        "files": [
+        "entries": [
             "game_stats_project_picture_1",
             "game_stats_project_picture_2"
         ]
