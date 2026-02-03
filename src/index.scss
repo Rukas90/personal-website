@@ -172,13 +172,12 @@ body {
 }
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch; /* smoother on iOS */
 
   min-height: 100%;
-  overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 
@@ -211,6 +210,7 @@ body {
   left: $l;
   right: $r;
   bottom: $b;
+  pointer-events: none;
 }
 
 .top-header {

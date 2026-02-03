@@ -22,7 +22,7 @@ export const useLockBodyScroll = () => {
       unlockScroll()
     }
   }, [unlockScroll])
-  
+
   useLayoutEffect(() => {
     document.body.style.overflow = ""
   }, [])

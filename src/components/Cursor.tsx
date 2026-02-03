@@ -12,13 +12,13 @@ const Cursor = () => {
       setMousePosition({ x: e.clientX, y: e.clientY })
 
       const targetScale = parseFloat(
-        window.getComputedStyle(e.target).getPropertyValue("--cursor-scale")
+        window.getComputedStyle(e.target).getPropertyValue("--cursor-scale"),
       )
       setScale(targetScale)
     })
   }
-  const handleMouseEnter = (_: any) => setIsVisible(true)
-  const handleMouseLeave = (_: any) => setIsVisible(false)
+  const handleMouseEnter = (_: MouseEvent) => setIsVisible(true)
+  const handleMouseLeave = (_: MouseEvent) => setIsVisible(false)
 
   useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition)

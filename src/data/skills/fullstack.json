@@ -1,7 +1,13 @@
 [
   {
     "label": "Coding Languages",
-    "skills": ["JavaScript/TypeScript", "HTML", "CSS"]
+    "skills": [
+      "C#",
+      "Java",
+      "JavaScript/TypeScript",
+      "HTML",
+      "CSS"
+    ]
   },
   {
     "label": "Frontend & Backend Tools",
@@ -16,33 +22,99 @@
       "jQuery"
     ]
   },
-  { "label": "API Design", "skills": ["Express", "API Versioning"] },
-  { "label": "ORM", "skills": ["Prisma", "Drizzle"] },
+  {
+    "label": "API Design",
+    "skills": [
+      "Express",
+      "API Versioning"
+    ]
+  },
+  {
+    "label": "ORM",
+    "skills": [
+      "Prisma",
+      "EF Core"
+    ]
+  },
   {
     "label": "Databases",
-    "skills": ["PostgreSQL", "SQL Server", "Firebase", "Triggers", "Indexing"]
+    "skills": [
+      "PostgreSQL",
+      "SQL Server",
+      "Firebase",
+      "Triggers",
+      "Indexing"
+    ]
   },
   {
     "label": "Architecture & Approaches",
-    "skills": ["DDD", "SOLID", "CQRS", "EDA", "DRY", "YAGNI", "KISS"]
+    "skills": [
+      "DDD",
+      "SOLID",
+      "CQRS",
+      "EDA",
+      "DRY",
+      "YAGNI",
+      "KISS"
+    ]
   },
-  { "label": "Testing", "skills": ["Jest", "Testcontainers-node"] },
+  {
+    "label": "Testing",
+    "skills": [
+      "Jest",
+      "XUnit",
+      "Test Containers",
+      "Moq"
+    ]
+  },
   {
     "label": "Auth & Security",
-    "skills": ["JWT & Refresh", "OAuth", "Identity", "Anti-Forgery"]
+    "skills": [
+      "JWT & Refresh",
+      "OAuth",
+      "Identity",
+      "Anti-Forgery"
+    ]
   },
-  { "label": "Cache", "skills": ["Redis"] },
+  {
+    "label": "Cache",
+    "skills": [
+      "Redis"
+    ]
+  },
   {
     "label": "Cloud & Deployment",
-    "skills": ["Azure Web App Services", "Key Vault", "Netlify"]
+    "skills": [
+      "Azure Web App Services",
+      "Key Vault",
+      "Netlify"
+    ]
   },
   {
     "label": "CI/CD",
-    "skills": ["Azure DevOps", "Docker", "GitHub", "GitLab", "Git"]
+    "skills": [
+      "Azure DevOps",
+      "Docker",
+      "GitHub",
+      "GitLab",
+      "Git"
+    ]
   },
-  { "label": "Documentation", "skills": ["Swagger", "Postman Collections"] },
+  {
+    "label": "Documentation",
+    "skills": [
+      "Swagger",
+      "Postman Collections"
+    ]
+  },
   {
     "label": "Workflow & Communication",
-    "skills": ["Trello", "Clickup", "Slack", "Teams", "Zoom"]
+    "skills": [
+      "Trello",
+      "Clickup",
+      "Slack",
+      "Teams",
+      "Zoom"
+    ]
   }
 ]

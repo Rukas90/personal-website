@@ -155,11 +155,10 @@ body::-webkit-scrollbar-thumb {
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch; /* smoother on iOS */
   min-height: 100%;
-  overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   background-attachment: scroll;
@@ -193,6 +192,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   background-color: var(--accent-dim);
   transform-origin: left;
   scale: 0 1;
@@ -209,6 +209,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   background-color: var(--invert-color);
   z-index: -1;
   transform: translateX(-100%);
@@ -252,6 +253,7 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   background-color: var(--accent);
   opacity: 0.035;
 }
@@ -268,6 +270,7 @@ svg {
   left: -20px;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   z-index: -5;
   border-radius: inherit;
   border-width: 2px;
@@ -282,6 +285,7 @@ svg {
   left: 20px;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   z-index: -5;
   border-radius: inherit;
   border-width: 2px;
@@ -296,6 +300,7 @@ svg {
   left: -20px;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   z-index: -5;
   border-radius: inherit;
   border-width: 2px;
@@ -310,6 +315,7 @@ svg {
   left: 20px;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   z-index: -5;
   border-radius: inherit;
   border-width: 2px;
@@ -431,6 +437,7 @@ svg {
   left: -1px;
   right: -1px;
   bottom: 0;
+  pointer-events: none;
   content: "";
   background: linear-gradient(0deg, transparent, var(--skill-bg-outline));
   z-index: -1;
@@ -449,6 +456,7 @@ svg {
   left: calc(50% - 2.5px);
   right: auto;
   bottom: auto;
+  pointer-events: none;
   background-color: var(--accent-dim);
   border-radius: 100%;
   opacity: 0;
@@ -495,6 +503,7 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
+  pointer-events: none;
   animation: shimmerEffect var(--shimmer-speed) var(--shimmer-animation-iteration) ease;
   z-index: 2;
   background: linear-gradient(to right, var(--shimmer-bg-color) 8%, var(--shimmer-color) 20%, var(--shimmer-bg-color) 33%);
