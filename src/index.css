@@ -38,6 +38,13 @@
   --skill-bg-outline: rgb(215, 215, 215);
 }
 
+textarea {
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none;
+}
+
 :where(:not(.dark)) input:-webkit-autofill,
 :where(:not(.dark)) input:-webkit-autofill:hover,
 :where(:not(.dark)) input:-webkit-autofill:focus,

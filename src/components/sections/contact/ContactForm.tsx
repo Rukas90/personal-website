@@ -13,7 +13,12 @@ const ContactForm = ({ onSubmit }: Props) => {
       method="POST"
     >
       <div className="grid md:grid-cols-2 gap-x-6">
-        <input defaultValue="Rukas Skirkevicius" id="to_name" name="to_name" hidden />
+        <input
+          defaultValue="Rukas Skirkevicius"
+          id="to_name"
+          name="to_name"
+          hidden
+        />
         <ContactField
           id="from_name"
           name="from_name"

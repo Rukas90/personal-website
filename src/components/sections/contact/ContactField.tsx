@@ -14,17 +14,13 @@ const ContactField = (props: Props) => {
         htmlFor={props.id}
       >
         {props.prefix && (
-          <>
-            <span className="dark:text-teal-400 text-red-600 fira-code">
-              {props.prefix}
-            </span>{" "}
-          </>
+          <span className="dark:text-teal-400 text-red-600 fira-code">
+            {props.prefix}{" "}
+          </span>
         )}
         <span>{props.label}</span>
       </label>
-      <InputField
-        {...props}
-      />
+      <InputField {...props} />
     </div>
   )
 }
