@@ -11,7 +11,44 @@
             "fallback": "jpg"
         },
         "entries": [
-            "picture_1"
+            "login",
+            {
+                "src": "dashboard_security_off",
+                "summary": "The default account security setting, with MFA initially not configured and non-active."
+            },
+            {
+                "src": "totp_setup_1",
+                "summary": "This is the MFA totp setup view. To activate the MFA totp method you have to either scan the QR code or enter a setup key to an auth app, like Google Authenticator.\n\nThen enter the code and press confirm to verify the code and activate the enrollment."
+            },
+            {
+                "src": "totp_setup_2",
+                "summary": "After confirming the MFA, you are given freshly generated recovery codes, which you have to backup by pressing the download button.\n\nThe recovery codes are used as a last resort when all access to MFA activation is lost."
+            },
+            {
+                "src": "totp_setup_3",
+                "summary": "At this point the MFA totp enrollment is configured and active."
+            },
+            "dashboard_security_on",
+            {
+                "src": "sudo",
+                "summary": "Sensitive actions are protected with sudo re-authentication step, where after initial login in a couple of hours of inactivity your account is placed on idle, meaning any sensitive action requires re-authentication.\n\nAfter re-authenticating the account enters sudo mode."
+            },
+            {
+                "src": "recovery_codes",
+                "summary": "When the MFA is active you are able to manage your codes by re-generating them, which in turn invalidates the old ones.\n\nThe management of recovery codes is protected action, which requires re-authentication if account is in idle mode."
+            },
+            {
+                "src": "login_mfa",
+                "summary": "After logging in you are presented with this MFA screen, when the MFA is active. During this stage the auth is limited to a very narrow scope and without any refresh token, which prevents any access to the account after MFA step is completed."
+            },
+            {
+                "src": "dashboard_sessions",
+                "summary": "Here you can view account sessions. All active and revoked sessions are visible here. If an unrecognized active session is being shown, you have an option to revoke it, which immediately makes the user lose access by completely revoking the authenticated session."
+            },
+            {
+                "src": "dashboard_account",
+                "summary": "The account settings show the account information and provides an ability to set or update the password, disconnect oauth providers and send email verification if email is not yet verified."
+            }
         ]
     },
     "label": "Web App",
