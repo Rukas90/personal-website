@@ -8,7 +8,6 @@ import ProjectTools from "../ui/ProjectTools"
 import ProjectLinks from "../ui/ProjectLinks"
 import { SkeletonProps } from "src/components/props/SkeletonProps"
 import ProjectSlugButton from "../ui/ProjectSlugButton"
-import { useMediaQuery } from "react-responsive"
 import { useSwipeable } from "react-swipeable"
 import FeaturedProjectSelectionNav from "./FeaturedProjectSelectionNav"
 import SwipeRightIcon from "src/components/ui/images/misc/SwipeRightIcon"
@@ -16,6 +15,7 @@ import PlainText from "src/components/ui/text/PlainText"
 import useGallery from "src/components/hooks/useGallery"
 import GalleryAutoButton from "src/components/ui/slideshow/GalleryAutoButton"
 import clsx from "clsx"
+import useIsCollapsed from "src/components/hooks/useIsCollapsed"
 
 interface Props extends ProjectData, SkeletonProps {
   projectsCount: number
@@ -42,9 +42,8 @@ const FeaturedProjectDisplay = ({
   links,
   slug,
 }: Props) => {
-  const isCollapsed = useMediaQuery({
-    query: "(max-width: 1280px)",
-  })
+  const isCollapsed = useIsCollapsed()
+
   const nextProjectSwipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       if (isCollapsed && showNext) {

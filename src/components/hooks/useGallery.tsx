@@ -158,6 +158,6 @@ const useGallery = (
     toggleAutoState,
     displayGalleryEntry,
     currentEntry: gallery?.entries[entryIndex],
-  } as GalleryViewState
+  } satisfies GalleryViewState
 }
 export default useGallery

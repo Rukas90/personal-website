@@ -6,6 +6,7 @@ import ZoomInIcon from "../images/misc/ZoomInIcon"
 import GalleryAutoButton from "./GalleryAutoButton"
 import { GalleryEntryType } from "src/components/props/PictureData"
 import { GalleryViewState } from "../../hooks/useGallery"
+import useIsCollapsed from "src/components/hooks/useIsCollapsed"
 
 interface Props extends SlideshowProps {
   state: GalleryViewState
@@ -24,7 +25,7 @@ const Slideshow = ({ showSkeleton = false, gallery, state }: Props) => {
           onToggleEnabled={() => state.toggleAutoState()}
           startTime={state.timeoutDate}
           delay={state.delay}
-          className="absolute right-4 top-4"
+          className="absolute right-4 top-4 xl:block hidden"
         />
         <SlideshowArrow onClick={state.viewPrevious} />
         {state.currentEntry && GalleryEntryType.isImage(state.currentEntry) && (
