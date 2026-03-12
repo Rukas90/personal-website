@@ -6,7 +6,6 @@ import ZoomInIcon from "../images/misc/ZoomInIcon"
 import GalleryAutoButton from "./GalleryAutoButton"
 import { GalleryEntryType } from "src/components/props/PictureData"
 import { GalleryViewState } from "../../hooks/useGallery"
-import useIsCollapsed from "src/components/hooks/useIsCollapsed"
 
 interface Props extends SlideshowProps {
   state: GalleryViewState

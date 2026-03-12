@@ -150,7 +150,7 @@ const FeaturedProjectDisplay = ({
         />
         <div
           {...nextProjectEntrySwipeHandlers}
-          className={`flex flex-col min-h-60 xl:max-h-60 justify-between ${
+          className={`flex flex-col min-h-60  justify-between ${
             isCollapsed && "cursor-grab select-none"
           }`}
         >
@@ -165,7 +165,6 @@ const FeaturedProjectDisplay = ({
               }
             />
           </div>
-
           <ProjectTools
             showSkeleton={showSkeleton}
             tools={tools}

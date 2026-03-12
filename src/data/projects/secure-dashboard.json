@@ -70,7 +70,8 @@
         }
     ],
     "slug": {
-        "url": "https://github.com/Rukas90/ReactAuthApp",
-        "target": "blank"
+        "url": "https://secure-dashboard.rukas.dev/",
+        "target": "blank",
+        "label": "Visit site"
     }
 }
