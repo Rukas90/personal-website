@@ -15,6 +15,7 @@ import SwipeRightIcon from "src/components/ui/images/misc/SwipeRightIcon"
 import PlainText from "src/components/ui/text/PlainText"
 import useGallery from "src/components/hooks/useGallery"
 import GalleryAutoButton from "src/components/ui/slideshow/GalleryAutoButton"
+import clsx from "clsx"
 
 interface Props extends ProjectData, SkeletonProps {
   projectsCount: number
@@ -84,14 +85,17 @@ const FeaturedProjectDisplay = ({
 
   return (
     <div
-      className={`relative flex ${
-        reverse && "flex-row-reverse"
-      } rounded-2xl my-4 w-full xl:overflow-visible overflow-hidden`}
+      className={clsx(
+        "relative flex flex-col",
+        reverse ? "xl:flex-row-reverse" : "xl:flex-row",
+        "rounded-2xl my-4 w-full xl:overflow-visible overflow-hidden",
+      )}
     >
       <div
-        className={`xl:w-1/2 flex flex-col my-auto ${
-          projectsCount > 1 ? "pt-14" : "pt-8"
-        }`}
+        className={clsx(
+          "xl:w-1/2 flex flex-col my-auto",
+          projectsCount > 1 ? "pt-14" : "pt-8",
+        )}
       >
         <FeaturedProjectBanner
           showSkeleton={showSkeleton}

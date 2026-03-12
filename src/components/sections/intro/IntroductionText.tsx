@@ -16,7 +16,7 @@ const IntroductionText = ({ role, subtitle }: PortfolioIntroData) => {
           {
             text: "> Hi",
             className:
-              "text-xl dark:text-teal-400 text-red-600 fira-code tracking-wide",
+              "xl:text-xl text-lg dark:text-teal-400 text-red-600 fira-code tracking-wide",
             typeSpeed: 0.03,
             pause: 0.4,
             inline: true,

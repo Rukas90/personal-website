@@ -247,10 +247,6 @@ svg {
   transform-style: preserve-3d;
 }
 
-.project-banner {
-  width: 600px;
-}
-
 .tint::after {
   content: "";
   width: 100%;
@@ -274,7 +270,7 @@ svg {
   height: 100%;
   position: absolute;
   top: -20px;
-  left: -20px;
+  left: 0px;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -289,7 +285,7 @@ svg {
   height: 100%;
   position: absolute;
   top: -20px;
-  left: 20px;
+  left: 0px;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -304,7 +300,7 @@ svg {
   height: 100%;
   position: absolute;
   top: 20px;
-  left: -20px;
+  left: 0px;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -319,7 +315,7 @@ svg {
   height: 100%;
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 0px;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -383,12 +379,12 @@ svg {
   transform: rotateZ(180deg);
 }
 
-.back-to-top-btn {
-  color: #d9d9d9;
-}
 .back-to-top-btn.inactive {
   transform: translateY(100%);
   bottom: 0;
+}
+.back-to-top-btn {
+  color: #d9d9d9;
 }
 
 .scroll-wrapper {
@@ -725,10 +721,20 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transform: scale(1);
   }
 }
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
 .fade-in {
   opacity: 0;
   animation: fadein 0.3s forwards ease;
 }
+
 @keyframes fadein {
   0% {
     opacity: 0;
@@ -738,12 +744,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transform: translateX(0) translateY(0);
   }
 }
-
 .instant-fade-in {
   opacity: 0;
   animation: fadein 0s forwards ease;
 }
-@keyframes fadein {
+
+@keyframes fadeout {
   0% {
     opacity: 0;
   }
@@ -752,39 +758,25 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transform: translateX(0) translateY(0);
   }
 }
-
 .fade-out {
   opacity: 0;
   animation: fadeout 0.3s forwards ease;
 }
+
 @keyframes fadeout {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
     transform: translateX(0) translateY(0);
   }
 }
-
 .instant-fade-out {
   opacity: 1;
   animation: fadeout 0s forwards ease;
 }
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(0) translateY(0);
-  }
-}
 
-.fade-up {
-  opacity: 0;
-  animation: fadeup 0.3s forwards ease;
-}
 @keyframes fadeup {
   0% {
     opacity: 0;
@@ -795,11 +787,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transform: translateX(0) translateY(0);
   }
 }
-
-.fade-down {
+.fade-up {
   opacity: 0;
-  animation: fadedown 0.3s forwards ease;
+  animation: fadeup 0.3s forwards ease;
 }
+
 @keyframes fadedown {
   0% {
     opacity: 0;
@@ -810,11 +802,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transform: translateX(0) translateY(0);
   }
 }
-
-.fade-right {
+.fade-down {
   opacity: 0;
-  animation: faderight 0.3s forwards ease;
+  animation: fadedown 0.3s forwards ease;
 }
+
 @keyframes faderight {
   0% {
     opacity: 0;
@@ -825,11 +817,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transform: translateX(0) translateY(0);
   }
 }
-
-.fade-left {
+.fade-right {
   opacity: 0;
-  animation: fadeleft 0.3s forwards ease;
+  animation: faderight 0.3s forwards ease;
 }
+
 @keyframes fadeleft {
   0% {
     opacity: 0;
@@ -839,6 +831,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     opacity: 1;
     transform: translateX(0) translateY(0);
   }
+}
+.fade-left {
+  opacity: 0;
+  animation: fadeleft 0.3s forwards ease;
 }
 
 .scale-in {

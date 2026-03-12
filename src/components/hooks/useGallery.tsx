@@ -26,7 +26,7 @@ const useGallery = (
   entryIndex: number,
   setEntryIndex: React.Dispatch<React.SetStateAction<number>>,
   showSkeleton?: boolean,
-  gallery?: GalleryData
+  gallery?: GalleryData,
 ) => {
   const { setOverlayContent } = useForeground()
 
@@ -34,7 +34,7 @@ const useGallery = (
 
   const [timeoutDate, setTimeoutDate] = useState<number | null>(null)
   const [autoEnabled, setAutoEnabled] = useState(
-    (gallery && gallery.entries && gallery.entries.length > 1) ?? true
+    (gallery && gallery.entries && gallery.entries.length > 1) ?? true,
   )
   const [zoomed, setZoomed] = useState(false)
 
@@ -60,7 +60,7 @@ const useGallery = (
           closeZoomedView={() => setZoomed(false)}
           displayGalleryEntry={displayGalleryEntry}
         />
-      ) : null
+      ) : null,
     )
     updateTimeout()
   }, [zoomed])

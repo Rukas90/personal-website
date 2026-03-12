@@ -286,10 +286,6 @@ svg {
   transform-style: preserve-3d;
 }
 
-.project-banner {
-  width: 600px;
-}
-
 .tint::after {
   @include BeforeAfterBase();
 
@@ -298,7 +294,7 @@ svg {
 }
 
 @mixin accent-outline-before($reverse-x: false, $reverse-y: false) {
-  $offset-x: if($reverse-x, 20px, -20px);
+  $offset-x: if($reverse-x, 0px, -0px);
   $offset-y: if($reverse-y, 20px, -20px);
 
   @include BeforeAfterBase(100%, 100%, absolute, $offset-y, $offset-x);

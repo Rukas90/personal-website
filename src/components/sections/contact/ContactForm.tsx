@@ -12,7 +12,7 @@ const ContactForm = ({ onSubmit }: Props) => {
       className="contact-form space-y-6 text-gray-200 rounded-3xl"
       method="POST"
     >
-      <div className="grid md:grid-cols-2 gap-x-6">
+      <div className="grid lg:grid-cols-2 gap-x-6">
         <input
           defaultValue="Rukas Skirkevicius"
           id="to_name"
@@ -28,7 +28,7 @@ const ContactForm = ({ onSubmit }: Props) => {
           placeholder="Enter your name"
           autoComplete="name"
           type="text"
-          className="md:mb-0 mb-6 w-full"
+          className="lg:mb-0 mb-6 w-full"
         />
         <ContactField
           id="reply_to"
